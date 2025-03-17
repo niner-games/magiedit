@@ -1,0 +1,158 @@
+main > .container, main > .container-fluid {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    font-size: .9em;
+    height: auto;
+}
+
+.footer > .container, .footer > .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    content: '';
+    left: 3px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: solid 5px transparent;
+    margin: 4px 4px 2px 4px;
+    background: transparent;
+}
+
+a.asc:after {
+    border-bottom: solid 7px #212529;
+    border-top-width: 0;
+}
+
+a.desc:after {
+    border-top: solid 7px #212529;
+    border-bottom-width: 0;
+}
+
+.grid-view th,
+.grid-view td:last-child {
+    white-space: nowrap;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+    min-width: 50px;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.navbar form > button.logout {
+    padding-top: 7px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media(max-width:767px) {
+    .navbar form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+.navbar form > button.logout:focus,
+.navbar form > button.logout:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar form > button.logout:focus {
+    outline: none;
+}
+
+/* Style breadcrumb widget as in previous bootstrap versions. */
+
+.breadcrumb {
+    background-color: var(--bs-gray-200);
+    border-radius: .25rem;
+    padding: .75rem 1rem;
+}
+
+.breadcrumb-item > a
+{
+    text-decoration: none;
+}
+
+/* Homepage's lists of objects. */
+
+.homepage-table {
+    width: 100%;
+}
+
+.homepage-table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.homepage-table td {
+    font-weight: 300;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border: solid 1px #dee2e6;
+}
+
+.homepage-table td:nth-child(1) {
+    width: 21px;
+    padding-left: 7px;
+    border-right: none;
+}
+
+.homepage-table td:nth-child(2) {
+    border-left: none;
+    border-right: none;
+}
+
+.homepage-table td:nth-child(2) a {
+    color: inherit;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.homepage-table td:nth-child(3) {
+    border-left: none;
+    text-align: right;
+    padding-right: 7px;
+}
+
+/* All yii\grid\GridView's styles. */
+
+.data-list-header-row th {
+    background-color: #dddddd;
+}
+
+.data-list-header-row a {
+    color: black;
+    text-decoration: none;
+}
+
+.awfully-black-button {
+    color: black;
+}
