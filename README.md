@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-    <img src="TITLE.svg" width="600" height="63" alt="MagiEdit">
+    <img src="TITLE.svg" width="600" height="63" alt="MagiEdit: Web Application">
 </p>
 
 <hr>
