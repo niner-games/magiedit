@@ -1,7 +1,8 @@
 ---
 name: Bug report
-about: Bug report
+about: Something is wrong
 title: 
+type: "bug"
 labels: bug
 assignees: mrfatguy
 
@@ -34,14 +35,12 @@ If possible, add a screenshot or animation of your steps. Press <kbd>PrtSc</kbd>
 
 - System: **Windows 11 Pro**
 - Browser: **Microsoft Edge**
-- [Browser Version](edge://settings/help): **Version 112.0.1722.48**
 
 ### Mobile device
 
-- Device: **Doogee N30**
-- System: **Android 10**
+- Device: **Motorola moto g84 5G**
+- System: **Android 14**
 - Browser: **Microsoft Edge**
-- Browser version: **Version 112.0.1722.48**
 
 ## Additional information
 
