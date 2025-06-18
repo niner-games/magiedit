@@ -9,7 +9,7 @@
  * Each array element represents the translation (value) of a message (key).
  * If the value is empty, the message is considered as not translated.
  * Messages that no longer need translation will have their translations
- * enclosed between a pair of '@@' marks.
+ * enclosed between a pair of '' marks.
  *
  * Message string can be used with plural forms format. Check i18n section
  * of the guide for details.
@@ -80,4 +80,33 @@ return [
     'View results' => 'Przeglądaj wyniki',
     'You do not have an account?' => 'Nie posiadasz konta?',
     'polski' => 'polski',
+    'Add User' => 'Dodaj użytkownika',
+    'Are you sure you want to delete this user?' => 'Czy na pewno chcesz usunąć tego użytkownika?',
+    'Details of selected user are provided below.' => 'Szczegóły wybranego użytkownika podane są poniżej.',
+    'Name and surname' => 'Imię i nazwisko',
+    'Please fill out the following fields to add a user.' => 'Aby dodać nowego użytkownika, wypełnij poniższy formularz.',
+    'Please use this form to update selected user.' => 'Aby zmienić dane wybranego użytkownika, użyj poniższego formularza.',
+    'The list of all users existing in the system is shown below.' => 'Lista wszystkich użytkowników istniejących w systemie znajduje się poniżej.',
+    'This user' => 'Ten użytkownik',
+    'This user has' => 'Ten użytkownik',
+    'User' => 'Użytkownik',
+    'You can only delete a user that has' => 'Możesz usunąć jedynie takiego użytkownika, który',
+    'You must assign all user\'s objects to some other user before deleting it.' => 'Musisz przypisać wszystkie obiekty danego użytkownika do innego, zanim go usuniesz.',
+    'and' => 'i',
+    'and therefore' => 'i dlatego',
+    'assigned to itself' => 'przypisanych do siebie',
+    'can be deleted' => 'może zostać usunięty',
+    'can login' => 'może zalogować się',
+    'cannot be deleted' => 'nie może zostać usunięty',
+    'cannot login' => 'nie może zalogować się',
+    'is active' => 'jest aktywny',
+    'is an administrator' => 'jest administratorem',
+    'is not active' => 'jest nieaktywny',
+    'is not an administrator' => 'nie jest administratorem',
+    'no patients, no examinations and no results' => 'nie ma pacjentów, badań ani wyników',
+    'to backend' => 'do panelu sterowania',
+    'to frontend' => 'do aplikacji głównej',
+    '{p, plural, =0{no examinations} =1{# examination} other{# examinations}}' => '{p, plural, =0{nie ma badań} =1{ma # badanie} few{ma # badania} other{ma # badań}}',
+    '{p, plural, =0{no patients} =1{# patient} other{# patients}}' => '{p, plural, =0{nie ma pacjentów} =1{ma # pacjenta} other{ma # pacjentów}}',
+    '{p, plural, =0{no results} =1{# result} other{# results}}' => '{p, plural, =0{nie ma wyników} =1{ma # wynik} few{ma # wyniki} other{ma # wyników}}',
 ];

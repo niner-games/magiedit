@@ -11,7 +11,7 @@ use yii\grid\GridView;
 /** @var yii\web\View $this */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('backend-views', 'Users');
+$this->title = Yii::t('frontend-views', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("$('span').tooltip()");
@@ -22,9 +22,9 @@ $this->registerJs("$('span').tooltip()");
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p><?= Yii::t('backend-views', 'The list of all users existing in the system is shown below.') ?></p>
+    <p><?= Yii::t('frontend-views', 'The list of all users existing in the system is shown below.') ?></p>
 
-    <p><?= Html::a(Yii::t('backend-views', 'Add User'), ['create'], ['class' => 'btn btn-success']) ?></p>
+    <p><?= Html::a(Yii::t('frontend-views', 'Add User'), ['create'], ['class' => 'btn btn-success']) ?></p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -35,7 +35,7 @@ $this->registerJs("$('span').tooltip()");
                 'format' => 'raw',
                 'headerOptions' => ['style' => 'width: 18%'],
                 'contentOptions' => ['class' => 'align-middle'],
-                'label' => Yii::t('backend-views', 'Name and surname'),
+                'label' => Yii::t('frontend-views', 'Name and surname'),
                 'value' => function ($data) {
                     return Html::tag('span', $data->fullName, ['title' => $data->username]);
                 },
@@ -74,7 +74,7 @@ $this->registerJs("$('span').tooltip()");
             [
                 'class' => CustomActionColumn::class,
                 'contentOptions' => ['class' => 'align-middle'],
-                'deleteConfirmationText' => Yii::t('backend-views', 'Are you sure you want to delete this user?'),
+                'deleteConfirmationText' => Yii::t('frontend-views', 'Are you sure you want to delete this user?'),
                 'template'=> (Yii::$app->user->isAdmin) ? '{view} {update} {delete}' : '{view} {update}',
                 'visibleButtons'=> [
                     'delete' => function ($model, $key, $index) {
@@ -113,13 +113,13 @@ $this->registerJs("$('span').tooltip()");
 
     <small class="text-secondary">
 
-        <?= Yii::t('backend-views', 'You can only delete a user that has'); ?>
+        <?= Yii::t('frontend-views', 'You can only delete a user that has'); ?>
 
-        <strong><?= Yii::t('backend-views', 'no patients, no examinations and no results'); ?></strong>
+        <strong><?= Yii::t('frontend-views', 'no patients, no examinations and no results'); ?></strong>
 
-        <?= Yii::t('backend-views', 'assigned to itself'); ?>.
+        <?= Yii::t('frontend-views', 'assigned to itself'); ?>.
 
-        <?= Yii::t('backend-views', 'You must assign all user\'s objects to some other user before deleting it.'); ?>
+        <?= Yii::t('frontend-views', 'You must assign all user\'s objects to some other user before deleting it.'); ?>
 
     </small>
 

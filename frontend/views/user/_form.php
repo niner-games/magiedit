@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <p><?= Html::submitButton(Yii::t('backend-views', 'Save'), ['class' => 'btn btn-success']) ?></p>
+    <p><?= Html::submitButton(Yii::t('frontend-views', 'Save'), ['class' => 'btn btn-success']) ?></p>
 
     <?= $form->field($model, 'name')->textInput() ?>
 

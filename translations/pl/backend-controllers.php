@@ -17,9 +17,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Only administrators can delete users.' => 'Tylko administratorzy mogą usuwać użytkowników.',
     'Only administrators can login to control panel.' => 'Tylko administratorzy mogą logować się do panelu sterowania.',
     'The requested page does not exist.' => 'Wskazana strona nie istnieje.',
-    'You cannot delete currently logged-in user.' => 'Nie możesz usunąć aktualnie zalogowanego użytkownika.',
-    'You cannot delete last administrator.' => 'Nie możesz usunąć ostatniego administratora.',
+    'Only administrators can delete users.' => '@@Tylko administratorzy mogą usuwać użytkowników.@@',
+    'You cannot delete currently logged-in user.' => '@@Nie możesz usunąć aktualnie zalogowanego użytkownika.@@',
+    'You cannot delete last administrator.' => '@@Nie możesz usunąć ostatniego administratora.@@',
 ];

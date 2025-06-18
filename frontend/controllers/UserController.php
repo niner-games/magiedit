@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\controllers;
+namespace frontend\controllers;
 
 use common\models\User;
 use Yii;
@@ -123,19 +123,19 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if (!Yii::$app->user->isAdmin) {
-            Yii::$app->session->setFlash('error', Yii::t('backend-controllers', 'Only administrators can delete users.'));
+            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'Only administrators can delete users.'));
 
             return $this->goBack();
         }
 
         if ($model->type === User::TYPE_ADMINISTRATOR && $this->countAdmins() <= 1) {
-            Yii::$app->session->setFlash('error', Yii::t('backend-controllers', 'You cannot delete last administrator.'));
+            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'You cannot delete last administrator.'));
 
             return $this->goBack();
         }
 
         if (Yii::$app->user->id === $model->id) {
-            Yii::$app->session->setFlash('error', Yii::t('backend-controllers', 'You cannot delete currently logged-in user.'));
+            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.'));
 
             return $this->goBack();
         }
@@ -159,7 +159,7 @@ class UserController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('backend-controllers', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(Yii::t('frontend-controllers', 'The requested page does not exist.'));
     }
 
     /**

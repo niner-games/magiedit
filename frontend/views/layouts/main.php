@@ -71,7 +71,7 @@ $appTitle = Yii::t('frontend-application', "TC-MED's Rehabilitation Platform");
     } else {
         /*
          * This is ugly, but there seems to be no other way of doing this:
-         * https://forum.yiiframework.com/t/link-to-backend-application/71167/10
+         * https://forum.yiiframework.com/t/link-to-frontend-application/71167/10
          */
         $backendUrl = str_replace('frontend', 'backend', Url::to(['site/index'], true));
         echo Html::a(Yii::t('frontend-views', 'Control Panel'), $backendUrl, ['class' => ['btn btn-secondary']]);
