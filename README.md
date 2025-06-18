@@ -1,8 +1,8 @@
 <!--suppress ALL -->
 
 <p align="center">
-    <a href="https://www.ninergames.com/" target="_blank">
-        <img src="LOGO.png" alt="Logo of Niner Games" width="300" height="238">
+    <a href="https://www.magiedit.com/" target="_blank">
+        <img src="LOGO.png" alt="Logo of MagiEdit" width="300" height="117">
     </a>
 </p>
 

@@ -9,7 +9,7 @@ $params = array_merge(
 return [
     'id' => 'tpw-api',
     'basePath' => dirname(__DIR__),
-    'name' => 'Platforma rehabilitacyjna TC-MED sp. z o.o.',
+    'name' => 'MagiEdit',
     'bootstrap' => ['log'],
     'controllerNamespace' => 'api\controllers',
     'components' => [

@@ -74,7 +74,7 @@ class PasswordResetRequestForm extends Model
             }
         }
 
-        $appName = Yii::t('frontend-application', "TC-MED's Rehabilitation Platform");
+        $appName = Yii::t('frontend-application', "MagiEdit");
         $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['site/reset-password', 'token' => $user->password_reset_token]);
 
         return Yii::$app

@@ -13,16 +13,19 @@ $this->registerJs("$('span').tooltip(); $('a').tooltip()");
 
 <div class="site-index" xmlns="http://www.w3.org/1999/html">
 
-    <div class="p-5 mb-4 bg-transparent rounded-3">
+    <div class="p-4 mb-4 bg-transparent rounded-3">
 
         <div class="container-fluid py-5 text-center">
 
-            <h1 class="display-4"><?= Yii::t('frontend-application', "TC-MED's Rehabilitation Platform") ?></h1>
+            <?= Html::img('@web/images/logo-oneliner-black.png', [
+                    'alt' => 'Logo of MagiEdit, one-liner version, black color',
+                    'width' => 461,
+                    'height' => 177,
+            ]) ?>
 
             <p class="fs-5">
 
-                <?= Yii::t('frontend-views', 'Innovative solutions for remote monitoring and rehabilitation of postural defects') ?>
-                (WND-RPSL.01.02.00-24-0128/21-010)
+                <?= Yii::t('frontend-views', 'A web application for creating paragraph games and visual novels') ?>
 
             </p>
 

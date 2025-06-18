@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 $appAssetBundle = AppAsset::register($this);
-$appTitle = Yii::t('frontend-application', "TC-MED's Rehabilitation Platform");
+$appTitle = Yii::t('frontend-application', "MagiEdit");
 
 ?>
 
@@ -26,6 +26,23 @@ $appTitle = Yii::t('frontend-application', "TC-MED's Rehabilitation Platform");
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($appTitle) ?></title>
+
+    <?= Html::tag('link', '', [
+        'rel' => 'icon',
+        'type' => 'image/x-icon',
+        'href' => Yii::getAlias('@web') . '/images/favicon.ico',
+    ]) ?><?="\n" ?>
+    <?= Html::tag('link', '', [
+        'rel' => 'icon',
+        'type' => 'image/png',
+        'href' => Yii::getAlias('@web') . '/images/favicon.png',
+    ]) ?><?="\n" ?>
+    <?= Html::tag('link', '', [
+        'rel' => 'icon',
+        'type' => 'image/svg+xml',
+        'href' => Yii::getAlias('@web') . '/images/favicon.svg',
+    ]) ?>
+
     <?php $this->head() ?>
 </head>
 <body class="d-flex flex-column h-100">
@@ -34,7 +51,10 @@ $appTitle = Yii::t('frontend-application', "TC-MED's Rehabilitation Platform");
 <header>
     <?php
     NavBar::begin([
-        'brandLabel' => $appTitle,
+    'brandLabel' => Html::img('@web/images/logo-oneliner-white.png', [
+        'alt' => 'MagiEdit logo',
+        'style' => 'height: 42px;'
+    ]),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
@@ -104,27 +124,20 @@ $appTitle = Yii::t('frontend-application', "TC-MED's Rehabilitation Platform");
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
-        <p class="float-start">
+        <p class="float-start mb-0">
 
-            <?php
-                echo \Yii::t('frontend-views', 'Copyright &copy; 2022-{current-year} by', [
-                    'current-year' => date('Y'),
-                ]);
-            ?>
+            Copyright &copy; 2024-<?= date('Y') ?> by
 
-            <?= Html::a('TC-MED sp. z o.o.', 'http://tc-med.pl/', ['rel' => "external"]) ?>
+            <?= Html::a('MagiEdit', 'https://magiedit.com/', ['rel' => "external"]) ?>.
             <?= Yii::t('frontend-views', 'All rights reserved') ?>.
 
             <?= Yii::t('frontend-views', 'Version') ?>:
             <?= ApplicationVersion::get() ?>.
         </p>
-        <p class="float-end">
+        <p class="float-end mb-0">
             <?= Html::a(Yii::t('frontend-views', 'polski'), Url::current(['language' => 'pl'])) ?> |
             <?= Html::a(Yii::t('frontend-views', 'English'), Url::current(['language' => 'en'])) ?>
         </p>
-    </div><br /><br />
-    <div class="container" style="text-align: center">
-        <p><img alt="<?= Yii::t('frontend-views', 'European Funds icons') ?>" style="width: 100%;" src="<?= $appAssetBundle->baseUrl.'/footer.png' ?>" /></p>
     </div>
 </footer>
 

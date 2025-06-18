@@ -4,7 +4,7 @@ putenv('ENVIRONMENT_NAME=prod');
 
 $dbScheme = 'mysql';
 $dbHost = 'localhost';
-$dbName = 'tcmed-platform-web';
+$dbName = 'magiedit';
 $dbUsername = 'scripts';
 $dbPassword = 'P#gtitO@D:=~5C.7?IDyF1?dZ2Yo|*';
 $dbCharset = 'utf8';

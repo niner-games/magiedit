@@ -17,6 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'A web application for creating paragraph games and visual novels' => 'Aplikacja internetowa do tworzenia gier akapitowych i powieści wizualnych',
     'Add Examination' => 'Dodaj badanie',
     'Add Patient' => 'Dodaj pacjenta',
     'Add Result' => 'Dodaj wynik',
@@ -26,18 +27,15 @@ return [
     'Are you sure you want to delete this patient?' => 'Czy na pewno chcesz usunąć tego pacjenta?',
     'Are you sure you want to delete this result?' => 'Czy na pewno chcesz usunąć ten wynik?',
     'Are you sure you want to delete this user?' => 'Czy na pewno chcesz usunąć tego użytkownika?',
-    'Copyright &copy; 2022-{current-year} by' => 'Prawa autorskie &copy; 2022-{current-year}',
     'Delete' => 'Usuń',
     'Details of selected examination are provided below.' => 'Szczegóły wybranego badania podane są poniżej.',
     'Details of selected patient are provided below.' => 'Szczegóły wybranego pacjenta podane są poniżej.',
     'Details of selected result are provided below.' => 'Szczegóły wybranego wyniku podane są poniżej.',
     'Details of selected user are provided below.' => 'Szczegóły wybranego użytkownika podane są poniżej.',
     'English' => 'English',
-    'European Funds icons' => 'Ikony Funduszy Unijnych',
     'Examination' => 'Badanie',
     'Examinations' => 'Badania',
     'Forgotten password?' => 'Zapomniane hasło?',
-    'Innovative solutions for remote monitoring and rehabilitation of postural defects' => 'Innowacyjne rozwiązania w zakresie zdalnego monitorowania i rehabilitacji wad postawy',
     'Login' => 'Logowanie',
     'Logout' => 'Wyloguj się',
     'Name and surname' => 'Imię i nazwisko',

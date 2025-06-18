@@ -64,7 +64,7 @@ class ResendVerificationEmailForm extends Model
             return false;
         }
 
-        $appName = Yii::t('frontend-application', "TC-MED's Rehabilitation Platform");
+        $appName = Yii::t('frontend-application', "MagiEdit");
         $verifyLink = Yii::$app->urlManager->createAbsoluteUrl(['site/verify-email', 'token' => $user->verification_token]);
 
         return Yii::$app

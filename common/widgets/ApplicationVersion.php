@@ -14,7 +14,7 @@ use yii\helpers\Html;
  * 3. Execute: git tag -a 0.0.1 -m "Short version description"
  * 4. Execute: git push --tags
  *
- * Details: https://github.com/akademia-slaska/template-repository#releases
+ * Details: https://github.com/niner-games/template-repository#releases
  * More details: https://git-scm.com/docs/git-tag
  */
 class ApplicationVersion
@@ -22,7 +22,7 @@ class ApplicationVersion
     const MAJOR = 0;
     const MINOR = 1;
     const PATCH = 0;
-    const GITHUB_REPOSITORY = 'https://github.com/akademia-slaska/tcmed-platform-web/';
+    const GITHUB_REPOSITORY = 'https://github.com/niner-games/magiedit.web/';
 
     public static function get($useGit = true, $addEnvironment = true, $formatOutput = true): string
     {
