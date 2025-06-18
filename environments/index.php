@@ -33,8 +33,6 @@ return [
         'path' => 'dev',
         'setWritable' => [
             'api/runtime',
-            'backend/runtime',
-            'backend/web/assets',
             'console/runtime',
             'frontend/runtime',
             'frontend/web/assets',
@@ -45,7 +43,6 @@ return [
         ],
         'setCookieValidationKey' => [
             'api/config/main-local.php',
-            'backend/config/main-local.php',
             'common/config/codeception-local.php',
             'frontend/config/main-local.php',
         ],
@@ -54,8 +51,6 @@ return [
         'path' => 'prod',
         'setWritable' => [
             'api/runtime',
-            'backend/runtime',
-            'backend/web/assets',
             'console/runtime',
             'frontend/runtime',
             'frontend/web/assets',
@@ -65,7 +60,6 @@ return [
         ],
         'setCookieValidationKey' => [
             'api/config/main-local.php',
-            'backend/config/main-local.php',
             'frontend/config/main-local.php',
         ],
     ],

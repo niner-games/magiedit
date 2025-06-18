@@ -19,15 +19,14 @@
 return [
     'Check your email for further instructions.' => 'Sprawdź swoją pocztę e-mail, aby uzyskać dalsze instrukcje.',
     'New password saved.' => 'Nowe hasło zostało zapisane.',
+    'Only administrators can delete users.' => 'Tylko administratorzy mogą usuwać użytkowników.',
     'Sorry, we are unable to resend verification email for the provided email address.' => 'Przepraszamy, ale nie możemy ponownie wysłać wiadomości weryfikacyjnej na podany adres e-mail.',
     'Sorry, we are unable to reset password for the provided email address.' => 'Przepraszamy, ale nie możemy zresetować hasła dla podanego adresu e-mail.',
     'Sorry, we are unable to verify your account with provided token.' => 'Przepraszamy, ale nie możemy zweryfikować Twojego konta za pomocą podanego tokena.',
     'Thank you for registration. Please check your inbox for verification email.' => 'Dziękujemy za rejestrację. Sprawdź, czy w skrzynce odbiorczej znajduje się e-mail weryfikacyjny.',
     'The requested page does not exist.' => 'Wskazana strona nie istnieje.',
-    'You signed out of your account. It\'s a good idea to close all browser windows.' => 'Wylogowałeś się ze swojego konta. Dobrym pomysłem jest zamknięcie wszystkich okien przeglądarki.',
-    'Your email has been confirmed!' => 'Twój email został potwierdzony!',
-    'Only administrators can login to control panel.' => 'Tylko administratorzy mogą logować się do panelu sterowania.',
-    'Only administrators can delete users.' => 'Tylko administratorzy mogą usuwać użytkowników.',
     'You cannot delete currently logged-in user.' => 'Nie możesz usunąć aktualnie zalogowanego użytkownika.',
     'You cannot delete last administrator.' => 'Nie możesz usunąć ostatniego administratora.',
+    'You signed out of your account. It\'s a good idea to close all browser windows.' => 'Wylogowałeś się ze swojego konta. Dobrym pomysłem jest zamknięcie wszystkich okien przeglądarki.',
+    'Your email has been confirmed!' => 'Twój email został potwierdzony!',
 ];

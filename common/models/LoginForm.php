@@ -96,12 +96,6 @@ class LoginForm extends Model
         if ($this->validate()) {
             $user = $this->getUser();
 
-            if ($user->type !== User::TYPE_ADMINISTRATOR) {
-                Yii::$app->session->setFlash('error', Yii::t('backend-controllers', 'Only administrators can login to control panel.'));
-
-                return false;
-            }
-
             return Yii::$app->user->login($user, $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
         

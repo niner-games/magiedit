@@ -102,31 +102,7 @@ YiiAsset::register($this);
 
     <?php endif; ?>
 
-    <?= Yii::t('frontend-views', 'to frontend'); ?>.
-
-    <?= Yii::t('frontend-views', 'This user'); ?>
-
-    <?php if ($model->type === User::TYPE_ADMINISTRATOR): ?>
-
-        <strong><?= Yii::t('frontend-views', 'is an administrator'); ?></strong>
-
-        <?= Yii::t('frontend-views', 'and'); ?>
-
-        <em><?= Yii::t('frontend-views', 'can login'); ?></em>
-
-    <?php else: ?>
-
-        <strong><?= Yii::t('frontend-views', 'is not an administrator'); ?></strong>
-
-        <?= Yii::t('frontend-views', 'and'); ?>
-
-        <em><?= Yii::t('frontend-views', 'cannot login'); ?></em>
-
-    <?php endif; ?>
-
-    <?= Yii::t('frontend-views', 'to backend'); ?>.
-
-    <br>
+    .<br>
 
     <?php if (!$displayedUserIsLoggedIn): ?>
 

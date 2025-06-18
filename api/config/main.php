@@ -50,25 +50,6 @@ return [
                     'controller' => ['patient', 'result', 'user', 'examination'],
                     'pluralize' => false,
                 ],
-                /** For {tid} action's parameter "\S+" denotes "one or more non-whitespace characters" (https://www.phpliveregex.com/).
-                 * https://forum.yiiframework.com/t/can-someone-help-me-understanding-regular-expressions-that-yii-2-uses/135665/4
-                 */
-                [
-                    'class' => \yii\rest\UrlRule::class,
-                    'controller' => ['device'],
-                    'pluralize' => false,
-                    'extraPatterns' => ['GET,HEAD find/{tid}' => 'find'],
-                    'tokens' => [
-                        '{id}' => '<id:\d+>',
-                        '{tid}' => '<tid:\S+>',
-                    ],
-                ],
-                [
-                    'class' => \yii\rest\UrlRule::class,
-                    'controller' => ['command'],
-                    'pluralize' => false,
-                    'extraPatterns' => ['GET,HEAD find/{id}' => 'find'],
-                ],
             ],
         ],
         'i18n' => [
