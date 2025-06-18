@@ -20,7 +20,7 @@ use yii\helpers\Html;
 class ApplicationVersion
 {
     const MAJOR = 0;
-    const MINOR = 5;
+    const MINOR = 1;
     const PATCH = 0;
     const GITHUB_REPOSITORY = 'https://github.com/akademia-slaska/tcmed-platform-web/';
 
