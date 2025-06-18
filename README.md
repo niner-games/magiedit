@@ -2,15 +2,9 @@
 
 <p align="center">
     <a href="https://www.magiedit.com/" target="_blank">
-        <img src="LOGO.png" alt="Logo of MagiEdit" width="300" height="117">
+        <img src="LOGO.png" alt="Logo of MagiEdit" width="700" height="272">
     </a>
 </p>
-
-<p align="center">
-    <img src="TITLE.svg" width="600" height="63" alt="MagiEdit: Web Application">
-</p>
-
-<hr>
 
 **A web application for creating paragraph games and visual novels.**
 

@@ -18,9 +18,9 @@ $this->registerJs("$('span').tooltip(); $('a').tooltip()");
         <div class="container-fluid py-5 text-center">
 
             <?= Html::img('@web/images/logo-oneliner-black.png', [
-                    'alt' => 'Logo of MagiEdit, one-liner version, black color',
-                    'width' => 461,
-                    'height' => 177,
+                'alt' => 'Logo of MagiEdit, one-liner version, black color',
+                'width' => 461,
+                'height' => 177,
             ]) ?>
 
             <p class="fs-5">
