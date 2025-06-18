@@ -129,9 +129,7 @@ $appTitle = Yii::t('frontend-application', "TC-MED's Rehabilitation Platform");
         </p>
         <p class="float-end">
             <?= Html::a(Yii::t('frontend-views', 'polski'), Url::current(['language' => 'pl'])) ?> |
-            <?= Html::a(Yii::t('frontend-views', 'English'), Url::current(['language' => 'en'])) ?> |
-            <?= Html::a(Yii::t('frontend-views', 'slovenský'), Url::current(['language' => 'sk'])) ?> |
-            <?= Html::a(Yii::t('frontend-views', 'Русский'), Url::current(['language' => 'ru'])) ?>
+            <?= Html::a(Yii::t('frontend-views', 'English'), Url::current(['language' => 'en'])) ?>
         </p>
     </div><br /><br />
     <div class="container" style="text-align: center">

@@ -10,13 +10,13 @@ return [
     'id' => 'tpw-frontend',
     'basePath' => dirname(__DIR__),
     'name' => Yii::t('frontend-application', "TC-MED's Rehabilitation Platform"),
-    'language' => 'pl',
+    'language' => 'en',
     'bootstrap' => [
         'log',
         [
             'class' => 'common\components\LanguageSelector',
             'cookieName' => 'language-frontend',
-            'supportedLanguages' => ['en', 'pl', 'sk', 'ru'],
+            'supportedLanguages' => ['en', 'pl'],
         ]
     ],
     'controllerNamespace' => 'frontend\controllers',

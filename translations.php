@@ -17,9 +17,7 @@ return [
     'sourcePath' => __DIR__,
     'messagePath' => __DIR__.DIRECTORY_SEPARATOR.'translations',
     'languages' => [
-        'pl',
-        'sk',
-        'ru',
+        'pl'
     ],
     'translator' => [
         'Yii::t',

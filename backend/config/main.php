@@ -10,14 +10,14 @@ return [
     'id' => 'tpw-backend',
     'basePath' => dirname(__DIR__),
     'name' => Yii::t('backend-application', "TC-MED's Rehabilitation Platform"),
-    'language' => 'pl',
+    'language' => 'en',
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => [
         'log',
         [
             'class' => 'common\components\LanguageSelector',
             'cookieName' => 'language-backend',
-            'supportedLanguages' => ['en', 'pl', 'sk', 'ru'],
+            'supportedLanguages' => ['en', 'pl'],
         ]
     ],
     'modules' => [],
