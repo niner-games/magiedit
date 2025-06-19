@@ -15,12 +15,14 @@
   * [Verify](#verify)
 - [Configure](#configure)
   * [Environment](#environment)
+    * [General](#general)
+    * [Production](#production)
   * [Database](#database)
   * [Data](#data)
   * [Mail](#mail)
 - [Launch](#launch)
 - [Test](#test)
-  * [General](#general)
+  * [Introduction](#introduction)
   * [Acceptance](#acceptance)
   * [Code](#code)
   * [API](#api)
@@ -99,15 +101,27 @@ Check all errors and warnings carefully. Before continuing, resolve any issues t
 
 ### Environment
 
+#### General
+
 Open the configuration file `common/config/main-local.php` and provide the name of the current environment, for example:
 
 ```php
 putenv('ENVIRONMENT_NAME=prod');
 ```
 
-This is required for technical reasons only, but it is important to provide it. You can use any name instead of `prod`.
+This is for informational reasons only (added to application version in the footer), but it is important to provide it.
+You can use any name instead of `prod`. For example: `dev`, `test`, `pre-prod`, `uat`, `backup` etc.
 
-For example: `dev`, `test`, `pre-prod`, `uat`, `backup` etc.
+#### Production
+
+If you have [initialized application in production mode](#install) then there's an extra `.htaccess` file generated in the
+root folder to make sure that this root folder (i.e. domain) correctly points to `/frontend/web` folder, which is (or should
+be) the only web-accessible folder in the entire application. You may want to check, if settings is this file does not break
+your server's configuration.
+
+In addition, there's a `baseUrl` property of `request` and `urlManager` components, nullified to empty string (`''`) in
+`fronted/config/main-local.php`. It is made so for the same reasons as above. You may want to check and possibly change 
+that file as well.
 
 ### Database
 
@@ -216,7 +230,7 @@ For more detailed testing instructions and technical documentation, visit the [p
 
 ## Test
 
-### General
+### Introduction
 
 Tests are located in `tests` directory. They are developed with [Codeception PHP Testing Framework](https://codeception.com/).
 By default, there are 3 test suites:
@@ -322,4 +336,6 @@ You can see code coverage output under the `tests/_output` directory.
 
 To test the API, it's recommended to use the [Insomnia Portable](https://portapps.io/app/insomnia-portable/) application.
 
-You can import the file _insomnia.json_  (available in the _console/migrations_ folder of the project)  into your copy of Insomnia Portable (note: this may not work with the standalone Insomnia version).  This will prepare all the environments (DEV, TEST, UAT, PROD) and API endpoints for testing.
+You can import the file _insomnia.json_  (available in the _console/migrations_ folder of the project)  into your copy of
+Insomnia Portable (note: this may not work with the standalone Insomnia version).  This will prepare all the environments 
+(DEV, TEST, UAT, PROD) and API endpoints for testing.

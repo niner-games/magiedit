@@ -22,6 +22,9 @@ phpunit.phar
 /frontend/web/index-test.php
 /frontend/web/robots.txt
 
+# Production
+/.htaccess
+
 # Other
 .DS_Store
 Thumbs.db

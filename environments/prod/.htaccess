@@ -1,0 +1,6 @@
+DirectoryIndex frontend/web/index.php
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^/frontend/web/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ frontend/web/$1 [L]
