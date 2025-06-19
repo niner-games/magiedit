@@ -87,7 +87,7 @@ YiiAsset::register($this);
 
         <?= Yii::t('frontend-views', 'and'); ?>
 
-        <em><?= Yii::t('frontend-views', 'can login'); ?></em>
+        <em><?= Yii::t('frontend-views', 'can log in'); ?></em>
 
     <?php else: ?>
 
@@ -95,11 +95,11 @@ YiiAsset::register($this);
 
         <?= Yii::t('frontend-views', 'and'); ?>
 
-        <em><?= Yii::t('frontend-views', 'cannot login'); ?></em>
+        <em><?= Yii::t('frontend-views', 'cannot log in'); ?></em>
 
     <?php endif; ?>
 
-    .<br>
+    <em><?= Yii::t('frontend-views', 'to this application'); ?></em>.<br>
 
     <?php if ($displayedUserIsLoggedIn): ?>
 

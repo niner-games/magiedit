@@ -11,7 +11,7 @@
 
 <?= Yii::t('common-mail', 'Somebody has created an account in our website with the following data:') ?>
 
-    <?= Yii::t('common-mail', 'Login:') ?> <?= $user->username ?>.
+    <?= Yii::t('common-mail', 'Username:') ?> <?= $user->username ?>.
 
     <?= Yii::t('common-mail', 'Email address:') ?> <?= $user->email ?>.
 

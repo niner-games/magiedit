@@ -95,7 +95,7 @@ class SignupForm extends Model
     protected function sendEmail(User $user): bool
     {
         $appName = Yii::t('frontend-application', "MagiEdit");
-        $verifyLink = Yii::$app->urlManager->createAbsoluteUrl(['site/verify-email', 'token' => $user->verification_token]);
+        $verifyLink = Yii::$app->urlManager->createAbsoluteUrl(['account/verify-email', 'token' => $user->verification_token]);
 
         return Yii::$app
             ->mailer
@@ -112,7 +112,7 @@ class SignupForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => $appName])
             ->setTo($this->email)
-            ->setSubject($appName . '. ' . Yii::t('frontend-models', 'Account registration'))
+            ->setSubject($appName . '. ' . Yii::t('frontend-models', 'Account Sign Up'))
             ->send();
     }
 }

@@ -75,7 +75,7 @@ class PasswordResetRequestForm extends Model
         }
 
         $appName = Yii::t('frontend-application', "MagiEdit");
-        $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['site/reset-password', 'token' => $user->password_reset_token]);
+        $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['account/reset-password', 'token' => $user->password_reset_token]);
 
         return Yii::$app
             ->mailer
@@ -92,7 +92,7 @@ class PasswordResetRequestForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => $appName])
             ->setTo($this->email)
-            ->setSubject($appName . '. ' . Yii::t('frontend-models', 'Password reset'))
+            ->setSubject($appName . '. ' . Yii::t('frontend-models', 'Password Reset'))
             ->send();
     }
 }

@@ -26,7 +26,7 @@ class LoginCest
 
     public function _before(FunctionalTester $I)
     {
-        $I->amOnRoute('site/login');
+        $I->amOnRoute('account/login');
     }
 
     protected function formParams($login, $password)
@@ -59,8 +59,8 @@ class LoginCest
     public function checkValidLogin(FunctionalTester $I)
     {
         $I->submitForm('#login-form', $this->formParams('erau', 'password_0'));
-        $I->see('Logout (erau)', 'form button[type=submit]');
-        $I->dontSeeLink('Login');
-        $I->dontSeeLink('Signup');
+        $I->see('Log Out', 'form button[type=submit]');
+        $I->dontSeeLink('Log In');
+        $I->dontSeeLink('Sign Up');
     }
 }

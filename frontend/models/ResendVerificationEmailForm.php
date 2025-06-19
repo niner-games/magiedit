@@ -65,7 +65,7 @@ class ResendVerificationEmailForm extends Model
         }
 
         $appName = Yii::t('frontend-application', "MagiEdit");
-        $verifyLink = Yii::$app->urlManager->createAbsoluteUrl(['site/verify-email', 'token' => $user->verification_token]);
+        $verifyLink = Yii::$app->urlManager->createAbsoluteUrl(['account/verify-email', 'token' => $user->verification_token]);
 
         return Yii::$app
             ->mailer
@@ -82,7 +82,7 @@ class ResendVerificationEmailForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => $appName])
             ->setTo($this->email)
-            ->setSubject($appName . '. ' . Yii::t('frontend-models', 'Account registration') . Yii::$app->name)
+            ->setSubject($appName . '. ' . Yii::t('frontend-models', 'Account Sign Up') . Yii::$app->name)
             ->send();
     }
 }

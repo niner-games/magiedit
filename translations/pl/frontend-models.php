@@ -17,7 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Account registration' => 'Rejestracja konta',
     'Email Address' => 'Adres e-mail',
     'Password' => 'Hasło',
     'Password reset' => 'Reset hasła',
@@ -31,4 +30,6 @@ return [
     'Verification Code' => 'Token weryfikacyjny',
     'Verify email token cannot be blank.' => 'Token weryfikacji adresu e-mail nie może być pusty.',
     'Wrong password reset token.' => 'Błędny token resetowania hasła.',
+    'Account Sign Up' => '',
+    'Account registration' => '@@Rejestracja konta@@',
 ];

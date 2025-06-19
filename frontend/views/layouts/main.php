@@ -71,15 +71,15 @@ $appTitle = Yii::t('frontend-application', "MagiEdit");
     ]]);
 
     if (Yii::$app->user->isGuest) {
-        echo Html::a(Yii::t('frontend-views', 'Signup'), ['/site/signup'], ['class' => ['btn btn-secondary']]);
+        echo Html::a(Yii::t('frontend-views', 'Sign Up'), ['/account/signup'], ['class' => ['btn btn-secondary']]);
 
         echo '&nbsp;';
 
-        echo Html::a(Yii::t('frontend-views', 'Login'), ['/site/login'], ['class' => ['btn btn-success']]);
+        echo Html::a(Yii::t('frontend-views', 'Log In'), ['/account/login'], ['class' => ['btn btn-success']]);
     } else {
-        echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
+        echo Html::beginForm(['/account/logout'], 'post', ['class' => 'd-flex'])
             . Html::submitButton(
-                Yii::t('frontend-views', 'Logout'),
+                Yii::t('frontend-views', 'Log Out'),
                 ['class' => 'btn btn-success']
             )
             . Html::endForm();
