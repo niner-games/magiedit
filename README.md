@@ -163,7 +163,7 @@ $mailScheme = 'smtp';
 $mailHost = 'poczta.o2.pl';
 $mailUsername = 'username@o2.pl';
 $mailPassword = 'strong123P@SSWORD!';
-$mailPort = '465';
+$mailPort = '587';
 ```
 
 Then go to `frontend/config/params-local.php` and set the correct value for the `supportEmail` parameter:
@@ -172,32 +172,28 @@ Then go to `frontend/config/params-local.php` and set the correct value for the 
 'supportEmail' => 'username@o2.pl'
 ```
 
-This is the email address inserted into the _From_ field in all technical messages sent by this application.
+Most mail servers require that you use **exactly the same values** (i.e. the same e-mail address) in all these places:
 
-Most MX (mail exchange) servers require that the value for `$mailUsername` in `common/config/main-local.php` and
-for `supportEmail` in `frontend/config/params-local.php` be set to **exactly the same** values. That is, you can only send emails
-using your account email address as the value set in the _From_ field (which is to prevent impersonation
-of someone else, etc.).
+- for `$mailUsername` in `common/config/main-local.php`
+- for `senderEmail` in `common/config/params-local.php`
+- for `supportEmail` in `frontend/config/params-local.php`
 
-This application is pre-configured to use your [O2](https://poczta.o2.pl/login/login.html) account to send technical emails. If you have an email account on this server, you just need to provide a valid login and password.
+I.e. you can only send emails using your account email address.
 
-If you want to use another mail server (e.g. [Gmail](https://support.google.com/mail/answer/56256?hl=en), [Outlook](https://www.microsoft.com/en-us/microsoft-365-life-hacks/organization/how-to-create-outlook-email-account#:~:text=Creating%20an%20Outlook%20account%20is%20easy%3A%201%20Go,email%20address.%20...%203%20Choose%20a%20username.%20),
-[iCloud](https://support.apple.com/guide/icloud/create-a-primary-icloudcom-email-address-mmdd8d1c5c/icloud), etc.) you must
-read their technical instructions, to ensure that your mail server is properly configured.
+Here is a couple of links, in case you would have troubles configuring MX:
 
-For more information on sending emails via regular email accounts (such as Google,
-Microsoft, Apple, etc.), read [Using Built-in Transports](https://symfony.com/doc/current/mailer.html#using-built-in-transports)
-(available in English).
+* using regular email accounts ([Using Built-in Transports](https://symfony.com/doc/current/mailer.html#using-built-in-transports)):
+  * [Gmail](https://support.google.com/mail/answer/56256?hl=en)
+  * [Outlook](https://www.microsoft.com/en-us/microsoft-365-life-hacks/organization/how-to-create-outlook-email-account#:~:text=Creating%20an%20Outlook%20account%20is%20easy%3A%201%20Go,email%20address.%20...%203%20Choose%20a%20username.%20)
+  * [iCloud](https://support.apple.com/guide/icloud/create-a-primary-icloudcom-email-address-mmdd8d1c5c/icloud)
+* using specialized email service ([Using a 3rd Party Transport](https://symfony.com/doc/current/mailer.html#using-a-3rd-party-transport)):
+  * [Amazon Simple Email Service](https://aws.amazon.com/ses/pricing/)
+  * [Mailchimp Transactional Email](https://mailchimp.com/pricing/transactional-email/)
 
-If you want to use a specialized email service (i.e. [Amazon Simple Email Service](https://aws.amazon.com/ses/pricing/)
-
-or [Mailchimp Transactional Email](https://mailchimp.com/pricing/transactional-email/)), read [Sending Emails with Mailer. Using a 3rd Party Transport](https://symfony.com/doc/current/mailer.html#using-a-3rd-party-transport)
-(available in English).
-
-Please note that technical emails sent from this application may be considered as mass mailing (SPAM) and blocked by the
-mail server you are using. In this case, sending the email will fail. If you observe
-any strange behavior (such as technical emails not being sent), check the application logs for possible errors
-returned by the MX server.
+A technical email sent from this application may be considered as SPAM and blocked by your MX server. Or not delivered by
+any other reason. In this case, check the application logs for possible errors. If you're sending emails from a development
+environment, you can see each mail prepared for send, as it has a local copy stored in file, in `frontend/runtime/debug/mail`
+folder.
 
 ### Parameters
 
@@ -205,18 +201,10 @@ Finally, go to `common/config/params-local.php` and adjust the application confi
 
 ```php
 'senderEmail' => 'username@o2.pl',
-'senderName' => 'TC-MED Platform',
+'senderName' => 'MagiEdit',
 'user.passwordResetTokenExpire' => 3600,
 'user.passwordMinLength' => 8
 ```
-
-Most mail servers require the following values to be set:
-
-- for `$mailUsername` in `common/config/main-local.php`
-- for `senderEmail` in `common/config/params-local.php`
-- for `supportEmail` in `frontend/config/params-local.php`
-
-to **the same values**. I.e. you can only send emails using your account email address.
 
 ## Launch
 
