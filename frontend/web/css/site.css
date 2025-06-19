@@ -156,3 +156,11 @@ a.desc:after {
 .awfully-black-button {
     color: black;
 }
+
+/* Override Yii 2 legacy help-block to match Bootstrap 5 */
+.help-block {
+  color: #dc3545;
+  font-size: 0.875rem;
+  display: block;
+  margin-top: 0.25rem;
+}
