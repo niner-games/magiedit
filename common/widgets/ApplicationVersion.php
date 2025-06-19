@@ -22,14 +22,9 @@ class ApplicationVersion
     const MAJOR = 0;
     const MINOR = 1;
     const PATCH = 0;
-    const GITHUB_REPOSITORY = 'https://github.com/niner-games/magiedit.web/';
 
     public static function get($useGit = true, $addEnvironment = true, $formatOutput = true): string
     {
-        $commitHash = ($useGit) ? trim(exec('git log --pretty="%h" -n1 HEAD')) : '';
-        $releaseVersion =  ($useGit) ? trim(exec('git describe --tags --abbrev=0')) : '';
-        $releaseVersion = ($releaseVersion === '') ? self::MAJOR.'.'.self::MINOR.'.'.self::PATCH : $releaseVersion;
-
         if ($formatOutput)
         {
             $cssStyle = [
@@ -39,26 +34,15 @@ class ApplicationVersion
                     'text-decoration' => 'none'
                 ])
             ];
-
-            if (YII_DEBUG) {
-                $commitHash = ($commitHash !== '') ? Html::a($commitHash, self::GITHUB_REPOSITORY.'commit/'.$commitHash, $cssStyle) : '';
-                $releaseVersion = ($useGit) ? Html::a($releaseVersion, self::GITHUB_REPOSITORY.'releases/tag/'.$releaseVersion, $cssStyle) : Html::tag('span', $releaseVersion, $cssStyle);
-            } else {
-                $commitHash = ($commitHash !== '') ? Html::tag('span', $commitHash, $cssStyle) : '';
-                $releaseVersion = Html::tag('span', $releaseVersion, $cssStyle);
-            }
         }
 
-
-        $result = $releaseVersion;
-        $result .= ($commitHash !== '') ? '.'.$commitHash : '';
+        $result = self::MAJOR.'.'.self::MINOR.'.'.self::PATCH;
 
         if ($addEnvironment)
         {
             $environmentName = getenv('ENVIRONMENT_NAME', true) ?: getenv('ENVIRONMENT_NAME');
             if ($environmentName !== '')  $result .= ($formatOutput) ? '.'.Html::tag('span', $environmentName, $cssStyle) : $environmentName;
         }
-
 
         return $result;
     }
