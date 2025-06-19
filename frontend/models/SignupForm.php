@@ -15,8 +15,6 @@ class SignupForm extends Model
      * PROPERTIES
      */
     public string $email = '';
-    public string $name = '';
-    public string $surname = '';
     public string $username = '';
     public string $password = '';
 
@@ -33,9 +31,7 @@ class SignupForm extends Model
             /**
              * Data types
              */
-            [['name'], 'string', 'min' => 2, 'max' => 15],
             [['email'], 'string', 'min' => 5, 'max' => 255],
-            [['surname'], 'string', 'min' => 2, 'max' => 25],
             [['username'], 'string', 'min' => 2, 'max' => 255],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
 
@@ -44,7 +40,7 @@ class SignupForm extends Model
              */
             [['email', 'username'], 'trim'],
             ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid e-mail address.')],
-            [['username', 'email', 'password', 'surname', 'name'], 'required', 'message' => Yii::t('frontend-models', 'This field cannot be blank.')],
+            [['username', 'email', 'password'], 'required', 'message' => Yii::t('frontend-models', 'This field cannot be blank.')],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('frontend-models', 'This username has already been taken.')],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('frontend-models', 'This email address has already been taken.')],
         ];
@@ -59,8 +55,6 @@ class SignupForm extends Model
             'username' => Yii::t('frontend-models', 'Username'),
             'password' => Yii::t('frontend-models', 'Password'),
             'email' => Yii::t('frontend-models', 'Email Address'),
-            'name' => Yii::t('frontend-models', 'Name'),
-            'surname' => Yii::t('frontend-models', 'Surname'),
         ];
     }
 
@@ -81,9 +75,7 @@ class SignupForm extends Model
         
         $user = new User();
 
-        $user->name = $this->name;
         $user->email = $this->email;
-        $user->surname = $this->surname;
         $user->username = $this->username;
 
         $user->setPassword($this->password);

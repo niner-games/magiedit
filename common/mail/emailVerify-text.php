@@ -13,8 +13,6 @@
 
     <?= Yii::t('common-mail', 'Login:') ?> <?= $user->username ?>.
 
-    <?= Yii::t('common-mail', 'Name and surname:') ?> <?= $user->fullName ?>.
-
     <?= Yii::t('common-mail', 'Email address:') ?> <?= $user->email ?>.
 
 <?= Yii::t('common-mail', 'If it was you then follow the link below to verify your email address:') ?>

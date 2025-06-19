@@ -27,10 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
-                <?= $form->field($model, 'name')->textInput() ?>
-
-                <?= $form->field($model, 'surname')->textInput() ?>
-
                 <div class="form-group">
                     <?= Html::submitButton(Yii::t('frontend-views', 'Signup'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>

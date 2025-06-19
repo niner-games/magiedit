@@ -65,20 +65,8 @@ $appTitle = Yii::t('frontend-application', "MagiEdit");
         'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],
         'items' => [
         [
-            'url' => ['/site/index'],
-            'label' => Yii::t('frontend-views', 'Start')
-        ],
-        [
-            'url' => ['/patient/index'],
-            'label' => Yii::t('frontend-views', Yii::t('frontend-views', 'Patients')),
-        ],
-        [
-            'url' => ['/examination/index'],
-            'label' => Yii::t('frontend-views', Yii::t('frontend-views', 'Examinations')),
-        ],
-        [
-            'url' => ['/result/index'],
-            'label' => Yii::t('frontend-views', Yii::t('frontend-views', 'Results')),
+            'url' => ['/user/index'],
+            'label' => Yii::t('frontend-views', 'Users')
         ],
     ]]);
 

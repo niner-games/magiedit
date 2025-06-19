@@ -24,8 +24,6 @@ use yii\web\IdentityInterface;
  * @property integer $updated_at
  * @property string $verification_token
  * @property integer $type
- * @property string $name
- * @property string $surname
  *
  * @property string $password write-only password
  */
@@ -39,9 +37,7 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_INACTIVE = 1;
     const STATUS_ACTIVE = 2;
-    const TYPE_OPERATOR = 1;
-    const TYPE_PHYSIOTHERAPIST = 2;
-    const TYPE_DOCTOR = 3;
+    const TYPE_REGULAR = 1;
     const TYPE_ADMINISTRATOR = 9;
 
     /**
@@ -75,8 +71,6 @@ class User extends ActiveRecord implements IdentityInterface
             /**
              * Data types
              */
-            [['name'], 'string', 'min' => 2, 'max' => 15],
-            [['surname'], 'string', 'min' => 2, 'max' => 25],
             [['auth_key'], 'string', 'min' => 2, 'max' => 32],
             [['username', 'password_hash', 'password_reset_token', 'email', 'verification_token'], 'string', 'min' => 2, 'max' => 255],
             [['created_at', 'updated_at', 'status', 'type'], 'integer'],
@@ -84,7 +78,7 @@ class User extends ActiveRecord implements IdentityInterface
             /**
              * Default values
              */
-            ['type', 'default', 'value' => self::TYPE_OPERATOR],
+            ['type', 'default', 'value' => self::TYPE_REGULAR],
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
 
             /**
@@ -95,22 +89,14 @@ class User extends ActiveRecord implements IdentityInterface
             /**
              * Other rules
              */
-            [['email', 'username', 'name', 'surname'], 'trim'],
+            [['email', 'username'], 'trim'],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
-            ['type', 'in', 'range' => [self::TYPE_OPERATOR, self::TYPE_PHYSIOTHERAPIST, self::TYPE_DOCTOR, self::TYPE_ADMINISTRATOR]],
+            ['type', 'in', 'range' => [self::TYPE_REGULAR, self::TYPE_ADMINISTRATOR]],
             ['email', 'email', 'message' => Yii::t('common-models', 'This field must contain a valid e-mail address.')],
-            [['username', 'email', 'surname', 'name'], 'required', 'message' => Yii::t('common-models', 'This field cannot be blank.')],
+            [['username', 'email'], 'required', 'message' => Yii::t('common-models', 'This field cannot be blank.')],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common-models', 'This username has already been taken.')],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common-models', 'This email address has already been taken.')],
         ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function extraFields()
-    {
-        return ['examinations', 'patients', 'results'];
     }
 
     /**
@@ -131,8 +117,6 @@ class User extends ActiveRecord implements IdentityInterface
             'verification_token' => Yii::t('common-models', 'Verification Token'),
             'password' => Yii::t('common-models', 'Password'),
             'type' => Yii::t('common-models', 'Type'),
-            'name' => Yii::t('common-models', 'Name'),
-            'surname' => Yii::t('common-models', 'Surname'),
         ];
     }
 
@@ -154,10 +138,8 @@ class User extends ActiveRecord implements IdentityInterface
                 self::STATUS_INACTIVE => Yii::t('common-models', 'Inactive'),
             ],
             'type' => [
-                self::TYPE_DOCTOR => Yii::t('common-models', 'Doctor'),
-                self::TYPE_OPERATOR => Yii::t('common-models', 'Operator'),
+                self::TYPE_REGULAR => Yii::t('common-models', 'Regular'),
                 self::TYPE_ADMINISTRATOR => Yii::t('common-models', 'Administrator'),
-                self::TYPE_PHYSIOTHERAPIST => Yii::t('common-models', 'Physiotherapist'),
             ],
         ];
     }
@@ -165,46 +147,6 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * GETTERS AND SETTERS
      */
-
-    /**
-     * Gets query for [[Examinations]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getExaminations()
-    {
-        return $this->hasMany(Examination::class, ['created_by' => 'id']);
-    }
-
-    /**
-     * Gets query for [[Patients]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPatients()
-    {
-        return $this->hasMany(Patient::class, ['created_by' => 'id']);
-    }
-
-    /**
-     * Gets full name of given user (compositing of first and/or last name) or a "N/A" string instead.
-     *
-     * @return string user's full name or "N/A" string
-     */
-    public function getFullName(): string
-    {
-        return isset($this->name) || isset($this->surname) ? trim(trim($this->name) . ' ' . trim($this->surname)) : Yii::t('common-models', 'N/A');
-    }
-
-    /**
-     * Gets query for [[Results]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getResults()
-    {
-        return $this->hasMany(Result::class, ['created_by' => 'id']);
-    }
 
     /**
      * {@inheritdoc}
@@ -292,40 +234,6 @@ class User extends ActiveRecord implements IdentityInterface
             'verification_token' => $token,
             'status' => self::STATUS_INACTIVE
         ]);
-    }
-
-    /**
-     * Gets all users.
-     *
-     * @return array
-     */
-    public static function getAllUsers(): array
-    {
-        return self::find()->select(['id', 'name', 'surname'])->asArray()->all();
-    }
-
-    /**
-     * Gets all users in form of array, needed by dropdown boxes.
-     *
-     * Since we keep user name and surname in separate model's attributes, we have to implement our own version of
-     * ArrayHelper::map to map something like 'id' => 'name' . ' ' . 'surname'.
-     *
-     * @return array
-     * @see ArrayHelper::map()
-     */
-    public static function getAllUsersAsArray(): array
-    {
-        $array = self::getAllUsers();
-        $result = [];
-
-        foreach ($array as $element) {
-            $key = ArrayHelper::getValue($element, 'id');
-            $value = ArrayHelper::getValue($element, 'name') . ' ' . ArrayHelper::getValue($element, 'surname');
-
-            $result[$key] = $value;
-        }
-
-        return $result;
     }
 
     /**

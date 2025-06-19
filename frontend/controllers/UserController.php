@@ -46,7 +46,7 @@ class UserController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => User::find(),
             'pagination' => ['pageSize' => 10],
-            'sort' => ['defaultOrder' => ['surname' => SORT_ASC]],
+            'sort' => ['defaultOrder' => ['username' => SORT_ASC]],
         ]);
 
         return $this->render('index', [

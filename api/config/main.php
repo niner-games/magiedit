@@ -47,7 +47,7 @@ return [
             'rules' => [
                 [
                     'class' => \yii\rest\UrlRule::class,
-                    'controller' => ['patient', 'result', 'user', 'examination'],
+                    'controller' => ['user'],
                     'pluralize' => false,
                 ],
             ],

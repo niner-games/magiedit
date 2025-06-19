@@ -31,6 +31,4 @@ return [
     'Verification Code' => 'Token weryfikacyjny',
     'Verify email token cannot be blank.' => 'Token weryfikacji adresu e-mail nie może być pusty.',
     'Wrong password reset token.' => 'Błędny token resetowania hasła.',
-    'Name' => 'Imię',
-    'Surname' => 'Nazwisko',
 ];

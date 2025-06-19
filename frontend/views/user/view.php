@@ -9,9 +9,8 @@ use yii\widgets\DetailView;
 /** @var common\models\User $model */
 
 $displayedUserIsLoggedIn = (Yii::$app->user->id === $model->id);
-$totalSum = count($model->patients) + count($model->examinations) + count($model->results);
 
-$this->title = $model->fullName;
+$this->title = $model->username;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend-views', 'Users'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -30,29 +29,27 @@ YiiAsset::register($this);
     <p>
         <?= Html::a(Yii::t('frontend-views', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
 
-        <?php if ($totalSum > 0 || $displayedUserIsLoggedIn): ?>
+        <?php if ($displayedUserIsLoggedIn): ?>
 
-            <span class="d-inline-block" tabindex="0" title="<?= (($totalSum > 0) ? Yii::t('frontend-views', 'You must assign all user\'s objects to some other user before deleting it.') : Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.')); ?>" data-bs-placement="right">
+        <span class="d-inline-block" tabindex="0" title="<?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>" data-bs-placement="right">
 
         <?php endif; ?>
 
         <?= Html::a(Yii::t('frontend-views', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger' . ($totalSum > 0 || $displayedUserIsLoggedIn ? ' disabled' : ''),
+            'class' => 'btn btn-danger' . ($displayedUserIsLoggedIn ? ' disabled' : ''),
             'data' => [
                 'confirm' => Yii::t('frontend-views', 'Are you sure you want to delete this user?'),
                 'method' => 'post',
             ],
         ]) ?>
 
-        <?php if ($totalSum > 0 || $displayedUserIsLoggedIn): ?></span><?php endif; ?>
+        <?php if ($displayedUserIsLoggedIn): ?></span><?php endif; ?>
 
     </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'name',
-            'surname',
             'username',
             'email:email',
             [
@@ -104,33 +101,7 @@ YiiAsset::register($this);
 
     .<br>
 
-    <?php if (!$displayedUserIsLoggedIn): ?>
-
-        <?= Yii::t('frontend-views', 'This user has'); ?>
-
-        <strong><?= Yii::t('frontend-views', '{p, plural, =0{no patients} =1{# patient} other{# patients}}', ['p' => count($model->patients)]); ?></strong>,
-
-        <strong><?= Yii::t('frontend-views', '{p, plural, =0{no examinations} =1{# examination} other{# examinations}}', ['p' => count($model->examinations)]); ?></strong>
-
-        <?= Yii::t('frontend-views', 'and'); ?>
-
-        <strong><?= Yii::t('frontend-views', '{p, plural, =0{no results} =1{# result} other{# results}}', ['p' => count($model->results)]); ?></strong>
-
-        <?= Yii::t('frontend-views', 'and therefore'); ?>
-
-        <?php if ($totalSum > 0): ?>
-
-            <em><?= Yii::t('frontend-views', 'cannot be deleted'); ?></em>.
-
-            <?= Yii::t('frontend-views', 'You must assign all user\'s objects to some other user before deleting it.'); ?>
-
-        <?php else: ?>
-
-            <em><?= Yii::t('frontend-views', 'can be deleted'); ?></em>.
-
-        <?php endif; ?>
-
-    <?php else: ?>
+    <?php if ($displayedUserIsLoggedIn): ?>
 
         <?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>
 

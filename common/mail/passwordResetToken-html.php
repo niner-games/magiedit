@@ -17,7 +17,7 @@ use yii\helpers\Html;
 
         <?= Yii::t('common-mail', 'For the account') ?>
 
-        <strong><?= Html::encode($user->username) ?></strong> (<?= Html::encode($user->fullName) ?>)
+        <strong><?= Html::encode($user->username) ?></strong>
 
         <?= Yii::t('common-mail', 'somebody has requested a password to the be reset.') ?>
 

@@ -23,11 +23,10 @@ return [
     'Hello!' => 'Dzień dobry!',
     'If it was you then follow the link below to continue and reset your password:' => 'Jeśli to Ty, to użyj poniższego odnośnika, żeby zresetować swoje hasło:',
     'If it was you then follow the link below to verify your email address:' => 'Jeśli to Ty, to użyj poniższego odnośnika, żeby zweryfikować swój adres e-mail:',
-    'The {app-name}\'s Team' => '{app-name}',
     'If it wasn\'t you then you may safely ignore this message. Unverified email addresses are automatically removed from our system.' => 'Jeśli to nie Ty, to możesz zignorować tę wiadomość. Niezweryfikowane adresy e-mail są automatycznie usuwane z naszego systemu.',
     'If it wasn\'t you then you may safely ignore this message. Your password won\'t be changed.' => 'Jeśli to nie Ty, to możesz zignorować tę wiadomość. Twoje hasło nie ulegnie zmianie.',
     'Login:' => 'Login',
-    'Name and surname:' => 'Imię i nazwisko:',
     'Somebody has created an account in our website with the following data:' => 'Ktoś zarejestrował konto na naszej stronie internetowej, używając poniższych danych:',
+    'The {app-name}\'s Team' => '{app-name}',
     'somebody has requested a password to the be reset.' => 'ktoś zażądał zresetowania hasła.',
 ];

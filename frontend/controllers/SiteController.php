@@ -3,9 +3,6 @@
 namespace frontend\controllers;
 
 use Yii;
-use common\models\Examination;
-use common\models\Patient;
-use common\models\Result;
 
 use common\models\LoginForm;
 use frontend\models\SignupForm;
@@ -82,15 +79,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $patients = Patient::find()->orderBy('created_at DESC')->limit(5)->all();
-        $examinations = Examination::find()->orderBy('created_at DESC')->limit(5)->all();
-        $results = Result::find()->orderBy('created_at DESC')->limit(5)->all();
-
-        return $this->render('index', [
-            'patients' => $patients,
-            'examinations' => $examinations,
-            'results' => $results,
-        ]);
+        return $this->render('index');
     }
 
     /**

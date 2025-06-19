@@ -19,8 +19,6 @@ use yii\helpers\Html;
 
         <li><?= Yii::t('common-mail', 'Login:') ?> <strong><?= Html::encode($user->username) ?></strong>.</li>
 
-        <li><?= Yii::t('common-mail', 'Name and surname:') ?> <strong><?= Html::encode($user->fullName) ?></strong>.</li>
-
         <li><?= Yii::t('common-mail', 'Email address:') ?> <strong><?= Html::encode($user->email) ?></strong>.</li>
 
     </ul>

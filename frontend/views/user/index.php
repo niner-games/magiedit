@@ -31,16 +31,6 @@ $this->registerJs("$('span').tooltip()");
         'headerRowOptions' => ['class' => 'data-list-header-row'],
         'columns' => [
             [
-                'attribute' => 'surname',
-                'format' => 'raw',
-                'headerOptions' => ['style' => 'width: 18%'],
-                'contentOptions' => ['class' => 'align-middle'],
-                'label' => Yii::t('frontend-views', 'Name and surname'),
-                'value' => function ($data) {
-                    return Html::tag('span', $data->fullName, ['title' => $data->username]);
-                },
-            ],
-            [
                 'attribute' => 'email',
                 'contentOptions' => ['class' => 'text-center align-middle'],
                 'headerOptions' => ['style' => 'width: 18%', 'class' => 'text-center'],
@@ -76,31 +66,6 @@ $this->registerJs("$('span').tooltip()");
                 'contentOptions' => ['class' => 'align-middle'],
                 'deleteConfirmationText' => Yii::t('frontend-views', 'Are you sure you want to delete this user?'),
                 'template'=> (Yii::$app->user->isAdmin) ? '{view} {update} {delete}' : '{view} {update}',
-                'visibleButtons'=> [
-                    'delete' => function ($model, $key, $index) {
-//                        return (count($model->patients) + count($model->examinations) + count($model->results) === 0);
-                        return (Yii::$app->user->id !== $model->id) && (count($model->patients) + count($model->examinations) + count($model->results) === 0);
-                    }
-                ],
-
-                /**
-                 * The below seems to be not working for some reason.
-                 *
-                 * https://forum.yiiframework.com/t/how-to-truly-disable-actioncolumns-button/135743
-                 * https://forum.yiiframework.com/t/is-old-span-based-method-of-rendering-actioncolumns-button-still-supported/135742
-                 */
-//                'buttons' => [
-//                    'view' => function ($url, $model) {
-//                        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url, [
-//                            'title' => Yii::t('app', 'View'),
-//                        ]);
-//                    },
-//                    'update' => function ($url, $model) {
-//                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, [
-//                            'title' => Yii::t('app', 'Update'),
-//                        ]);
-//                    },
-//                ],
                 'urlCreator' => function ($action, User $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
@@ -115,7 +80,7 @@ $this->registerJs("$('span').tooltip()");
 
         <?= Yii::t('frontend-views', 'You can only delete a user that has'); ?>
 
-        <strong><?= Yii::t('frontend-views', 'no patients, no examinations and no results'); ?></strong>
+        <strong><?= Yii::t('frontend-views', 'no objects'); ?></strong>
 
         <?= Yii::t('frontend-views', 'assigned to itself'); ?>.
 
