@@ -4,9 +4,9 @@ use yii\db\Migration;
 use yii\db\Query;
 
 /**
- * Class m231025_115710_add_name_and_type_to_user_table
+ * Class m231025_115710_add_type_to_user_table
  */
-class m231025_115710_add_name_and_type_to_user_table extends Migration
+class m231025_115710_add_type_to_user_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -14,8 +14,6 @@ class m231025_115710_add_name_and_type_to_user_table extends Migration
     public function safeUp()
     {
         $this->addColumn('{{%user}}', 'type', $this->integer()->notNull()->defaultValue(1));
-        
-        $this->alterColumn('user', 'status', $this->smallInteger()->notNull()->defaultValue(1));
     }
 
     /**
@@ -24,7 +22,5 @@ class m231025_115710_add_name_and_type_to_user_table extends Migration
     public function safeDown()
     {
         $this->dropColumn('{{%user}}', 'type');
-        
-        $this->alterColumn('user', 'status', $this->smallInteger()->notNull()->defaultValue(10));
     }
 }
