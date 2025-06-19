@@ -28,6 +28,5 @@ return [
     'Somebody has created an account in our website with the following data:' => 'Ktoś zarejestrował konto na naszej stronie internetowej, używając poniższych danych:',
     'The {app-name}\'s Team' => '{app-name}',
     'somebody has requested a password to the be reset.' => 'ktoś zażądał zresetowania hasła.',
-    'Username:' => '',
-    'Login:' => '@@Login@@',
+    'Username:' => 'Nazwa użytkownika',
 ];

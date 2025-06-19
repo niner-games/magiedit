@@ -14,7 +14,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 $appAssetBundle = AppAsset::register($this);
-$appTitle = Yii::t('frontend-application', "MagiEdit");
+$appTitle = 'MagiEdit';
 
 ?>
 

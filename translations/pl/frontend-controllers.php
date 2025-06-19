@@ -27,8 +27,6 @@ return [
     'You cannot delete currently logged-in user.' => 'Nie możesz usunąć aktualnie zalogowanego użytkownika.',
     'You cannot delete last administrator.' => 'Nie możesz usunąć ostatniego administratora.',
     'Your email has been confirmed!' => 'Twój email został potwierdzony!',
-    'Welcome aboard! We’ve sent a verification email to your inbox. If you don’t see it, be sure to check your spam or junk folder — just in case.' => '',
-    'You’ve successfully logged out. For added security, consider closing all browser windows.' => '',
-    'Thank you for registration. Please check your inbox for verification email.' => '@@Dziękujemy za rejestrację. Sprawdź, czy w skrzynce odbiorczej znajduje się e-mail weryfikacyjny.@@',
-    'You signed out of your account. It\'s a good idea to close all browser windows.' => '@@Wylogowałeś się ze swojego konta. Dobrym pomysłem jest zamknięcie wszystkich okien przeglądarki.@@',
+    'Welcome aboard! We’ve sent a verification email to your inbox. If you don’t see it, be sure to check your spam or junk folder — just in case.' => 'Witamy na pokładzie! Wysłaliśmy e-mail weryfikacyjny na Twoją skrzynkę. Jeśli go nie widzisz, sprawdź folder spam lub inne zakładki — na wszelki wypadek.',
+    'You’ve successfully logged out. For added security, consider closing all browser windows.' => 'Wylogowano pomyślnie. Dla większego bezpieczeństwa warto zamknąć wszystkie okna przeglądarki.',
 ];

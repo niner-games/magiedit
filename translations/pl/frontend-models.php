@@ -19,7 +19,6 @@
 return [
     'Email Address' => 'Adres e-mail',
     'Password' => 'Hasło',
-    'Password reset' => 'Reset hasła',
     'Password reset token cannot be blank.' => 'Token resetowania hasła nie może być pusty.',
     'There is no user with this email address.' => 'Brak użytkownika o podanym adresie e-mail.',
     'This email address has already been taken.' => 'Użytkownik o takim adresie e-mail już istnieje.',
@@ -30,6 +29,6 @@ return [
     'Verification Code' => 'Token weryfikacyjny',
     'Verify email token cannot be blank.' => 'Token weryfikacji adresu e-mail nie może być pusty.',
     'Wrong password reset token.' => 'Błędny token resetowania hasła.',
-    'Account Sign Up' => '',
-    'Account registration' => '@@Rejestracja konta@@',
+    'Account Sign Up' => 'Rejestracja konta',
+    'Password Reset' => 'Reset hasła',
 ];

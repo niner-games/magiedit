@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p><?= Yii::t('frontend-views', 'Please fill out the following fields to log into this application.') ?></p>
+    <p><?= Yii::t('frontend-views', 'Please fill in the fields below to create your account.') ?></p>
 
     <div class="row">
 
@@ -32,15 +32,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="my-1 mx-0" style="color:#999;">
 
-                    <?= Yii::t('frontend-views', 'Forgotten password?') ?> <?= Html::a(Yii::t('frontend-views', 'Reset it'), ['account/request-password-reset']) ?>.
+                    <?= Yii::t('frontend-views', 'Don’t have an account?') ?> <?= Html::a(Yii::t('frontend-views', 'Sign up now'), ['account/signup']) ?>.
+
+                    <br /><br />
+
+                    <?= Yii::t('frontend-views', 'Forgot your password?') ?> <?= Html::a(Yii::t('frontend-views', 'Reset it'), ['account/request-password-reset']) ?>.
 
                     <br />
 
-                    <?= Yii::t('frontend-views', 'The verification email did not arrive?') ?> <?= Html::a(Yii::t('frontend-views', 'Resend it'), ['account/resend-verification-email']) ?>.
-
-                    <br />
-
-                    <?= Yii::t('frontend-views', 'You do not have an account?') ?> <?= Html::a(Yii::t('frontend-views', 'Sign Up'), ['account/signup']) ?> <?= Yii::t('frontend-views', 'for a new one') ?>.
+                    <?= Yii::t('frontend-views', 'Didn’t get the verification email?') ?> <?= Html::a(Yii::t('frontend-views', 'Resend it'), ['account/resend-verification-email']) ?>.
 
                 </div>
 
