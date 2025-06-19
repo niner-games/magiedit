@@ -20,6 +20,7 @@
   * [Database](#database)
   * [Data](#data)
   * [Mail](#mail)
+  * [Parameters](#parameters)
 - [Launch](#launch)
 - [Test](#test)
   * [Introduction](#introduction)
@@ -211,7 +212,7 @@ folder.
 
 ### Parameters
 
-Finally, go to `common/config/params-local.php` and adjust the application configuration to your needs:
+Go to `common/config/params-local.php` and adjust the application configuration to your needs:
 
 ```php
 'senderEmail' => 'username@o2.pl',
@@ -219,6 +220,11 @@ Finally, go to `common/config/params-local.php` and adjust the application confi
 'user.passwordResetTokenExpire' => 3600,
 'user.passwordMinLength' => 8
 ```
+
+Several files (namely `frontend/config/main-local.php` for all environments plus `common/config/codeception-local.php` and
+`frontend/config/test.php` on development and test environments) includes some predefined keys for `cookieValidationKey`
+property of the `request` component. These were generated using [randomkeygen.com service](https://randomkeygen.com/). If
+you are extra sensitive over security, you may consider generating a completely new keys for each of your environments.
 
 ## Launch
 

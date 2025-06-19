@@ -8,9 +8,6 @@ return yii\helpers\ArrayHelper::merge(
     [
         'components' => [
             'request' => [
-                /*
-                 * https://randomkeygen.com/
-                 */
                 'cookieValidationKey' => 'oDNxpCt2tP0XiGU5XZuepFNGygKq4x7WYMbnkD7ZmUKNMpzQTBXupkJJ3SxiNw3A'
             ],
         ],

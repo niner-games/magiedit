@@ -3,9 +3,6 @@
 $config = [
     'components' => [
         'request' => [
-            /*
-             * https://randomkeygen.com/
-             */
             'cookieValidationKey' => 'Zrnn7XKzRzvq51gc0VBUuyOT4MslAewu7fUrnZyUF2zWuSdJtlrt4Ta5a9JRaBrO'
         ],
     ],
