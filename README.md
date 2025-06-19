@@ -22,6 +22,8 @@
   * [Mail](#mail)
   * [Parameters](#parameters)
 - [Launch](#launch)
+  * [Home Page](#home-page)
+  * [Default User](#default-user)
 - [Test](#test)
   * [Introduction](#introduction)
   * [Acceptance](#acceptance)
@@ -228,11 +230,35 @@ you are extra sensitive over security, you may consider generating a completely 
 
 ## Launch
 
+### Home Page
+
 Your app should be ready to use. Launch your browser and go to:
 
 [`http://localhost/niner-games/magiedit.web/frontend/web/`](http://localhost/niner-games/magiedit.web/frontend/web/)
 
 For more detailed testing instructions and technical documentation, visit the [project wiki](https://github.com/niner-games/magiedit.web/wiki).
+
+### Default User
+
+This application comes with no users. In order to manage it, you must have at least one user in type of administrator. For
+security reasons this is done manually. Please note, that you must have direct access to your database (through phpMyAdmin or
+any other database management tool) to complete this step.
+
+1. First, register a regular user account:
+
+[`http://localhost/niner-games/magiedit.web/frontend/web/account/signup`](http://localhost/niner-games/magiedit.web/frontend/web/account/signup)
+
+2. Receive account verification email and verify this account.
+
+3. Login to phpMyAdmin and go to `user` table in the `magiedit` database (adjust these to match your setup):
+
+http://localhost/phpmyadmin/index.php?route=/sql&pos=0&db=magiedit&table=user
+
+4. Edit record that corresponds to your selected user and change the value of `type` column from `1` to `9`.
+
+You are done. Now, you can log in with this user to the application, have access to [user management section](http://localhost/niner-games/magiedit.web/frontend/web/user/index)
+and change any other user to admin. Please note, that you must have at least one administrator in the system. You cannot
+delete last administrator, and you cannot delete currently logged-in user. 
 
 ## Test
 
