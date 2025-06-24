@@ -74,7 +74,7 @@ class PasswordResetRequestForm extends Model
             }
         }
 
-        $appName = Yii::t('frontend-application', "MagiEdit");
+        $appName = Yii::$app->name;
         $resetLink = Yii::$app->urlManager->createAbsoluteUrl(['account/reset-password', 'token' => $user->password_reset_token]);
 
         return Yii::$app

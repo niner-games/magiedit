@@ -9,7 +9,7 @@ $params = array_merge(
 return [
     'id' => 'tpw-frontend',
     'basePath' => dirname(__DIR__),
-    'name' => Yii::t('frontend-application', "MagiEdit"),
+    'name' => 'MagiEdit',
     'language' => 'en',
     'bootstrap' => [
         'log',
