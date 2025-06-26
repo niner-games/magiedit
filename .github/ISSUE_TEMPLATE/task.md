@@ -1,5 +1,5 @@
 ---
-name: Task
+name: Task (Markdown)
 about: Plan or track a unit of work
 title: "[Task]: "
 labels: ''

@@ -1,5 +1,5 @@
 ---
-name: Feature request
+name: Feature request (Markdown)
 about: Some new functionality
 title: ''
 labels: ''
