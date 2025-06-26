@@ -1,6 +1,6 @@
-name: Task (YAML)
+name: Task
 description: Plan or track a unit of work
-title: ''
+title: 'Task'
 labels: []
 assignees:
   - mrfatguy
