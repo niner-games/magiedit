@@ -1,6 +1,6 @@
 name: Bug report (YAML)
 description: Something is wrong
-title: ""
+title: ''
 labels: []
 assignees:
   - mrfatguy
@@ -25,10 +25,10 @@ body:
       label: Steps to reproduce
       description: Be as precise as possible — this helps us replicate the problem.
       placeholder: |
-        1. Go to ...
-        2. Click on ...
-        3. Scroll to ...
-        4. See ...
+        1. Go to _one_ → _two_ → _three_.
+        2. Click on _four_.
+        3. Scroll to _five_.
+        4. See _six_.
     validations:
       required: true
 
@@ -48,7 +48,7 @@ body:
     id: screenshot
     attributes:
       label: Screenshots or recordings
-      description: Add a screenshot or screencast if available.
+      description: If possible, add a screenshot (<kbd>PrtSc</kbd>) or a screencast (_LICEcap_, _ScreenToGif_).
 
   - type: textarea
     id: environment

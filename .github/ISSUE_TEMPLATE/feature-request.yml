@@ -1,6 +1,6 @@
 name: Feature request (YAML)
 description: Some new functionality
-title: ""
+title: ''
 labels: []
 assignees:
   - mrfatguy
@@ -44,7 +44,13 @@ body:
       required: true
 
   - type: textarea
-    id: extra
+    id: screenshot
     attributes:
-      label: Screenshots or Additional Context
-      description: Optional — provide visuals or device/browser info if relevant
+      label: Screenshots or recordings
+      description: If possible, add a screenshot (<kbd>PrtSc</kbd>) or a screencast (_LICEcap_, _ScreenToGif_).
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment (optional)
+      description: Include browser, OS, or device info only if relevant (e.g., bug is environment-specific).
