@@ -1,0 +1,50 @@
+name: Feature request
+description: Some new functionality
+title: ""
+labels: []
+assignees:
+  - mrfatguy
+type: feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill in the information below to help us evaluate this feature request.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Provide a short summary or goal of this feature
+    validations:
+      required: true
+
+  - type: textarea
+    id: narrative
+    attributes:
+      label: User Story
+      description: Describe the narrative using "As a... I want to... So that..." format
+      placeholder: |
+        - As a [user type],  
+        - I want to [do something],  
+        - So that [I achieve a goal]
+    validations:
+      required: true
+
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Use "Given / When / Then" format to describe success conditions
+      placeholder: |
+        - Given [a condition]  
+        - When [an action is taken]  
+        - Then [expected result happens]
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or Additional Context
+      description: Optional — provide visuals or device/browser info if relevant

@@ -1,0 +1,57 @@
+name: Bug report
+description: Something is wrong
+title: ""
+labels: []
+assignees:
+  - mrfatguy
+type: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the issue clearly. The more context, the better!
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Repeated title or possibly a summary of the description.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Be as precise as possible — this helps us replicate the problem.
+      placeholder: |
+        1. Go to ...
+        2. Click on ...
+        3. Scroll to ...
+        4. See ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should happen?
+      description: What did you expect instead?
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What is actually happening?
+      description: What happened instead, even if only sometimes?
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshots or recordings
+      description: Add a screenshot or screencast if available.
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment (optional)
+      description: Include browser, OS, or device info only if relevant (e.g., bug is environment-specific).
