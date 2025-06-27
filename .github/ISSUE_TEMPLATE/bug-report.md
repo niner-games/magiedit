@@ -1,6 +1,7 @@
 ---
 name: Bug report
 about: Something is wrong!
+type: bug
 title: ''
 labels: ''
 assignees: mrfatguy

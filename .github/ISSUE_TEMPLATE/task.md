@@ -1,6 +1,7 @@
 ---
 name: Task
 about: Some technical job to perform
+type: task
 title: ''
 labels: ''
 assignees: mrfatguy
