@@ -1,7 +1,6 @@
 ---
 name: Feature request
 about: Some new functionality
-type: feature
 title: ''
 labels: ''
 assignees: mrfatguy
