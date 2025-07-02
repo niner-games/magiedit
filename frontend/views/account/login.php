@@ -3,9 +3,12 @@
 use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
 
+use frontend\models\LoginForm;
+
 /** @var yii\web\View $this */
 /** @var yii\bootstrap5\ActiveForm $form */
-/** @var \common\models\LoginForm $model */
+
+/** @var LoginForm $model */
 
 $this->title = Yii::t('frontend-views', 'Log In');
 $this->params['breadcrumbs'][] = $this->title;
