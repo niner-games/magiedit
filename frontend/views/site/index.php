@@ -21,9 +21,18 @@ $this->registerJs("$('span').tooltip(); $('a').tooltip()");
                 ]) ?>
             </div>
 
+            <h3 class="fw-light mb-3 mb-md-4">
+
+                <?= Yii::t('frontend-views', 'A web application for creating paragraph games and visual novels') ?>.
+
+            </h3>
+
             <p class="fs-5">
 
-                <?= Yii::t('frontend-views', 'A web application for creating paragraph games and visual novels') ?>
+                <?= Html::a(Yii::t('frontend-views', 'Log in'), ['account/login']) ?>
+                <?= Yii::t('frontend-views', ' to access all the features and create your fantastic story.') ?>
+                <br />
+                <?= Yii::t('frontend-views', 'Don’t have an account?') ?> <?= Html::a(Yii::t('frontend-views', 'Sign up now'), ['account/signup']) ?>.
 
             </p>
 

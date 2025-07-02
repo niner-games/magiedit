@@ -25,7 +25,7 @@ $appTitle = 'MagiEdit';
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($appTitle) ?></title>
+    <title><?= Html::encode($appTitle) ?> &ndash; <?= Yii::t('frontend-views', 'A web application for creating paragraph games and visual novels') ?></title>
 
     <?= Html::tag('link', '', [
         'rel' => 'icon',

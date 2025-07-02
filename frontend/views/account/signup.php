@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-signup">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p><?= Yii::t('frontend-views', 'Please fill in the fields below to log in to your account.') ?></p>
+    <p><?= Yii::t('frontend-views', 'Please fill in the fields below to create your account.') ?></p>
 
     <div class="row">
         <div class="col-lg-5">

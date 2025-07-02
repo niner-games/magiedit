@@ -16,7 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p><?= Yii::t('frontend-views', 'Please fill in the fields below to create your account.') ?></p>
+    <p>
+
+        <?= Yii::t('frontend-views', 'Log in') ?>
+        <?= Yii::t('frontend-views', ' to access all the features and create your fantastic story.') ?>
+
+    </p>
 
     <div class="row">
 
@@ -34,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     <?= Yii::t('frontend-views', 'Don’t have an account?') ?> <?= Html::a(Yii::t('frontend-views', 'Sign up now'), ['account/signup']) ?>.
 
-                    <br /><br />
+                    <br />
 
                     <?= Yii::t('frontend-views', 'Forgot your password?') ?> <?= Html::a(Yii::t('frontend-views', 'Reset it'), ['account/request-password-reset']) ?>.
 

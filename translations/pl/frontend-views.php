@@ -17,7 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'A web application for creating paragraph games and visual novels' => 'Aplikacja internetowa do tworzenia gier akapitowych i powieści wizualnych',
     'Add User' => 'Dodaj użytkownika',
     'All rights reserved' => 'Wszelkie prawa zastrzeżone',
     'Are you sure you want to delete this user?' => 'Czy na pewno chcesz usunąć tego użytkownika?',
@@ -32,6 +31,7 @@ return [
     'Login' => 'Logowanie',
     'Please choose your new password:' => 'Proszę wybrać nowe hasło:',
     'Please contact us if you think this is a server error. Thank you.' => 'Jeśli uważasz, że jest to błąd serwera, skontaktuj się z nami. Dziękujemy.',
+    'Please fill in the fields below to create your account.' => 'Wypełnij poniższe pola, aby utworzyć konto.',
     'Please fill out the following fields to add a user.' => 'Aby dodać nowego użytkownika, wypełnij poniższy formularz.',
     'Please fill out your email. A link to reset password will be sent there.' => 'Podaj swój adres e-mail, aby otrzymać wiadomość umożliwiającą zresetowanie hasła.',
     'Please fill out your email. A verification email will be sent there.' => 'Podaj swój adres e-mail, aby otrzymać wiadomość umożliwiającą weryfikację tego adresu.',
@@ -64,6 +64,7 @@ return [
     'no objects' => 'żadnych obiektów',
     'polski' => 'polski',
     'to this application' => 'do tej aplikacji',
-    'Please fill in the fields below to create your account.' => 'Wypełnij poniższe pola, aby utworzyć konto.',
-    'Please fill in the fields below to log in to your account.' => 'Wypełnij poniższe pola, aby zalogować się na swoje konto.',
+    ' to access all the features and create your fantastic story.' => ', aby uzyskać dostęp do wszystkich funkcji i stworzyć swoją fantastyczną historię.',
+    'A web application for creating paragraph games and visual novels' => 'Aplikacja internetowa do tworzenia gier akapitowych i powieści wizualnych',
+    'Log in' => 'Zaloguj się',
 ];
