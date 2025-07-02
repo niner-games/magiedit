@@ -114,17 +114,22 @@ $appTitle = 'MagiEdit';
     <div class="container">
         <p class="float-start mb-0">
 
-            Copyright &copy; 2024-<?= date('Y') ?> by
+            Copyright &copy; <?= date('Y') ?> by
 
             <?= Html::a('MagiEdit', 'https://magiedit.com/', ['rel' => "external"]) ?>.
-            <?= Yii::t('frontend-views', 'All rights reserved') ?>.
 
-            <?= Yii::t('frontend-views', 'Version') ?>:
-            <?= ApplicationVersion::get() ?>.
-        </p>
+            <span class="d-none d-md-inline">
+
+                <?= Yii::t('frontend-views', 'Version') ?>:
+                <?= ApplicationVersion::get() ?>.
+
+            </span>
+
         <p class="float-end mb-0">
+
             <?= Html::a(Yii::t('frontend-views', 'polski'), Url::current(['language' => 'pl'])) ?> |
             <?= Html::a(Yii::t('frontend-views', 'English'), Url::current(['language' => 'en'])) ?>
+
         </p>
     </div>
 </footer>
