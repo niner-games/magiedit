@@ -17,8 +17,7 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    ' to access all the features and create your fantastic story.' => ', aby uzyskać dostęp do wszystkich funkcji i stworzyć swoją fantastyczną historię.',
-    'A web application for creating paragraph games and visual novels' => 'Aplikacja internetowa do tworzenia gier akapitowych i powieści wizualnych',
+    ' to access all the features and create your unforgettable story.' => ', aby uzyskać dostęp do wszystkich funkcji i stworzyć swoją niezapomnianą historię.',
     'Add User' => 'Dodaj użytkownika',
     'Are you sure you want to delete this user?' => 'Czy na pewno chcesz usunąć tego użytkownika?',
     'Delete' => 'Usuń',
@@ -47,13 +46,14 @@ return [
     'Send' => 'Wyślij',
     'Sign Up' => 'Zarejestruj się',
     'Sign up now' => 'Zarejestruj się teraz',
-    'Start' => 'Start',
+    'The above error occurred while server was processing your request.' => 'Powyższy błąd wystąpił podczas przetwarzania Twojego żądania przez serwer.',
     'The list of all users existing in the system is shown below.' => 'Lista wszystkich użytkowników istniejących w systemie znajduje się poniżej.',
     'This user' => 'Ten użytkownik',
     'Update' => 'Edytuj',
     'User' => 'Użytkownik',
     'Users' => 'Użytkownicy',
     'Version' => 'Wersja',
+    'Where visual novels and gamebooks begin their journey' => 'Gdzie powieści wizualne i gry paragrafowe rozpoczynają swoją podróż',
     'You can only delete a user that has' => 'Możesz usunąć tylko użytkownika, który',
     'You must assign all user’s objects to some other user before deleting it.' => 'Musisz przypisać wszystkie obiekty danego użytkownika do innego, zanim go usuniesz.',
     'and' => 'i',
@@ -65,5 +65,4 @@ return [
     'no objects' => 'żadnych obiektów',
     'polski' => 'polski',
     'to this application' => 'do tej aplikacji',
-    'The above error occurred while server was processing your request.' => 'Powyższy błąd wystąpił podczas przetwarzania Twojego żądania przez serwer.',
 ];

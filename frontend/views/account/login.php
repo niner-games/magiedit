@@ -21,8 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
 
-        <?= Yii::t('frontend-views', 'Log in') ?>
-        <?= Yii::t('frontend-views', ' to access all the features and create your fantastic story.') ?>
+        <?= Yii::t('frontend-views', 'Log in') ?><?= Yii::t('frontend-views', ' to access all the features and create your unforgettable story.') ?>
 
     </p>
 

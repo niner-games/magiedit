@@ -25,7 +25,7 @@ $appTitle = 'MagiEdit';
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($appTitle) ?> &ndash; <?= Yii::t('frontend-views', 'A web application for creating paragraph games and visual novels') ?></title>
+    <title><?= Html::encode($appTitle) ?> &ndash; <?= Yii::t('frontend-views', 'Where visual novels and gamebooks begin their journey') ?></title>
 
     <?= Html::tag('link', '', [
         'rel' => 'icon',
@@ -96,7 +96,7 @@ $appTitle = 'MagiEdit';
             'links' => $this->params['breadcrumbs'] ?? [],
             'homeLink' => [
                 'url' => ['/site/index'],
-                'label' => Yii::t('frontend-views', 'Start')
+                'label' => 'MagiEdit'
             ],
             'options' => [
                 'style' => '--bs-breadcrumb-divider: "⇢"', // https://forum.yiiframework.com/t/how-to-modify-breadcrumbs-separator-character/135649/2?u=trejder
