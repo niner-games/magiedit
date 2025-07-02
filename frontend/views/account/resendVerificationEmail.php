@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-    <p><?= Yii::t('frontend-views', 'Please fill out your email. A verification email will be sent there.') ?></p>
+    <p><?= Yii::t('frontend-views', 'Please provide your email. A verification email will be sent there.') ?></p>
 
     <div class="row">
         <div class="col-lg-5">

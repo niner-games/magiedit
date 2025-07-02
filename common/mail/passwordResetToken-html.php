@@ -27,10 +27,10 @@ use yii\helpers\Html;
 
     <p><?= Html::a(Html::encode($resetLink), $resetLink) ?></p>
 
-    <p><?= Yii::t('common-mail', 'If it wasn\'t you then you may safely ignore this message. Your password won\'t be changed.') ?></p>
+    <p><?= Yii::t('common-mail', 'If it wasn’t you then you may safely ignore this message. Your password won’t be changed.') ?></p>
 
     <p><?= Yii::t('common-mail', 'Have good day!') ?></p>
 
-    <p><?= Yii::t('common-mail', 'The {app-name}\'s Team', ['app-name' => $appName]); ?></p>
+    <p><?= Yii::t('common-mail', 'The {app-name}’s Team', ['app-name' => $appName]); ?></p>
 
 </div>

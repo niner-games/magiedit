@@ -31,7 +31,7 @@ class ContactForm extends Model
         return [
             ['verifyCode', 'captcha'],
             [['name', 'email', 'subject', 'body'], 'required'],
-            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid e-mail address.')],
+            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid email address.')],
         ];
     }
 

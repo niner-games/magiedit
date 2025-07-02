@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-request-password-reset">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p><?= Yii::t('frontend-views', 'Please fill out your email. A link to reset password will be sent there.') ?></p>
+    <p><?= Yii::t('frontend-views', 'Please provide your email. A link to reset password will be sent there.') ?></p>
 
     <div class="row">
         <div class="col-lg-5 mb-3 mb-md-4">
@@ -31,6 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 
-    <p><?= Yii::t('frontend-views', 'Password reset is available for verified accounts only.') ?></p>
+    <p><?= Yii::t('frontend-models', 'Password reset is available for verified accounts only.') ?></p>
 
 </div>

@@ -39,7 +39,7 @@ class SignupForm extends Model
              * Other rules
              */
             [['email', 'username'], 'trim'],
-            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid e-mail address.')],
+            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid email address.')],
             [['username', 'email', 'password'], 'required', 'message' => Yii::t('frontend-models', 'This field cannot be blank.')],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('frontend-models', 'This username has already been taken.')],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('frontend-models', 'This email address has already been taken.')],

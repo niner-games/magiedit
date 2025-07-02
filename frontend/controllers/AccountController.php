@@ -137,12 +137,12 @@ class AccountController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', Yii::t('frontend-controllers', 'Check your email for further instructions.'));
+                Yii::$app->session->setFlash('success', Yii::t('frontend-controllers', 'Please click the link in your email to confirm your account.'));
 
                 return $this->goHome();
             }
 
-            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'Sorry, we are unable to reset password for the provided email address.'));
+            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'Unfortunately, we can’t reset the password for this email address.'));
         }
 
         return $this->render('requestPasswordResetToken', [
@@ -167,7 +167,7 @@ class AccountController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', Yii::t('frontend-controllers', 'New password saved.'));
+            Yii::$app->session->setFlash('success', Yii::t('frontend-controllers', 'Your password has been changed successfully.'));
 
             return $this->goHome();
         }
@@ -194,12 +194,12 @@ class AccountController extends Controller
         }
 
         if (($user = $model->verifyEmail()) && Yii::$app->user->login($user)) {
-            Yii::$app->session->setFlash('success', Yii::t('frontend-controllers', 'Your email has been confirmed!'));
+            Yii::$app->session->setFlash('success', Yii::t('frontend-controllers', 'Your email address has been confirmed!'));
 
             return $this->goHome();
         }
 
-        Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'Sorry, we are unable to verify your account with provided token.'));
+        Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'Unfortunately, we can’t verify your account with the token provided. If the link has expired, try requesting a new one.'));
 
         return $this->goHome();
     }
@@ -215,12 +215,12 @@ class AccountController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', Yii::t('frontend-controllers', 'Check your email for further instructions.'));
+                Yii::$app->session->setFlash('success', Yii::t('frontend-controllers', 'Please click the link in your email to confirm your account.'));
 
                 return $this->goHome();
             }
 
-            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'Sorry, we are unable to resend verification email for the provided email address.'));
+            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'Unfortunately, we can’t resend the verification email to this address.'));
         }
 
         return $this->render('resendVerificationEmail', [

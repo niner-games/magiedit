@@ -92,7 +92,7 @@ class User extends ActiveRecord implements IdentityInterface
             [['email', 'username'], 'trim'],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
             ['type', 'in', 'range' => [self::TYPE_REGULAR, self::TYPE_ADMINISTRATOR]],
-            ['email', 'email', 'message' => Yii::t('common-models', 'This field must contain a valid e-mail address.')],
+            ['email', 'email', 'message' => Yii::t('common-models', 'This field must contain a valid email address.')],
             [['username', 'email'], 'required', 'message' => Yii::t('common-models', 'This field cannot be blank.')],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common-models', 'This username has already been taken.')],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common-models', 'This email address has already been taken.')],

@@ -28,7 +28,7 @@ class PasswordResetRequestForm extends Model
         return [
             ['email', 'trim'],
             ['email', 'required'],
-            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid e-mail address.')],
+            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid email address.')],
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],

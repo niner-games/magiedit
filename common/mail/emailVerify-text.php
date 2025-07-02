@@ -19,8 +19,8 @@
 
 <?= $verifyLink ?>
 
-<?= Yii::t('common-mail', 'If it wasn\'t you then you may safely ignore this message. Unverified email addresses are automatically removed from our system.') ?>
+<?= Yii::t('common-mail', 'If it wasn’t you then you may safely ignore this message. Unverified email addresses are automatically removed from our system.') ?>
 
 <?= Yii::t('common-mail', 'Have good day!') ?>
 
-<?= Yii::t('common-mail', 'The {app-name}\'s Team', ['app-name' => $appName]); ?>
+<?= Yii::t('common-mail', 'The {app-name}’s Team', ['app-name' => $appName]); ?>

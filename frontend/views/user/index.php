@@ -84,7 +84,7 @@ $this->registerJs("$('span').tooltip()");
 
         <?= Yii::t('frontend-views', 'assigned to itself'); ?>.
 
-        <?= Yii::t('frontend-views', 'You must assign all user\'s objects to some other user before deleting it.'); ?>
+        <?= Yii::t('frontend-views', 'You must assign all user’s objects to some other user before deleting it.'); ?>
 
     </small>
 
