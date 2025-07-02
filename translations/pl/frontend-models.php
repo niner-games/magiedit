@@ -17,10 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Account Sign Up' => 'Rejestracja konta',
     'Email Address' => 'Adres e-mail',
     'Password' => 'Hasło',
+    'Password Reset' => 'Reset hasła',
     'Password reset token cannot be blank.' => 'Token resetowania hasła nie może być pusty.',
-    'There is no user with this email address.' => 'Brak użytkownika o podanym adresie e-mail.',
     'This email address has already been taken.' => 'Użytkownik o takim adresie e-mail już istnieje.',
     'This field cannot be blank.' => 'To pole nie może pozostać puste.',
     'This field must contain a valid e-mail address.' => 'To pole musi zawierać prawidłowy adres e-mail.',
@@ -29,6 +30,6 @@ return [
     'Verification Code' => 'Token weryfikacyjny',
     'Verify email token cannot be blank.' => 'Token weryfikacji adresu e-mail nie może być pusty.',
     'Wrong password reset token.' => 'Błędny token resetowania hasła.',
-    'Account Sign Up' => 'Rejestracja konta',
-    'Password Reset' => 'Reset hasła',
+    'Password reset is available for verified accounts only.' => '',
+    'Your email is already verified. No further action is needed.' => '',
 ];

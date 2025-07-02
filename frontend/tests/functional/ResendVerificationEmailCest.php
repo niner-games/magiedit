@@ -60,13 +60,13 @@ class ResendVerificationEmailCest
     public function checkWrongEmail(FunctionalTester $I)
     {
         $I->submitForm($this->formId, $this->formParams('wrong@email.com'));
-        $I->seeValidationError('There is no user with this email address.');
+        $I->seeValidationError('Password reset is available for verified accounts only.');
     }
 
     public function checkAlreadyVerifiedEmail(FunctionalTester $I)
     {
         $I->submitForm($this->formId, $this->formParams('test2@mail.com'));
-        $I->seeValidationError('There is no user with this email address.');
+        $I->seeValidationError('Your email is already verified. No further action is needed.');
     }
 
     public function checkSendSuccessfully(FunctionalTester $I)

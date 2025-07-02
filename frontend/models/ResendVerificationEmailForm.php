@@ -29,7 +29,7 @@ class ResendVerificationEmailForm extends Model
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_INACTIVE],
-                'message' => Yii::t('frontend-models', 'There is no user with this email address.')
+                'message' => Yii::t('frontend-models', 'Your email is already verified. No further action is needed.')
             ],
         ];
     }

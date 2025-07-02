@@ -34,7 +34,7 @@ class ResendVerificationEmailFormTest extends Unit
 
         verify($model->validate())->false();
         verify($model->hasErrors())->true();
-        verify($model->getFirstError('email'))->equals('There is no user with this email address.');
+        verify($model->getFirstError('email'))->equals('Password reset is available for verified accounts only.');
     }
 
     public function testEmptyEmailAddress()
@@ -58,7 +58,7 @@ class ResendVerificationEmailFormTest extends Unit
 
         verify($model->validate())->false();
         verify($model->hasErrors())->true();
-        verify($model->getFirstError('email'))->equals('There is no user with this email address.');
+        verify($model->getFirstError('email'))->equals('Your email is already verified. No further action is needed.');
     }
 
     public function testSuccessfullyResend()

@@ -40,11 +40,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="my-1 mx-0" style="color:#999;">
 
-                    <?= Yii::t('frontend-views', 'Don’t have an account?') ?> <?= Html::a(Yii::t('frontend-views', 'Sign up now'), ['account/signup']) ?>.
+                    <?= Yii::t('frontend-views', 'Forgot your password?') ?> <?= Html::a(Yii::t('frontend-views', 'Reset it'), ['account/request-password-reset']) ?>.
 
                     <br />
 
-                    <?= Yii::t('frontend-views', 'Forgot your password?') ?> <?= Html::a(Yii::t('frontend-views', 'Reset it'), ['account/request-password-reset']) ?>.
+                    <?= Yii::t('frontend-views', 'Don’t have an account?') ?> <?= Html::a(Yii::t('frontend-views', 'Sign up now'), ['account/signup']) ?>.
 
                     <br />
 

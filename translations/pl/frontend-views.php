@@ -17,8 +17,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    ' to access all the features and create your fantastic story.' => ', aby uzyskać dostęp do wszystkich funkcji i stworzyć swoją fantastyczną historię.',
+    'A web application for creating paragraph games and visual novels' => 'Aplikacja internetowa do tworzenia gier akapitowych i powieści wizualnych',
     'Add User' => 'Dodaj użytkownika',
-    'All rights reserved' => 'Wszelkie prawa zastrzeżone',
     'Are you sure you want to delete this user?' => 'Czy na pewno chcesz usunąć tego użytkownika?',
     'Delete' => 'Usuń',
     'Details of selected user are provided below.' => 'Szczegóły wybranego użytkownika podane są poniżej.',
@@ -28,6 +29,7 @@ return [
     'Forgot your password?' => 'Nie pamiętasz hasła?',
     'Log In' => 'Zaloguj się',
     'Log Out' => 'Wyloguj się',
+    'Log in' => 'Zaloguj się',
     'Login' => 'Logowanie',
     'Please choose your new password:' => 'Proszę wybrać nowe hasło:',
     'Please contact us if you think this is a server error. Thank you.' => 'Jeśli uważasz, że jest to błąd serwera, skontaktuj się z nami. Dziękujemy.',
@@ -64,7 +66,5 @@ return [
     'no objects' => 'żadnych obiektów',
     'polski' => 'polski',
     'to this application' => 'do tej aplikacji',
-    ' to access all the features and create your fantastic story.' => ', aby uzyskać dostęp do wszystkich funkcji i stworzyć swoją fantastyczną historię.',
-    'A web application for creating paragraph games and visual novels' => 'Aplikacja internetowa do tworzenia gier akapitowych i powieści wizualnych',
-    'Log in' => 'Zaloguj się',
+    'Password reset is available for verified accounts only.' => 'Reset hasła dostępny jest wyłącznie dla zweryfikowanych kont.',
 ];

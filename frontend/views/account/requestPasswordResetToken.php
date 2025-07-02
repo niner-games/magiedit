@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p><?= Yii::t('frontend-views', 'Please fill out your email. A link to reset password will be sent there.') ?></p>
 
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-5 mb-3 mb-md-4">
             <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
 
                 <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
@@ -30,4 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php ActiveForm::end(); ?>
         </div>
     </div>
+
+    <p><?= Yii::t('frontend-views', 'Password reset is available for verified accounts only.') ?></p>
+
 </div>

@@ -32,7 +32,7 @@ class PasswordResetRequestForm extends Model
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => Yii::t('frontend-models', 'There is no user with this email address.')
+                'message' => Yii::t('frontend-models', 'Password reset is available for verified accounts only.')
             ],
         ];
     }
