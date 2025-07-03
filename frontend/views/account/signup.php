@@ -4,6 +4,7 @@
 /** @var yii\bootstrap5\ActiveForm $form */
 /** @var \frontend\models\SignupForm $model */
 
+use common\widgets\ReCaptcha;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
 
@@ -26,6 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'email') ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
+
+                <?= $form->field($model, 'reCaptcha')->widget(ReCaptcha::class, [
+                    'id' => 'sign-up-captcha',
+                    'render' => ReCaptcha::RENDER_EXPLICIT,
+                ])->label(false) ?>
 
                 <div class="form-group">
                     <?= Html::submitButton(Yii::t('frontend-views', 'Sign Up'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>

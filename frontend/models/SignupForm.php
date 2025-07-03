@@ -14,17 +14,19 @@ class SignupForm extends Model
     /**
      * PROPERTIES
      */
-    public string $email = '';
     public string $username = '';
+    public string $email = '';
     public string $password = '';
-
+    public string $reCaptcha = '';
     /**
      * CONFIGURATION
      */
 
+
     /**
      * {@inheritdoc}
      */
+
     public function rules()
     {
         return [
@@ -34,6 +36,7 @@ class SignupForm extends Model
             [['email'], 'string', 'min' => 5, 'max' => 255],
             [['username'], 'string', 'min' => 2, 'max' => 255],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+            [['reCaptcha'], \recaptcha\ReCaptchaValidator::class, 'message' => Yii::t('frontend-models', 'You must solve reCAPTCHA in order to continue.')],
 
             /**
              * Other rules
@@ -72,7 +75,7 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $user = new User();
 
         $user->email = $this->email;

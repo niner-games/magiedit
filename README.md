@@ -115,6 +115,24 @@ putenv('ENVIRONMENT_NAME=prod');
 This is for informational reasons only (added to application version in the footer), but it is important to provide it.
 You can use any name instead of `prod`. For example: `dev`, `test`, `pre-prod`, `uat`, `backup` etc.
 
+Open the configuration file `frontend/config/main-local.php`, find `recaptcha` component in `components` section and provide 
+your own pair of site key and secret that are needed for this application to work.
+
+```php
+'recaptcha' => [
+    'class' => 'recaptcha\ReCaptchaComponent',
+    'siteKey' => 'your-dev-or-prod-site-key',
+    'secretKey' => 'your-dev-or-prod-secret-key',
+],
+```
+
+You can generate new pair at [Google reCAPTCHA admin site](https://www.google.com/u/1/recaptcha/admin/create). For more 
+information visit [Google reCAPTCHA FAQ](https://developers.google.com/recaptcha/docs/faq). For security reasons, always
+use separate pair and never re-use any pair in any environment or application!
+
+When generating key for DEV or TEST environments, include "localhost" and "127.0.0.1" domains in key settings. If you are 
+generating a pair for production purposes, include an actual domain (i.e. "magiedit.com") in key settings.
+
 #### Production
 
 If you have [initialized application in production mode](#install) then there's an extra `.htaccess` file generated in the
