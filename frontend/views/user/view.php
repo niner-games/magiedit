@@ -23,11 +23,10 @@ YiiAsset::register($this);
 <div class="user-view">
 
     <h1><?= Yii::t('frontend-views', 'User'); ?>: <strong><?= Html::encode($this->title) ?></strong> (<?= Html::encode($model->username) ?>)</h1>
-
     <p><?= Yii::t('frontend-views', 'Details of selected user are provided below.') ?></p>
 
     <p>
-        <?= Html::a(Yii::t('frontend-views', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('frontend-views', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
 
         <?php if ($displayedUserIsLoggedIn): ?>
 
@@ -77,24 +76,20 @@ YiiAsset::register($this);
 
 </div>
 
-<small class="text-secondary">
+<p>
 
     <?= Yii::t('frontend-views', 'This user'); ?>
 
     <?php if ($model->status === User::STATUS_ACTIVE): ?>
 
         <strong><?= Yii::t('frontend-views', 'is active'); ?></strong>
-
         <?= Yii::t('frontend-views', 'and'); ?>
-
         <em><?= Yii::t('frontend-views', 'can log in'); ?></em>
 
     <?php else: ?>
 
         <strong><?= Yii::t('frontend-views', 'is not active'); ?></strong>
-
         <?= Yii::t('frontend-views', 'and'); ?>
-
         <em><?= Yii::t('frontend-views', 'cannot log in'); ?></em>
 
     <?php endif; ?>
@@ -107,4 +102,4 @@ YiiAsset::register($this);
 
     <?php endif; ?>
 
-</small>
+</p>

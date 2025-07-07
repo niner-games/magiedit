@@ -24,6 +24,7 @@ return [
     'Details of selected user are provided below.' => 'Szczegóły wybranego użytkownika podane są poniżej.',
     'Didn’t get the verification email?' => 'Nie dotarł e-mail weryfikacyjny?',
     'Don’t have an account?' => 'Nie masz konta?',
+    'Edit' => 'Edytuj',
     'English' => 'English',
     'Forgot your password?' => 'Nie pamiętasz hasła?',
     'Log In' => 'Zaloguj się',
@@ -49,7 +50,6 @@ return [
     'The above error occurred while server was processing your request.' => 'Powyższy błąd wystąpił podczas przetwarzania Twojego żądania przez serwer.',
     'The list of all users existing in the system is shown below.' => 'Lista wszystkich użytkowników istniejących w systemie znajduje się poniżej.',
     'This user' => 'Ten użytkownik',
-    'Update' => 'Edytuj',
     'User' => 'Użytkownik',
     'Users' => 'Użytkownicy',
     'Version' => 'Wersja',
@@ -65,4 +65,7 @@ return [
     'no objects' => 'żadnych obiektów',
     'polski' => 'polski',
     'to this application' => 'do tej aplikacji',
+    'Delete user' => 'Usuń użytkownika',
+    'Edit user' => 'Edytuj użytkownika',
+    'View details' => 'Zobacz szczegóły',
 ];

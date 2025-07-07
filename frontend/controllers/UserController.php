@@ -8,6 +8,7 @@ use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\helpers\Url;
 use yii\web\Response;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -59,7 +60,7 @@ class UserController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => User::find(),
             'pagination' => ['pageSize' => 10],
-            'sort' => ['defaultOrder' => ['username' => SORT_ASC]],
+            'sort' => ['defaultOrder' => ['created_at' => SORT_DESC]],
         ]);
 
         return $this->render('index', [
@@ -93,7 +94,7 @@ class UserController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['index']);
             }
         } else {
             $model->loadDefaultValues();
