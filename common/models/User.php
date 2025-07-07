@@ -307,4 +307,14 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    /**
+     * Returns a value indicating whether the user is authenticated and has user type of administrator.
+     *
+     * @return bool whether the current user is an administrator
+     */
+    public function getIsAdmin(): bool
+    {
+        return $this->type === self::TYPE_ADMINISTRATOR;
+    }
 }

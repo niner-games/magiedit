@@ -28,7 +28,7 @@ return [
             ]
         ],
         'user' => [
-            'class' => \common\components\User::class,
+            'class' => yii\web\User::class,
             'enableAutoLogin' => true,
             'identityClass' => 'common\models\User',
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],

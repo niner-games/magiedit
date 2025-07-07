@@ -65,7 +65,7 @@ $this->registerJs("$('span').tooltip()");
                 'class' => CustomActionColumn::class,
                 'contentOptions' => ['class' => 'align-middle'],
                 'deleteConfirmationText' => Yii::t('frontend-views', 'Are you sure you want to delete this user?'),
-                'template'=> (Yii::$app->user->isAdmin) ? '{view} {update} {delete}' : '{view} {update}',
+                'template'=> (Yii::$app->user->identity->getIsAdmin()) ? '{view} {update} {delete}' : '{view} {update}',
                 'urlCreator' => function ($action, User $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }

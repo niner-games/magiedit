@@ -49,44 +49,47 @@ $appTitle = 'MagiEdit';
 <?php $this->beginBody() ?>
 
 <header>
-    <?php
-    NavBar::begin([
-    'brandLabel' => Html::img('@web/images/logo-oneliner-white.png', [
-        'alt' => 'MagiEdit logo',
-        'style' => 'height: 42px;'
-    ]),
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
-        ],
-    ]);
+    <?php NavBar::begin([
+        'brandLabel' => Html::img('@web/images/logo-oneliner-white.png', [
+            'alt' => 'MagiEdit logo',
+            'style' => 'height: 42px;'
+        ]),
+            'brandUrl' => Yii::$app->homeUrl,
+            'options' => [
+                'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
+            ],
+        ]);
 
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],
-        'items' => [
-        [
-            'url' => ['/user/index'],
-            'label' => Yii::t('frontend-views', 'Users')
-        ],
-    ]]);
+        $items = [];
 
-    if (Yii::$app->user->isGuest) {
-        echo Html::a(Yii::t('frontend-views', 'Sign Up'), ['/account/signup'], ['class' => ['btn btn-secondary']]);
+        if (Yii::$app->user->identity && Yii::$app->user->identity->getIsAdmin()) {
+            $items[] = [
+                'url' => ['/user/index'],
+                'label' => Yii::t('frontend-views', 'Users')
+            ];
+        }
 
-        echo '&nbsp;';
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],
+            'items' => $items,
+        ]);
 
-        echo Html::a(Yii::t('frontend-views', 'Log In'), ['/account/login'], ['class' => ['btn btn-success']]);
-    } else {
-        echo Html::beginForm(['/account/logout'], 'post', ['class' => 'd-flex'])
-            . Html::submitButton(
-                Yii::t('frontend-views', 'Log Out'),
-                ['class' => 'btn btn-success']
-            )
-            . Html::endForm();
-    }
+        if (Yii::$app->user->isGuest) {
+            echo Html::a(Yii::t('frontend-views', 'Sign Up'), ['/account/signup'], ['class' => ['btn btn-secondary']]);
 
-    NavBar::end();
-    ?>
+            echo '&nbsp;';
+
+            echo Html::a(Yii::t('frontend-views', 'Log In'), ['/account/login'], ['class' => ['btn btn-success']]);
+        } else {
+            echo Html::beginForm(['/account/logout'], 'post', ['class' => 'd-flex'])
+                . Html::submitButton(
+                    Yii::t('frontend-views', 'Log Out'),
+                    ['class' => 'btn btn-success']
+                )
+                . Html::endForm();
+        }
+
+    NavBar::end(); ?>
 </header>
 
 <main role="main" class="flex-shrink-0">
