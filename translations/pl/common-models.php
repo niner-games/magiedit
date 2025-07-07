@@ -33,10 +33,10 @@ return [
     'Status' => 'Stan',
     'This email address has already been taken.' => 'Ten adres e-mail jest już zajęty.',
     'This field cannot be blank.' => 'To pole nie może pozostać puste.',
+    'This field must contain a valid email address.' => 'To pole musi zawierać prawidłowy adres e-mail.',
     'This username has already been taken.' => 'Ta nazwa użytkownika jest już zajęta.',
     'Type' => 'Typ',
     'Updated At' => 'Data aktualizacji',
     'Username' => 'Login',
     'Verification Token' => 'Token weryfikacyjny',
-    'This field must contain a valid email address.' => 'To pole musi zawierać prawidłowy adres e-mail.',
 ];

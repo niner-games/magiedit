@@ -136,7 +136,7 @@ class UserController extends Controller
     {
         $model = $this->findModel($id);
 
-        if (!Yii::$app->user->isAdmin) {
+        if (!Yii::$app->user->identity->getIsAdmin()) {
             Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'Only administrators can delete users.'));
 
             return $this->goBack();

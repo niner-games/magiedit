@@ -26,7 +26,7 @@ YiiAsset::register($this);
     <p><?= Yii::t('frontend-views', 'Details of selected user are provided below.') ?></p>
 
     <p>
-        <?= Html::a(Yii::t('frontend-views', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('frontend-views', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
 
         <?php if ($displayedUserIsLoggedIn): ?>
 
