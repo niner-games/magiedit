@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="user-create">
 
-    <h1><?= Yii::t('frontend-views', 'User'); ?>: <strong><?= Html::encode($this->title) ?></strong></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
     <p><?= Yii::t('frontend-views', 'Please fill out the following fields to add a user.') ?></p>
 
