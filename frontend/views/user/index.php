@@ -106,6 +106,10 @@ $this->registerCss("
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'headerRowOptions' => ['class' => 'data-list-header-row'],
+            'tableOptions' => [
+                    'class' => 'table table-striped table-bordered table-hover table-success mt-3',
+                    'style' => 'border-color: #B6C1BA; border-radius: .375rem; overflow: hidden;'
+            ],
             'columns' => [
                 [
                     'attribute' => 'username',

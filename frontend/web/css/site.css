@@ -92,7 +92,7 @@ a.desc:after {
 /* Style breadcrumb widget as in previous bootstrap versions. */
 
 .breadcrumb {
-    background-color: var(--bs-gray-200);
+    background-color: #e9ecef;
     border-radius: .25rem;
     padding: .75rem 1rem;
 }
@@ -145,7 +145,7 @@ a.desc:after {
 /* All yii\grid\GridView's styles. */
 
 .data-list-header-row th {
-    background-color: #dddddd;
+    background-color: #B6C1BA;
 }
 
 .data-list-header-row a {

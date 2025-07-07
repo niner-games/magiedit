@@ -48,6 +48,10 @@ YiiAsset::register($this);
 
     <?= DetailView::widget([
         'model' => $model,
+        'options' => [
+            'class' => 'table table-striped table-bordered table-hover table-success mt-3',
+            'style' => 'border-color: #B6C1BA; border-radius: .375rem; overflow: hidden;',
+        ],
         'attributes' => [
             'username',
             'email:email',
@@ -55,7 +59,7 @@ YiiAsset::register($this);
                 'attribute' => 'type',
                 'value' => function ($model, $widget) {
                     return $model->getAttributeDesc('type');
-                }
+                },
             ],
             [
                 'attribute' => 'status',
