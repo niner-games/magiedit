@@ -18,6 +18,7 @@
  */
 return [
     'Account Sign Up' => 'Rejestracja konta',
+    'At least one active administrator is required in this application.' => 'W aplikacji musi być co najmniej jeden aktywny administrator.',
     'Email Address' => 'Adres e-mail',
     'Password' => 'Hasło',
     'Password Reset' => 'Reset hasła',
@@ -33,5 +34,5 @@ return [
     'Wrong password reset token.' => 'Błędny token resetowania hasła.',
     'You must solve reCAPTCHA in order to continue.' => 'Aby kontynuować, musisz rozwiązać test reCAPTCHA.',
     'Your email is already verified. No further action is needed.' => 'Twój adres e-mail jest już zweryfikowany. Nie musisz już nic więcej robić.',
-    'At least one active administrator is required in this application.' => 'W aplikacji musi być co najmniej jeden aktywny administrator.',
+    'Your own account must remain active.' => 'Twoje własne konto musi pozostać aktywne.',
 ];
