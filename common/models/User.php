@@ -96,6 +96,11 @@ class User extends ActiveRecord implements IdentityInterface
             [['username', 'email'], 'required', 'message' => Yii::t('common-models', 'This field cannot be blank.')],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common-models', 'This username has already been taken.')],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common-models', 'This email address has already been taken.')],
+
+            /**
+             * Custom validations
+             */
+            [['status', 'type'], 'validateMinimumActiveAdmins'],
         ];
     }
 
@@ -316,5 +321,27 @@ class User extends ActiveRecord implements IdentityInterface
     public function getIsAdmin(): bool
     {
         return $this->type === self::TYPE_ADMINISTRATOR;
+    }
+
+    public function validateMinimumActiveAdmins($attribute, $params): void
+    {
+        if ((int)$this->type !== self::TYPE_ADMINISTRATOR || (int)$this->status !== self::STATUS_ACTIVE) {
+            if ($this->countActiveAdmins() < 1) {
+                $this->addError('status', Yii::t('frontend-models', 'At least one active administrator is required in this application.'));
+            }
+        }
+    }
+
+    /**
+     * Checks how many users in type of administrator are currently in the system.
+     *
+     * @return int number of administrators
+     */
+    protected function countActiveAdmins(): int
+    {
+        return self::find()
+            ->where(['type' => self::TYPE_ADMINISTRATOR, 'status' => self::STATUS_ACTIVE])
+            ->andWhere(['<>', 'id', $this->id])
+            ->count();
     }
 }

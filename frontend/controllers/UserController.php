@@ -146,18 +146,6 @@ class UserController extends Controller
     {
         $model = $this->findModel($id);
 
-        if (!Yii::$app->user->identity->getIsAdmin()) {
-            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'Only administrators can delete users.'));
-
-            return $this->goBack();
-        }
-
-        if ($model->type === User::TYPE_ADMINISTRATOR && $this->countAdmins() <= 1) {
-            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'You cannot delete last administrator.'));
-
-            return $this->goBack();
-        }
-
         if (Yii::$app->user->id === $model->id) {
             Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.'));
 
@@ -184,15 +172,5 @@ class UserController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('frontend-controllers', 'The requested page does not exist.'));
-    }
-
-    /**
-     * Checks how many users in type of administrator are currently in the system.
-     *
-     * @return int number of administrators
-     */
-    protected function countAdmins(): int
-    {
-        return count(User::findAll(['type' => User::TYPE_ADMINISTRATOR]));
     }
 }

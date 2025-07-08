@@ -33,7 +33,7 @@ class LoginForm extends Model
         return [
             [['username', 'password'], 'required', 'message' => Yii::t('common-models', 'This field cannot be blank.')],
             ['rememberMe', 'boolean'],
-            ['password', 'validatePassword'], // password is validated by validatePassword()
+            ['password', 'validatePassword']
         ];
     }
 

@@ -27,6 +27,6 @@ return [
     'Your email address has been confirmed!' => 'Twój adres e-mail został potwierdzony!',
     'Your password has been changed successfully.' => 'Twoje hasło zostało pomyślnie zmienione.',
     'You’ve successfully logged out. For added security, consider closing all browser windows.' => 'Wylogowano pomyślnie. Dla większego bezpieczeństwa warto zamknąć wszystkie okna przeglądarki.',
-    'Only administrators can delete users.' => 'Tylko administratorzy mogą usuwać użytkowników.',
-    'You cannot delete last administrator.' => 'Nie możesz usunąć ostatniego administratora.',
+    'Only administrators can delete users.' => '@@Tylko administratorzy mogą usuwać użytkowników.@@',
+    'You cannot delete last administrator.' => '@@Nie możesz usunąć ostatniego administratora.@@',
 ];

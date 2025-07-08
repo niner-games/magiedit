@@ -31,6 +31,7 @@ return [
     'Verification Code' => 'Token weryfikacyjny',
     'Verify email token cannot be blank.' => 'Token weryfikacji adresu e-mail nie może być pusty.',
     'Wrong password reset token.' => 'Błędny token resetowania hasła.',
-    'Your email is already verified. No further action is needed.' => 'Twój adres e-mail jest już zweryfikowany. Nie musisz już nic więcej robić.',
     'You must solve reCAPTCHA in order to continue.' => 'Aby kontynuować, musisz rozwiązać test reCAPTCHA.',
+    'Your email is already verified. No further action is needed.' => 'Twój adres e-mail jest już zweryfikowany. Nie musisz już nic więcej robić.',
+    'At least one active administrator is required in this application.' => 'W aplikacji musi być co najmniej jeden aktywny administrator.',
 ];
