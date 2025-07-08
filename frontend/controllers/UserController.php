@@ -93,8 +93,12 @@ class UserController extends Controller
         $model = new User();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index']);
+            if ($model->load($this->request->post())) {
+                $model->auth_key = '';
+
+                if ($model->save()) {
+                    return $this->redirect(['index']);
+                }
             }
         } else {
             $model->loadDefaultValues();

@@ -17,8 +17,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p><?= Yii::t('frontend-views', 'Please fill out the following fields to add a user.') ?></p>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <div class="mb-3">
+
+        <?= $this->render('_form', [
+            'model' => $model,
+        ]) ?>
+
+    </div>
+
+    <p><?= Yii::t('frontend-views', 'The user will not be able to log in until a password is set. Inform them to reset password during first login.') ?></p>
 
 </div>
