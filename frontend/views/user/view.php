@@ -1,22 +1,21 @@
 <?php
 
-use common\models\User;
-use yii\helpers\Html;
-use yii\web\YiiAsset;
-use yii\widgets\DetailView;
+    use common\models\User;
+    use yii\helpers\Html;
+    use yii\web\YiiAsset;
+    use yii\widgets\DetailView;
 
-/** @var yii\web\View $this */
-/** @var common\models\User $model */
+    /** @var yii\web\View $this */
+    /** @var bool $isCurrentUser */
+    /** @var common\models\User $model */
 
-$displayedUserIsLoggedIn = (Yii::$app->user->id === $model->id);
+    $this->title = $model->username;
+    $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend-views', 'Users'), 'url' => ['index']];
+    $this->params['breadcrumbs'][] = $this->title;
 
-$this->title = $model->username;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend-views', 'Users'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+    $this->registerJs("$('span').tooltip()");
 
-$this->registerJs("$('span').tooltip()");
-
-YiiAsset::register($this);
+    YiiAsset::register($this);
 
 ?>
 
@@ -28,14 +27,14 @@ YiiAsset::register($this);
     <p>
         <?= Html::a(Yii::t('frontend-views', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
 
-        <?php if ($displayedUserIsLoggedIn): ?>
+        <?php if ($isCurrentUser): ?>
 
-        <span class="d-inline-block" tabindex="0" title="<?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>" data-bs-placement="right">
+            <span class="d-inline-block" tabindex="0" title="<?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>" data-bs-placement="right">
 
         <?php endif; ?>
 
         <?= Html::a(Yii::t('frontend-views', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger delete-user-btn' . ($displayedUserIsLoggedIn ? ' disabled' : ''),
+            'class' => 'btn btn-danger delete-user-btn' . ($isCurrentUser ? ' disabled' : ''),
             'data' => [
                 'modal-username' => Html::encode($model->username),
                 'modal-type' => Html::encode($model->getAttributeDesc('type')),
@@ -43,7 +42,7 @@ YiiAsset::register($this);
             ],
         ]) ?>
 
-        <?php if ($displayedUserIsLoggedIn): ?></span><?php endif; ?>
+        <?php if ($isCurrentUser): ?></span><?php endif; ?>
 
     </p>
 
@@ -115,7 +114,7 @@ YiiAsset::register($this);
 
     <?php endif; ?>
 
-    <?php if ($displayedUserIsLoggedIn): ?>
+    <?php if ($isCurrentUser): ?>
 
         <br /><?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>
 

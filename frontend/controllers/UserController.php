@@ -78,8 +78,11 @@ class UserController extends Controller
     {
         Yii::$app->getUser()->setReturnUrl($this->request->getUrl());
 
+        $model = $this->findModel($id);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'isCurrentUser' => (Yii::$app->user->id === $model->id)
         ]);
     }
 
@@ -107,6 +110,7 @@ class UserController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'isCurrentUser' => false
         ]);
     }
 
@@ -127,6 +131,7 @@ class UserController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'isCurrentUser' => (Yii::$app->user->id === $model->id)
         ]);
     }
 
