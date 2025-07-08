@@ -17,7 +17,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    ' and ' => ' i ',
     ' to access all the features and create your unforgettable story.' => ', aby uzyskać dostęp do wszystkich funkcji i stworzyć swoją niezapomnianą historię.',
+    ', so they ' => ', więc ',
     'Add User' => 'Dodaj użytkownika',
     'Are you sure you want to delete this user?' => 'Czy na pewno chcesz usunąć tego użytkownika?',
     'Are you sure?' => 'Potwierdzasz?',
@@ -54,6 +56,7 @@ return [
     'The above error occurred while server was processing your request.' => 'Powyższy błąd wystąpił podczas przetwarzania Twojego żądania przez serwer.',
     'The following user will be deleted:' => 'Poniższy użytkownik zostanie usunięty:',
     'The list of all users existing in the system is shown below.' => 'Lista wszystkich użytkowników istniejących w systemie znajduje się poniżej.',
+    'The user will not be able to log in until a password is set. Inform them to reset password during first login.' => 'Użytkownik nie będzie mógł się zalogować, dopóki nie ustawi hasła. Poinformuj go, by je zresetował przy pierwszym logowaniu.',
     'This user' => 'Ten użytkownik',
     'User' => 'Użytkownik',
     'Users' => 'Użytkownicy',
@@ -63,14 +66,12 @@ return [
     'Yes' => 'Tak',
     'You can only delete a user that has' => 'Możesz usunąć tylko użytkownika, który',
     'You must assign all user’s objects to some other user before deleting it.' => 'Musisz przypisać wszystkie obiekty danego użytkownika do innego, zanim go usuniesz.',
-    'and' => 'i',
     'assigned to itself' => 'przypisanych do siebie',
     'can log in' => 'może się zalogować',
     'cannot log in' => 'nie może się zalogować',
+    'has no password set' => 'nie ma ustawionego hasła',
     'is active' => 'jest aktywny',
     'is not active' => 'jest nieaktywny',
     'no objects' => 'żadnych obiektów',
     'polski' => 'polski',
-    'to this application' => 'do tej aplikacji',
-    'The user will not be able to log in until a password is set. Inform them to reset password during first login.' => 'Użytkownik nie będzie mógł się zalogować, dopóki nie ustawi hasła. Poinformuj go, by je zresetował przy pierwszym logowaniu.',
 ];

@@ -22,7 +22,7 @@ YiiAsset::register($this);
 
 <div class="user-view">
 
-    <h1><?= Yii::t('frontend-views', 'User'); ?>: <strong><?= Html::encode($model->username) ?></strong> (<?= Html::encode($model->email) ?>)</h1>
+    <h1><strong><?= Html::encode($model->username) ?></strong> (<?= Html::encode($model->email) ?>)</h1>
     <p><?= Yii::t('frontend-views', 'Details of selected user are provided below.') ?></p>
 
     <p>
@@ -84,25 +84,32 @@ YiiAsset::register($this);
 
     <?= Yii::t('frontend-views', 'This user'); ?>
 
-    <?php if ($model->status === User::STATUS_ACTIVE): ?>
+    <?php
+        $statusActive = ($model->status === User::STATUS_ACTIVE);
+        $hasAuthKey = !empty($model->auth_key);
 
-        <strong><?= Yii::t('frontend-views', 'is active'); ?></strong>
-        <?= Yii::t('frontend-views', 'and'); ?>
-        <em><?= Yii::t('frontend-views', 'can log in'); ?></em>
+        if ($statusActive && $hasAuthKey):
+    ?>
+
+        <strong><?= Yii::t('frontend-views', 'is active'); ?></strong><?= Yii::t('frontend-views', ', so they '); ?>
+        <em><?= Yii::t('frontend-views', 'can log in'); ?></em>.
 
     <?php else: ?>
 
-        <strong><?= Yii::t('frontend-views', 'is not active'); ?></strong>
-        <?= Yii::t('frontend-views', 'and'); ?>
-        <em><?= Yii::t('frontend-views', 'cannot log in'); ?></em>
+        <?php
+        if (!$statusActive && !$hasAuthKey) {
+            $reason = Yii::t('frontend-views', 'is not active');
+            $reason .= Yii::t('frontend-views', ' and ');
+            $reason .= Yii::t('frontend-views', 'has no password set');
+        } elseif (!$statusActive) {
+            $reason = Yii::t('frontend-views', 'is not active');
+        } else {
+            $reason = Yii::t('frontend-views', 'has no password set');
+        }
+        ?>
 
-    <?php endif; ?>
-
-    <em><?= Yii::t('frontend-views', 'to this application'); ?></em>.<br>
-
-    <?php if ($displayedUserIsLoggedIn): ?>
-
-        <?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>
+        <strong><?= $reason; ?></strong><?= Yii::t('frontend-views', ', so they '); ?>
+        <em><?= Yii::t('frontend-views', 'cannot log in'); ?></em>.
 
     <?php endif; ?>
 
