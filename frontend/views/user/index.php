@@ -13,13 +13,6 @@ use yii\bootstrap5\LinkPager;
 /** @var yii\web\View $this */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-/**
- * SVG icons used in this view:
- * - https://lucide.dev/icons/
- * - https://tabler.io/icons/
- * - https://heroicons.com/
- */
-
 $this->title = Yii::t('frontend-views', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -28,65 +21,6 @@ $this->registerJs("
     $('a').tooltip()
 ");
 
-$this->registerJs("
-    const csrfParam = '".Yii::$app->request->csrfParam."';
-    const csrfToken = '".Yii::$app->request->getCsrfToken()."';
-");
-
-$this->registerJs("
-    let deleteUrl = '';
-    
-    $(document).on('click', '.delete-user-btn', function (e) {
-        e.preventDefault();
-        const btn = $(this);
-        deleteUrl = $(this).attr('href');
-        
-        $('#delete-user-type').text(btn.data('modal-type'));
-        $('#delete-user-status').text(btn.data('modal-status'));
-        $('#delete-user-username').text(btn.data('modal-username'));
-        
-        const modal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
-        
-        modal.show();
-    });
-
-    $('#confirmDeleteBtn').on('click', function () {
-        if (deleteUrl) {
-            const form = $('<form>', {
-                method: 'POST',
-                action: deleteUrl
-            });
-
-            const csrfInput = $('<input>', {
-                type: 'hidden',
-                name: csrfParam,
-                value: csrfToken
-            });
-
-            form.append(csrfInput).appendTo('body');
-            form.submit();
-            
-            form.on('submit', function () {
-                $(this).remove();
-            });
-        }
-    });
-");
-
-
-$this->registerCss("
-    @media (max-width: 575.98px) {
-        .modal-dialog.modal-sm {
-            max-width: 200px;
-            margin: auto;
-        }
-    }
-    
-    .modal-dialog.modal-sm {
-        max-width: 330px;
-        margin: auto;
-    }
-");
 ?>
 
 <div class="user-index">
@@ -102,13 +36,22 @@ $this->registerCss("
         ); ?>
     </p>
 
+    <?php
+        /**
+         * SVG icons used in this view:
+         * - https://lucide.dev/icons/
+         * - https://tabler.io/icons/
+         * - https://heroicons.com/
+         */
+    ?>
+
     <div class="table-responsive">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'headerRowOptions' => ['class' => 'data-list-header-row'],
             'tableOptions' => [
-                    'class' => 'table table-striped table-bordered table-hover table-success mt-3',
-                    'style' => 'border-color: #B6C1BA; border-radius: .375rem; overflow: hidden;'
+                'class' => 'table table-striped table-bordered table-hover table-success mt-3',
+                'style' => 'border-color: #B6C1BA; border-radius: .375rem; overflow: hidden;'
             ],
             'columns' => [
                 [
@@ -222,26 +165,6 @@ $this->registerCss("
 
 </div>
 
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteLabel">Confirm Deletion</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p><?= Yii::t('frontend-views', 'The following user will be deleted:'); ?></p>
-                <ul id="delete-user-details" style="">
-                    <li><?= Yii::t('common-models', 'Username'); ?>: <strong><span id="delete-user-username"></span></strong></li>
-                    <li><?= Yii::t('common-models', 'Status'); ?>: <strong><span id="delete-user-status"></span></strong></li>
-                    <li><?= Yii::t('common-models', 'Type'); ?>: <strong><span id="delete-user-type"></span></strong></li>
-                </ul>
-                <p><?= Yii::t('frontend-views', 'Are you sure?'); ?></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?= Yii::t('frontend-views', 'No'); ?></button>
-                <button type="button" class="btn btn-danger" id="confirmDeleteBtn"><?= Yii::t('frontend-views', 'Yes'); ?></button>
-            </div>
-        </div>
-    </div>
-</div>
+<?= $this->render('_dialog', [
+
+]) ?>
