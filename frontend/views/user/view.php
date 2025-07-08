@@ -53,6 +53,7 @@ YiiAsset::register($this);
             'class' => 'table table-striped table-bordered table-hover table-success mt-3',
             'style' => 'border-color: #B6C1BA; border-radius: .375rem; overflow: hidden;',
         ],
+        'template' => '<tr><th style="width: 33%; vertical-align: middle;">{label}</th><td style="width: 67%;">{value}</td></tr>',
         'attributes' => [
             'username',
             'email:email',
