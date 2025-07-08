@@ -165,6 +165,4 @@ $this->registerJs("
 
 </div>
 
-<?= $this->render('_dialog', [
-
-]) ?>
+<?= $this->render('_dialog', []) ?>

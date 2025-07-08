@@ -23,10 +23,10 @@ return [
     'Unfortunately, we can’t reset the password for this email address.' => 'Niestety nie możemy zresetować hasła dla Twojego adresu e-mail.',
     'Unfortunately, we can’t verify your account with the token provided. If the link has expired, try requesting a new one.' => 'Niestety nie możemy zweryfikować Twojego konta za pomocą podanego tokena. Jeśli odnośnik stracił ważność, spróbuj wygenerować nowy.',
     'Welcome aboard! We’ve sent a verification email to your inbox. If you don’t see it, be sure to check your spam or junk folder — just in case.' => 'Witamy na pokładzie! Wysłaliśmy e-mail weryfikacyjny na Twoją skrzynkę. Jeśli go nie widzisz, sprawdź folder spam lub inne zakładki — na wszelki wypadek.',
-    'You cannot delete currently logged-in user.' => 'Nie można usunąć aktualnie zalogowanego użytkownika.',
+    'You cannot delete currently logged-in user.' => 'Nie możesz usunąć aktualnie zalogowanego użytkownika.',
     'Your email address has been confirmed!' => 'Twój adres e-mail został potwierdzony!',
     'Your password has been changed successfully.' => 'Twoje hasło zostało pomyślnie zmienione.',
     'You’ve successfully logged out. For added security, consider closing all browser windows.' => 'Wylogowano pomyślnie. Dla większego bezpieczeństwa warto zamknąć wszystkie okna przeglądarki.',
     'Only administrators can delete users.' => 'Tylko administratorzy mogą usuwać użytkowników.',
-    'You cannot delete last administrator.' => 'Nie można usunąć ostatniego administratora.',
+    'You cannot delete last administrator.' => 'Nie możesz usunąć ostatniego administratora.',
 ];

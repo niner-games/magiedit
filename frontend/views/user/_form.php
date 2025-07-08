@@ -13,7 +13,22 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <p><?= Html::submitButton(Yii::t('frontend-views', 'Save'), ['class' => 'btn btn-success']) ?></p>
+    <p>
+
+        <?= Html::submitButton(Yii::t('frontend-views', 'Save'), ['class' => 'btn btn-success']) ?>
+
+        <?php if (!empty($showDeleteButton)) : ?>
+            <?= Html::a(Yii::t('frontend-views', 'Delete'), ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger delete-user-btn',
+                'data' => [
+                    'modal-username' => Html::encode($model->username),
+                    'modal-type' => Html::encode($model->getAttributeDesc('type')),
+                    'modal-status' => Html::encode($model->getAttributeDesc('status'))
+                ],
+            ]) ?>
+        <?php endif; ?>
+
+    </p>
 
     <?= $form->field($model, 'username')->textInput() ?>
 

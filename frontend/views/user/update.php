@@ -13,12 +13,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="user-update">
 
-    <h1><?= Yii::t('frontend-views', 'User'); ?>: <strong><?= Html::encode($model->username) ?></strong> (<?= Html::encode($model->email) ?>)</h1>
+    <h1><strong><?= Html::encode($model->username) ?></strong> (<?= Html::encode($model->email) ?>)</h1>
 
     <p><?= Yii::t('frontend-views', 'Please use this form to update selected user.') ?></p>
 
     <?= $this->render('_form', [
         'model' => $model,
+        'showDeleteButton' => true
     ]) ?>
+
+    <?= $this->render('_dialog', []) ?>
 
 </div>

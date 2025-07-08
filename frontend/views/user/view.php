@@ -35,10 +35,11 @@ YiiAsset::register($this);
         <?php endif; ?>
 
         <?= Html::a(Yii::t('frontend-views', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger' . ($displayedUserIsLoggedIn ? ' disabled' : ''),
+            'class' => 'btn btn-danger delete-user-btn' . ($displayedUserIsLoggedIn ? ' disabled' : ''),
             'data' => [
-                'confirm' => Yii::t('frontend-views', 'Are you sure you want to delete this user?'),
-                'method' => 'post',
+                'modal-username' => Html::encode($model->username),
+                'modal-type' => Html::encode($model->getAttributeDesc('type')),
+                'modal-status' => Html::encode($model->getAttributeDesc('status'))
             ],
         ]) ?>
 
@@ -113,4 +114,12 @@ YiiAsset::register($this);
 
     <?php endif; ?>
 
+    <?php if ($displayedUserIsLoggedIn): ?>
+
+        <br /><?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>
+
+    <?php endif; ?>
+
 </p>
+
+<?= $this->render('_dialog', []) ?>
