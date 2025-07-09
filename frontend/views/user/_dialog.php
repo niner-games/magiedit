@@ -45,16 +45,25 @@ $this->registerJs("
 ");
 
 $this->registerCss("
-    @media (max-width: 575.98px) {
-        .modal-dialog.modal-sm {
-            max-width: 200px;
-            margin: auto;
-        }
+    .modal-dialog.modal-sm {
+        max-width: 465px;
+        margin: auto;
     }
     
-    .modal-dialog.modal-sm {
-        max-width: 330px;
-        margin: auto;
+    .line-break {
+        display: block;
+        margin-top: 0.21em;
+    }
+    
+    @media (max-width: 575.98px) {
+        .modal-dialog.modal-sm {
+            width: 310px !important;
+            max-width: 310px !important;
+        }
+        
+        .line-break {
+            display: inline;
+        }
     }
 ");
 
@@ -75,6 +84,10 @@ $this->registerCss("
                     <li><?= Yii::t('common-models', 'Type'); ?>: <strong><span id="delete-user-type"></span></strong></li>
                 </ul>
                 <p><?= Yii::t('frontend-views', 'Are you sure?'); ?></p>
+                <small>
+                    <?= Yii::t('frontend-views', 'Hey there! Just making sure — we trust you know what you’re doing.'); ?>
+                    <span class="line-break"><?= Yii::t('frontend-views', 'Once you hit “Yes”, there’s no going back. Poof! Gone for good.'); ?></span>
+                </small>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?= Yii::t('frontend-views', 'No'); ?></button>

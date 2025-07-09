@@ -73,4 +73,6 @@ return [
     'is not active' => 'jest nieaktywny',
     'no objects' => 'żadnych obiektów',
     'polski' => 'polski',
+    'Hey there! Just making sure — we trust you know what you’re doing.' => 'Hej! Tylko upewniamy się — ufamy, że wiesz, co robisz.',
+    'Once you hit “Yes”, there’s no going back. Poof! Gone for good.' => 'Gdy klikniesz „Tak”, nie ma odwrotu. Puf! Zniknęło na dobre.',
 ];
