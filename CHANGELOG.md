@@ -1,8 +1,9 @@
-## 0.2.0 (13 July 2025)
+## 0.2.0 (9 July 2025)
 
 - Bug [#3](https://github.com/niner-games/magiedit.web/issues/3): Check functionality, views and rules for Users ([Mr. Fat Guy](https://github.com/mrfatguy))
 - Bug [#9](https://github.com/niner-games/magiedit.web/issues/9): Footer on mobiles is too long ([Mr. Fat Guy](https://github.com/mrfatguy))
 
+- Feature [#26](https://github.com/niner-games/magiedit.web/issues/26): Make entire row clickable in users list ([Mr. Fat Guy](https://github.com/mrfatguy))
 - Feature [#24](https://github.com/niner-games/magiedit.web/issues/24): Add CAPTCHA to the registration screen ([Mr. Fat Guy](https://github.com/mrfatguy))
 
 - Task [#4](https://github.com/niner-games/magiedit.web/issues/4): Polish all translations ([Mr. Fat Guy](https://github.com/mrfatguy))

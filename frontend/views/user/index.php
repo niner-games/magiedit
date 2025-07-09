@@ -53,6 +53,17 @@ $this->registerJs("
                 'class' => 'table table-striped table-bordered table-hover table-success mt-3',
                 'style' => 'border-color: #B6C1BA; border-radius: .375rem; overflow: hidden;'
             ],
+            'rowOptions' => function ($model, $key, $index, $grid) {
+                if ($model === null) {
+                    // Defensive check: ensure it's not the header or a null model row.
+                    return [];
+                }
+
+                return [
+                    'style' => 'cursor:pointer',
+                    'onclick' => 'window.location.href = "' . Url::to(['update', 'id' => $model->id]) . '"',
+                ];
+            },
             'columns' => [
                 [
                     'attribute' => 'username',
