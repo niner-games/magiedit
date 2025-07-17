@@ -34,5 +34,5 @@ return [
     'Wrong password reset token.' => 'Błędny token resetowania hasła.',
     'You must solve reCAPTCHA in order to continue.' => 'Aby kontynuować, musisz rozwiązać test reCAPTCHA.',
     'Your email is already verified. No further action is needed.' => 'Twój adres e-mail jest już zweryfikowany. Nie musisz już nic więcej robić.',
-    'Your own account must remain active.' => 'Twoje własne konto musi pozostać aktywne.',
+    'Your own account must remain active.' => 'Twoje konto musi pozostać aktywne.',
 ];
