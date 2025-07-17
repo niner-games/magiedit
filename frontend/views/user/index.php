@@ -1,5 +1,7 @@
 <?php
 
+/** SVG icons used in this view comes from https://lucide.dev/icons/ or https://tabler.io/icons/ or https://heroicons.com/ */
+
 use common\models\User;
 use common\widgets\CustomActionColumn;
 
@@ -18,7 +20,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("
     $('span').tooltip();
-    $('a').tooltip()
+    $('a').tooltip();
+    
+    $(document).on('click', '.clickable-cell', function () {
+        const id = $(this).closest('tr').data('key');
+        if (id) {
+            window.location.href = '". Url::to(['update']) ."?id=' + id;
+        }
+    });
+");
+
+$this->registerCss("
+    .clickable-cell {
+        cursor: pointer;
+    }
 ");
 
 ?>
@@ -37,12 +52,7 @@ $this->registerJs("
     </p>
 
     <?php
-        /**
-         * SVG icons used in this view:
-         * - https://lucide.dev/icons/
-         * - https://tabler.io/icons/
-         * - https://heroicons.com/
-         */
+
     ?>
 
     <div class="table-responsive">
@@ -53,17 +63,6 @@ $this->registerJs("
                 'class' => 'table table-striped table-bordered table-hover table-success mt-3',
                 'style' => 'border-color: #B6C1BA; border-radius: .375rem; overflow: hidden;'
             ],
-            'rowOptions' => function ($model, $key, $index, $grid) {
-                if ($model === null) {
-                    // Defensive check: ensure it's not the header or a null model row.
-                    return [];
-                }
-
-                return [
-                    'style' => 'cursor:pointer',
-                    'onclick' => 'window.location.href = "' . Url::to(['update', 'id' => $model->id]) . '"',
-                ];
-            },
             'columns' => [
                 [
                     'attribute' => 'username',
@@ -73,36 +72,36 @@ $this->registerJs("
                             'data-bs-toggle' => 'tooltip',
                             'data-bs-placement' => 'top',
                             'title' => $model->email,
-                            'style' => 'cursor: default;',
+                            'style' => 'cursor: pointer;',
                         ]);
                     },
-                    'contentOptions' => ['class' => 'text-left align-middle'],
+                    'contentOptions' => ['class' => 'text-left align-middle clickable-cell'],
                     'headerOptions' => ['style' => 'width: 18%', 'class' => 'text-center'],
                 ],
                 [
                     'attribute' => 'type',
                     'class' => EnumColumn::class,
                     'enumClass' => User::class,
-                    'contentOptions' => ['class' => 'text-center align-middle'],
+                    'contentOptions' => ['class' => 'text-center align-middle clickable-cell'],
                     'headerOptions' => ['style' => 'width: 10%', 'class' => 'text-center'],
                 ],
                 [
                     'attribute' => 'status',
                     'class' => EnumColumn::class,
                     'enumClass' => User::class,
-                    'contentOptions' => ['class' => 'text-center align-middle'],
+                    'contentOptions' => ['class' => 'text-center align-middle clickable-cell'],
                     'headerOptions' => ['style' => 'width: 10%', 'class' => 'text-center'],
                 ],
                 [
                     'attribute' => 'updated_at',
                     'format' => ['date', 'd MMMM y, kk:mm:ss'],
-                    'contentOptions' => ['class' => 'text-center align-middle d-none d-md-table-cell'],
+                    'contentOptions' => ['class' => 'text-center align-middle d-none d-md-table-cell clickable-cell'],
                     'headerOptions' => ['style' => 'width: 18%', 'class' => 'text-center d-none d-md-table-cell'],
                 ],
                 [
                     'attribute' => 'created_at',
                     'format' => ['date', 'd MMMM y, kk:mm:ss'],
-                    'contentOptions' => ['class' => 'text-center align-middle d-none d-md-table-cell'],
+                    'contentOptions' => ['class' => 'text-center align-middle d-none d-md-table-cell clickable-cell'],
                     'headerOptions' => ['style' => 'width: 18%', 'class' => 'text-center d-none d-md-table-cell'],
                 ],
                 [
