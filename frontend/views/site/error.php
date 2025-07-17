@@ -20,10 +20,10 @@ $this->title = $name;
     </div>
 
     <p>
-        <?= Yii::t('frontend-views', 'The above error occurred while server was processing your request.') ?>
+        <?= Yii::t('views', 'The above error occurred while server was processing your request.') ?>
     </p>
     <p>
-        <?= Yii::t('frontend-views', 'Please contact us if you think this is a server error. Thank you.') ?>
+        <?= Yii::t('views', 'Please contact us if you think this is a server error. Thank you.') ?>
     </p>
 
 </div>

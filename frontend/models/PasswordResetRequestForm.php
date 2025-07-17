@@ -28,11 +28,11 @@ class PasswordResetRequestForm extends Model
         return [
             ['email', 'trim'],
             ['email', 'required'],
-            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid email address.')],
+            ['email', 'email', 'message' => Yii::t('models', 'This field must contain a valid email address.')],
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => Yii::t('frontend-models', 'Password reset is available for verified accounts only.')
+                'message' => Yii::t('models', 'Password reset is available for verified accounts only.')
             ],
         ];
     }
@@ -43,7 +43,7 @@ class PasswordResetRequestForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => Yii::t('frontend-models', 'Email Address')
+            'email' => Yii::t('models', 'Email Address')
         ];
     }
 
@@ -92,7 +92,7 @@ class PasswordResetRequestForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => $appName])
             ->setTo($this->email)
-            ->setSubject($appName . '. ' . Yii::t('frontend-models', 'Password Reset'))
+            ->setSubject($appName . '. ' . Yii::t('models', 'Password Reset'))
             ->send();
     }
 }

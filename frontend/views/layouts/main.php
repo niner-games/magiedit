@@ -25,7 +25,7 @@ $appTitle = 'MagiEdit';
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($appTitle) ?> &ndash; <?= Yii::t('frontend-views', 'Where visual novels and gamebooks begin their journey') ?></title>
+    <title><?= Html::encode($appTitle) ?> &ndash; <?= Yii::t('views', 'Where visual novels and gamebooks begin their journey') ?></title>
 
     <?= Html::tag('link', '', [
         'rel' => 'icon',
@@ -65,7 +65,7 @@ $appTitle = 'MagiEdit';
         if (Yii::$app->user->identity && Yii::$app->user->identity->getIsAdmin()) {
             $items[] = [
                 'url' => ['/user/index'],
-                'label' => Yii::t('frontend-views', 'Users')
+                'label' => Yii::t('views', 'Users')
             ];
         }
 
@@ -75,15 +75,15 @@ $appTitle = 'MagiEdit';
         ]);
 
         if (Yii::$app->user->isGuest) {
-            echo Html::a(Yii::t('frontend-views', 'Sign Up'), ['/account/signup'], ['class' => ['btn btn-secondary']]);
+            echo Html::a(Yii::t('views', 'Sign Up'), ['/account/signup'], ['class' => ['btn btn-secondary']]);
 
             echo '&nbsp;';
 
-            echo Html::a(Yii::t('frontend-views', 'Log In'), ['/account/login'], ['class' => ['btn btn-success']]);
+            echo Html::a(Yii::t('views', 'Log In'), ['/account/login'], ['class' => ['btn btn-success']]);
         } else {
             echo Html::beginForm(['/account/logout'], 'post', ['class' => 'd-flex'])
                 . Html::submitButton(
-                    Yii::t('frontend-views', 'Log Out'),
+                    Yii::t('views', 'Log Out'),
                     ['class' => 'btn btn-success']
                 )
                 . Html::endForm();
@@ -123,15 +123,15 @@ $appTitle = 'MagiEdit';
 
             <span class="d-none d-md-inline">
 
-                <?= Yii::t('frontend-views', 'Version') ?>:
+                <?= Yii::t('views', 'Version') ?>:
                 <?= ApplicationVersion::get() ?>.
 
             </span>
 
         <p class="float-end mb-0">
 
-            <?= Html::a(Yii::t('frontend-views', 'polski'), Url::current(['language' => 'pl'])) ?> |
-            <?= Html::a(Yii::t('frontend-views', 'English'), Url::current(['language' => 'en'])) ?>
+            <?= Html::a(Yii::t('views', 'polski'), Url::current(['language' => 'pl'])) ?> |
+            <?= Html::a(Yii::t('views', 'English'), Url::current(['language' => 'en'])) ?>
 
         </p>
     </div>

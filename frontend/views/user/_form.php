@@ -15,23 +15,23 @@
     $hasAuthKey = !empty($model->auth_key);
 
     if ($statusActive && $hasAuthKey) {
-        $message = '<strong>' . Yii::t('frontend-views', 'is active') . '</strong>' .
-            Yii::t('frontend-views', ', so they ') .
-            '<em>' . Yii::t('frontend-views', 'can log in') . '</em>.';
+        $message = '<strong>' . Yii::t('views', 'is active') . '</strong>' .
+            Yii::t('views', ', so they ') .
+            '<em>' . Yii::t('views', 'can log in') . '</em>.';
     } else {
         if (!$statusActive && !$hasAuthKey) {
-            $reason = Yii::t('frontend-views', 'is not active') .
-                Yii::t('frontend-views', ' and ') .
-                Yii::t('frontend-views', 'has no password set');
+            $reason = Yii::t('views', 'is not active') .
+                Yii::t('views', ' and ') .
+                Yii::t('views', 'has no password set');
         } elseif (!$statusActive) {
-            $reason = Yii::t('frontend-views', 'is not active');
+            $reason = Yii::t('views', 'is not active');
         } else {
-            $reason = Yii::t('frontend-views', 'has no password set');
+            $reason = Yii::t('views', 'has no password set');
         }
 
         $message = '<strong>' . $reason . '</strong>' .
-            Yii::t('frontend-views', ', so they ') .
-            '<em>' . Yii::t('frontend-views', 'cannot log in') . '</em>.';
+            Yii::t('views', ', so they ') .
+            '<em>' . Yii::t('views', 'cannot log in') . '</em>.';
     }
 
     $userStatusActive = User::STATUS_ACTIVE;
@@ -50,26 +50,26 @@
         function updateSummary() {
             let reasonText = '';
             const status = parseInt(statusField.value);
-            let summaryText = '<?= Yii::t('frontend-views', 'This user'); ?>';
+            let summaryText = '<?= Yii::t('views', 'This user'); ?>';
 
             if (status === <?= json_encode($userStatusActive) ?> && authKeySet) {
-                summaryText = summaryText + ' <strong><?= Yii::t('frontend-views', 'is active') ?></strong>' +
-                    '<?= Yii::t('frontend-views', ', so they ') ?>' +
-                    '<em><?= Yii::t('frontend-views', 'can log in') ?></em>.';
+                summaryText = summaryText + ' <strong><?= Yii::t('views', 'is active') ?></strong>' +
+                    '<?= Yii::t('views', ', so they ') ?>' +
+                    '<em><?= Yii::t('views', 'can log in') ?></em>.';
             } else {
                 if (status !== <?= json_encode($userStatusActive) ?> && !authKeySet) {
-                    reasonText = '<?= Yii::t('frontend-views', 'is not active') ?>' +
-                        '<?= Yii::t('frontend-views', ' and ') ?>' +
-                        '<?= Yii::t('frontend-views', 'has no password set') ?>';
+                    reasonText = '<?= Yii::t('views', 'is not active') ?>' +
+                        '<?= Yii::t('views', ' and ') ?>' +
+                        '<?= Yii::t('views', 'has no password set') ?>';
                 } else if (status !== <?= json_encode($userStatusActive) ?>) {
-                    reasonText = '<?= Yii::t('frontend-views', 'is not active') ?>';
+                    reasonText = '<?= Yii::t('views', 'is not active') ?>';
                 } else {
-                    reasonText = '<?= Yii::t('frontend-views', 'has no password set') ?>';
+                    reasonText = '<?= Yii::t('views', 'has no password set') ?>';
                 }
 
                 summaryText = summaryText + ' <strong>' + reasonText + '</strong>' +
-                    '<?= Yii::t('frontend-views', ', so they ') ?>' +
-                    '<em><?= Yii::t('frontend-views', 'cannot log in') ?></em>.';
+                    '<?= Yii::t('views', ', so they ') ?>' +
+                    '<em><?= Yii::t('views', 'cannot log in') ?></em>.';
             }
 
             summaryBox.innerHTML = summaryText;
@@ -87,17 +87,17 @@
 
         <p>
 
-            <?= Html::submitButton(Yii::t('frontend-views', 'Save'), ['class' => 'btn btn-success']) ?>
+            <?= Html::submitButton(Yii::t('views', 'Save'), ['class' => 'btn btn-success']) ?>
 
             <?php if ($showDeleteButton): ?>
 
                 <?php if ($isCurrentUser): ?>
 
-                    <span class="d-inline-block" tabindex="0" title="<?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>" data-bs-placement="right">
+                    <span class="d-inline-block" tabindex="0" title="<?= Yii::t('controllers', 'You cannot delete currently logged-in user.') ?>" data-bs-placement="right">
 
                 <?php endif; ?>
 
-                <?= Html::a(Yii::t('frontend-views', 'Delete'), ['delete', 'id' => $model->id], [
+                <?= Html::a(Yii::t('views', 'Delete'), ['delete', 'id' => $model->id], [
                     'class' => 'btn btn-danger delete-user-btn' . ($isCurrentUser ? ' disabled' : ''),
                     'data' => [
                         'modal-username' => Html::encode($model->username),
@@ -155,13 +155,13 @@
 
         <?php if ($isCurrentUser): ?>
 
-            <br /><?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>
+            <br /><?= Yii::t('controllers', 'You cannot delete currently logged-in user.') ?>
 
         <?php endif; ?>
 
         <?php if (!$showDeleteButton): ?>
 
-            <br /><?= Yii::t('frontend-views', 'The user will not be able to log in until a password is set. Inform them to reset password during first login.') ?>
+            <br /><?= Yii::t('views', 'The user will not be able to log in until a password is set. Inform them to reset password during first login.') ?>
 
         <?php endif; ?>
 

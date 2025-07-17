@@ -10,7 +10,7 @@
     /** @var common\models\User $model */
 
     $this->title = $model->username;
-    $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend-views', 'Users'), 'url' => ['index']];
+    $this->params['breadcrumbs'][] = ['label' => Yii::t('views', 'Users'), 'url' => ['index']];
     $this->params['breadcrumbs'][] = $this->title;
 
     $this->registerJs("$('span').tooltip()");
@@ -22,18 +22,18 @@
 <div class="user-view">
 
     <h1><strong><?= Html::encode($model->username) ?></strong> (<?= Html::encode($model->email) ?>)</h1>
-    <p><?= Yii::t('frontend-views', 'Details of selected user are provided below.') ?></p>
+    <p><?= Yii::t('views', 'Details of selected user are provided below.') ?></p>
 
     <p>
-        <?= Html::a(Yii::t('frontend-views', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('views', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
 
         <?php if ($isCurrentUser): ?>
 
-            <span class="d-inline-block" tabindex="0" title="<?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>" data-bs-placement="right">
+            <span class="d-inline-block" tabindex="0" title="<?= Yii::t('controllers', 'You cannot delete currently logged-in user.') ?>" data-bs-placement="right">
 
         <?php endif; ?>
 
-        <?= Html::a(Yii::t('frontend-views', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('views', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger delete-user-btn' . ($isCurrentUser ? ' disabled' : ''),
             'data' => [
                 'modal-username' => Html::encode($model->username),
@@ -83,7 +83,7 @@
 
 <p>
 
-    <?= Yii::t('frontend-views', 'This user'); ?>
+    <?= Yii::t('views', 'This user'); ?>
 
     <?php
         $statusActive = ($model->status === User::STATUS_ACTIVE);
@@ -92,31 +92,31 @@
         if ($statusActive && $hasAuthKey):
     ?>
 
-        <strong><?= Yii::t('frontend-views', 'is active'); ?></strong><?= Yii::t('frontend-views', ', so they '); ?>
-        <em><?= Yii::t('frontend-views', 'can log in'); ?></em>.
+        <strong><?= Yii::t('views', 'is active'); ?></strong><?= Yii::t('views', ', so they '); ?>
+        <em><?= Yii::t('views', 'can log in'); ?></em>.
 
     <?php else: ?>
 
         <?php
         if (!$statusActive && !$hasAuthKey) {
-            $reason = Yii::t('frontend-views', 'is not active');
-            $reason .= Yii::t('frontend-views', ' and ');
-            $reason .= Yii::t('frontend-views', 'has no password set');
+            $reason = Yii::t('views', 'is not active');
+            $reason .= Yii::t('views', ' and ');
+            $reason .= Yii::t('views', 'has no password set');
         } elseif (!$statusActive) {
-            $reason = Yii::t('frontend-views', 'is not active');
+            $reason = Yii::t('views', 'is not active');
         } else {
-            $reason = Yii::t('frontend-views', 'has no password set');
+            $reason = Yii::t('views', 'has no password set');
         }
         ?>
 
-        <strong><?= $reason; ?></strong><?= Yii::t('frontend-views', ', so they '); ?>
-        <em><?= Yii::t('frontend-views', 'cannot log in'); ?></em>.
+        <strong><?= $reason; ?></strong><?= Yii::t('views', ', so they '); ?>
+        <em><?= Yii::t('views', 'cannot log in'); ?></em>.
 
     <?php endif; ?>
 
     <?php if ($isCurrentUser): ?>
 
-        <br /><?= Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.') ?>
+        <br /><?= Yii::t('controllers', 'You cannot delete currently logged-in user.') ?>
 
     <?php endif; ?>
 

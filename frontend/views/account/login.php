@@ -10,7 +10,7 @@ use frontend\models\LoginForm;
 
 /** @var LoginForm $model */
 
-$this->title = Yii::t('frontend-views', 'Log In');
+$this->title = Yii::t('views', 'Log In');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
 
-        <?= Yii::t('frontend-views', 'Log in') ?><?= Yii::t('frontend-views', ' to access all the features and create your unforgettable story.') ?>
+        <?= Yii::t('views', 'Log in') ?><?= Yii::t('views', ' to access all the features and create your unforgettable story.') ?>
 
     </p>
 
@@ -39,15 +39,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="my-1 mx-0" style="color:#999;">
 
-                    <?= Yii::t('frontend-views', 'Forgot your password?') ?> <?= Html::a(Yii::t('frontend-views', 'Reset it'), ['account/request-password-reset']) ?>.
+                    <?= Yii::t('views', 'Forgot your password?') ?> <?= Html::a(Yii::t('views', 'Reset it'), ['account/request-password-reset']) ?>.
 
                     <br />
 
-                    <?= Yii::t('frontend-views', 'Don’t have an account?') ?> <?= Html::a(Yii::t('frontend-views', 'Sign up now'), ['account/signup']) ?>.
+                    <?= Yii::t('views', 'Don’t have an account?') ?> <?= Html::a(Yii::t('views', 'Sign up now'), ['account/signup']) ?>.
 
                     <br />
 
-                    <?= Yii::t('frontend-views', 'Didn’t get the verification email?') ?> <?= Html::a(Yii::t('frontend-views', 'Resend it'), ['account/resend-verification-email']) ?>.
+                    <?= Yii::t('views', 'Didn’t get the verification email?') ?> <?= Html::a(Yii::t('views', 'Resend it'), ['account/resend-verification-email']) ?>.
 
                 </div>
 
@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="form-group">
 
-                    <?= Html::submitButton(Yii::t('frontend-views', 'Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton(Yii::t('views', 'Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
 
                 </div>
 

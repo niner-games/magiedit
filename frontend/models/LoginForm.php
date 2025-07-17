@@ -31,7 +31,7 @@ class LoginForm extends Model
     public function rules()
     {
         return [
-            [['username', 'password'], 'required', 'message' => Yii::t('common-models', 'This field cannot be blank.')],
+            [['username', 'password'], 'required', 'message' => Yii::t('models', 'This field cannot be blank.')],
             ['rememberMe', 'boolean'],
             ['password', 'validatePassword']
         ];
@@ -43,9 +43,9 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'username' => Yii::t('common-models', 'Username'),
-            'password' => Yii::t('common-models', 'Password'),
-            'rememberMe' => Yii::t('common-models', 'Remember Me')
+            'username' => Yii::t('models', 'Username'),
+            'password' => Yii::t('models', 'Password'),
+            'rememberMe' => Yii::t('models', 'Remember Me')
         ];
     }
 
@@ -83,7 +83,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, Yii::t('common-models', 'Incorrect username or password.'));
+                $this->addError($attribute, Yii::t('models', 'Incorrect username or password.'));
             }
         }
     }

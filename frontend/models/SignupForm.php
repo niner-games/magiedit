@@ -36,16 +36,16 @@ class SignupForm extends Model
             [['email'], 'string', 'min' => 5, 'max' => 255],
             [['username'], 'string', 'min' => 2, 'max' => 255],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
-            [['reCaptcha'], \recaptcha\ReCaptchaValidator::class, 'message' => Yii::t('frontend-models', 'You must solve reCAPTCHA in order to continue.')],
+            [['reCaptcha'], \recaptcha\ReCaptchaValidator::class, 'message' => Yii::t('models', 'You must solve reCAPTCHA in order to continue.')],
 
             /**
              * Other rules
              */
             [['email', 'username'], 'trim'],
-            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid email address.')],
-            [['username', 'email', 'password'], 'required', 'message' => Yii::t('frontend-models', 'This field cannot be blank.')],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('frontend-models', 'This username has already been taken.')],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('frontend-models', 'This email address has already been taken.')],
+            ['email', 'email', 'message' => Yii::t('models', 'This field must contain a valid email address.')],
+            [['username', 'email', 'password'], 'required', 'message' => Yii::t('models', 'This field cannot be blank.')],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('models', 'This username has already been taken.')],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('models', 'This email address has already been taken.')],
         ];
     }
 
@@ -55,9 +55,9 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'username' => Yii::t('frontend-models', 'Username'),
-            'password' => Yii::t('frontend-models', 'Password'),
-            'email' => Yii::t('frontend-models', 'Email Address'),
+            'username' => Yii::t('models', 'Username'),
+            'password' => Yii::t('models', 'Password'),
+            'email' => Yii::t('models', 'Email Address'),
         ];
     }
 
@@ -115,7 +115,7 @@ class SignupForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => $appName])
             ->setTo($this->email)
-            ->setSubject($appName . '. ' . Yii::t('frontend-models', 'Account Sign Up'))
+            ->setSubject($appName . '. ' . Yii::t('models', 'Account Sign Up'))
             ->send();
     }
 }

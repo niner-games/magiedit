@@ -92,10 +92,10 @@ class User extends ActiveRecord implements IdentityInterface
             [['email', 'username'], 'trim'],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
             ['type', 'in', 'range' => [self::TYPE_REGULAR, self::TYPE_ADMINISTRATOR]],
-            ['email', 'email', 'message' => Yii::t('common-models', 'This field must contain a valid email address.')],
-            [['username', 'email'], 'required', 'message' => Yii::t('common-models', 'This field cannot be blank.')],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common-models', 'This username has already been taken.')],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('common-models', 'This email address has already been taken.')],
+            ['email', 'email', 'message' => Yii::t('models', 'This field must contain a valid email address.')],
+            [['username', 'email'], 'required', 'message' => Yii::t('models', 'This field cannot be blank.')],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('models', 'This username has already been taken.')],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => Yii::t('models', 'This email address has already been taken.')],
 
             /**
              * Custom validations
@@ -111,18 +111,18 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('common-models', 'ID'),
-            'username' => Yii::t('common-models', 'Username'),
-            'auth_key' => Yii::t('common-models', 'Auth Key'),
-            'password_hash' => Yii::t('common-models', 'Password Hash'),
-            'password_reset_token' => Yii::t('common-models', 'Password Reset Token'),
-            'email' => Yii::t('common-models', 'Email Address'),
-            'status' => Yii::t('common-models', 'Status'),
-            'created_at' => Yii::t('common-models', 'Created At'),
-            'updated_at' => Yii::t('common-models', 'Updated At'),
-            'verification_token' => Yii::t('common-models', 'Verification Token'),
-            'password' => Yii::t('common-models', 'Password'),
-            'type' => Yii::t('common-models', 'Type'),
+            'id' => Yii::t('models', 'ID'),
+            'username' => Yii::t('models', 'Username'),
+            'auth_key' => Yii::t('models', 'Auth Key'),
+            'password_hash' => Yii::t('models', 'Password Hash'),
+            'password_reset_token' => Yii::t('models', 'Password Reset Token'),
+            'email' => Yii::t('models', 'Email Address'),
+            'status' => Yii::t('models', 'Status'),
+            'created_at' => Yii::t('models', 'Created At'),
+            'updated_at' => Yii::t('models', 'Updated At'),
+            'verification_token' => Yii::t('models', 'Verification Token'),
+            'password' => Yii::t('models', 'Password'),
+            'type' => Yii::t('models', 'Type'),
         ];
     }
 
@@ -139,13 +139,13 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             'status' => [
-                self::STATUS_ACTIVE => Yii::t('common-models', 'Active'),
-//                self::STATUS_DELETED => Yii::t('common-models', 'Deleted'),
-                self::STATUS_INACTIVE => Yii::t('common-models', 'Inactive'),
+                self::STATUS_ACTIVE => Yii::t('models', 'Active'),
+//                self::STATUS_DELETED => Yii::t('models', 'Deleted'),
+                self::STATUS_INACTIVE => Yii::t('models', 'Inactive'),
             ],
             'type' => [
-                self::TYPE_REGULAR => Yii::t('common-models', 'Regular'),
-                self::TYPE_ADMINISTRATOR => Yii::t('common-models', 'Administrator'),
+                self::TYPE_REGULAR => Yii::t('models', 'Regular'),
+                self::TYPE_ADMINISTRATOR => Yii::t('models', 'Administrator'),
             ],
         ];
     }
@@ -328,7 +328,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         if ((int)$this->type !== self::TYPE_ADMINISTRATOR || (int)$this->status !== self::STATUS_ACTIVE) {
             if ($this->countActiveAdmins() < 1) {
-                $this->addError($attribute, Yii::t('frontend-models', 'At least one active administrator is required in this application.'));
+                $this->addError($attribute, Yii::t('models', 'At least one active administrator is required in this application.'));
             }
         }
     }
@@ -336,7 +336,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function validateSelfDeactivation($attribute, $params): void
     {
         if ((int)$this->id === (int)Yii::$app->user->id && (int)$this->$attribute === self::STATUS_INACTIVE) {
-            $this->addError($attribute, Yii::t('frontend-models', 'Your own account must remain active.'));
+            $this->addError($attribute, Yii::t('models', 'Your own account must remain active.'));
         }
     }
 

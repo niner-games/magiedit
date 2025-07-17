@@ -32,7 +32,7 @@ class LanguageSelector implements BootstrapInterface
         if($newLanguage !== null)
         {
             if (!in_array($newLanguage, $this->supportedLanguages)) {
-                Yii::$app->session->setFlash('error', Yii::t('common-widgets', 'Unable to change application language. Unsupported language code.'));
+                Yii::$app->session->setFlash('error', Yii::t('widgets', 'Unable to change application language. Unsupported language code.'));
             }
 
             $app->response->cookies->add(new Cookie([

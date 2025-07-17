@@ -7,7 +7,7 @@
 use yii\bootstrap5\Html;
 use yii\bootstrap5\ActiveForm;
 
-$this->title = Yii::t('frontend-views', 'Request password reset');
+$this->title = Yii::t('views', 'Request password reset');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-request-password-reset">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p><?= Yii::t('frontend-views', 'Please provide your email. A link to reset password will be sent there.') ?></p>
+    <p><?= Yii::t('views', 'Please provide your email. A link to reset password will be sent there.') ?></p>
 
     <div class="row">
         <div class="col-lg-5 mb-3 mb-md-4">
@@ -24,13 +24,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton(Yii::t('frontend-views', 'Send'), ['class' => 'btn btn-primary']) ?>
+                    <?= Html::submitButton(Yii::t('views', 'Send'), ['class' => 'btn btn-primary']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>
         </div>
     </div>
 
-    <p><?= Yii::t('frontend-models', 'Password reset is available for verified accounts only.') ?></p>
+    <p><?= Yii::t('models', 'Password reset is available for verified accounts only.') ?></p>
 
 </div>

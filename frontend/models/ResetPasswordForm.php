@@ -40,7 +40,7 @@ class ResetPasswordForm extends Model
     public function attributeLabels()
     {
         return [
-            'password' => Yii::t('frontend-models', 'Password')
+            'password' => Yii::t('models', 'Password')
         ];
     }
 
@@ -58,11 +58,11 @@ class ResetPasswordForm extends Model
     public function __construct($token, $config = [])
     {
         if (empty($token) || !is_string($token)) {
-            throw new InvalidArgumentException(Yii::t('frontend-models', 'Password reset token cannot be blank.'));
+            throw new InvalidArgumentException(Yii::t('models', 'Password reset token cannot be blank.'));
         }
         $this->_user = User::findByPasswordResetToken($token);
         if (!$this->_user) {
-            throw new InvalidArgumentException(Yii::t('frontend-models', 'Wrong password reset token.'));
+            throw new InvalidArgumentException(Yii::t('models', 'Wrong password reset token.'));
         }
         parent::__construct($config);
     }

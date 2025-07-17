@@ -15,7 +15,7 @@ use yii\bootstrap5\LinkPager;
 /** @var yii\web\View $this */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = Yii::t('frontend-views', 'Users');
+$this->title = Yii::t('views', 'Users');
 $this->params['breadcrumbs'][] = $this->title;
 
 $this->registerJs("
@@ -42,10 +42,10 @@ $this->registerCss("
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p><?= Yii::t('frontend-views', 'The list of all users existing in the system is shown below.') ?></p>
+    <p><?= Yii::t('views', 'The list of all users existing in the system is shown below.') ?></p>
 
     <p><?= Html::a(
-            Yii::t('frontend-views', 'Add User'),
+            Yii::t('views', 'Add User'),
             ['create'],
             ['class' => 'btn btn-success']
         ); ?>
@@ -107,7 +107,7 @@ $this->registerCss("
                 [
                     'class' => CustomActionColumn::class,
                     'contentOptions' => ['class' => 'text-center align-middle'],
-                    'deleteConfirmationText' => Yii::t('frontend-views', 'Are you sure you want to delete this user?'),
+                    'deleteConfirmationText' => Yii::t('views', 'Are you sure you want to delete this user?'),
                     'template'=> (Yii::$app->user->identity->getIsAdmin()) ? '{view} {update} {delete}' : '{view} {update}',
                     'buttons' => [
                         'view' => function ($url, $model, $key) {
@@ -115,8 +115,8 @@ $this->registerCss("
                                 '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-chart-gantt-icon lucide-square-chart-gantt"><rect fill="none" width="18" height="18" x="3" y="3" rx="2"/><path fill="none" d="M9 8h7"/><path fill="none" d="M8 12h6"/><path fill="none" d="M11 16h5"/></svg>',
                                 $url,
                                 [
-                                    'aria-label' => Yii::t('frontend-views', 'View Details'),
-                                    'title' => Yii::t('frontend-views', 'View Details'),
+                                    'aria-label' => Yii::t('views', 'View Details'),
+                                    'title' => Yii::t('views', 'View Details'),
                                     'class' => 'awfully-black-button',
                                     'data-pjax' => '0',
                                 ]
@@ -127,8 +127,8 @@ $this->registerCss("
                                 '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-pen-icon lucide-square-pen"><path fill="none" d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path fill="none" d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>',
                                 $url,
                                 [
-                                    'aria-label' => Yii::t('frontend-views', 'Edit User'),
-                                    'title' => Yii::t('frontend-views', 'Edit User'),
+                                    'aria-label' => Yii::t('views', 'Edit User'),
+                                    'title' => Yii::t('views', 'Edit User'),
                                     'class' => 'awfully-black-button',
                                     'data-pjax' => '0',
                                 ]
@@ -139,8 +139,8 @@ $this->registerCss("
                                 '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shredder-icon lucide-shredder"><path fill="none" d="M10 22v-5"/><path fill="none" d="M14 19v-2"/><path fill="none" d="M14 2v4a2 2 0 0 0 2 2h4"/><path fill="none" d="M18 20v-3"/><path fill="none" d="M2 13h20"/><path fill="none" d="M20 13V7l-5-5H6a2 2 0 0 0-2 2v9"/><path fill="none" d="M6 20v-3"/></svg>',
                                 $url,
                                 [
-                                    'aria-label' => Yii::t('frontend-views', 'Delete User'),
-                                    'title' => Yii::t('frontend-views', 'Delete User'),
+                                    'aria-label' => Yii::t('views', 'Delete User'),
+                                    'title' => Yii::t('views', 'Delete User'),
                                     'data-bs-toggle' => 'tooltip',
                                     'data-bs-placement' => 'top',
                                     'class' => 'awfully-black-button delete-user-btn',
@@ -166,10 +166,10 @@ $this->registerCss("
 
     <p>
 
-        <?= Yii::t('frontend-views', 'You can only delete a user that has'); ?>
-        <strong><?= Yii::t('frontend-views', 'no objects'); ?></strong>
-        <?= Yii::t('frontend-views', 'assigned to itself'); ?>.
-        <?= Yii::t('frontend-views', 'You must assign all user’s objects to some other user before deleting it.'); ?>
+        <?= Yii::t('views', 'You can only delete a user that has'); ?>
+        <strong><?= Yii::t('views', 'no objects'); ?></strong>
+        <?= Yii::t('views', 'assigned to itself'); ?>.
+        <?= Yii::t('views', 'You must assign all user’s objects to some other user before deleting it.'); ?>
 
     </p>
 

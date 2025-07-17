@@ -31,7 +31,7 @@ class ContactForm extends Model
         return [
             ['verifyCode', 'captcha'],
             [['name', 'email', 'subject', 'body'], 'required'],
-            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid email address.')],
+            ['email', 'email', 'message' => Yii::t('models', 'This field must contain a valid email address.')],
         ];
     }
 
@@ -41,7 +41,7 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => Yii::t('frontend-models', 'Verification Code')
+            'verifyCode' => Yii::t('models', 'Verification Code')
         ];
     }
 

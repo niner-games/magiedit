@@ -25,11 +25,11 @@ class ResendVerificationEmailForm extends Model
         return [
             ['email', 'trim'],
             ['email', 'required'],
-            ['email', 'email', 'message' => Yii::t('frontend-models', 'This field must contain a valid email address.')],
+            ['email', 'email', 'message' => Yii::t('models', 'This field must contain a valid email address.')],
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_INACTIVE],
-                'message' => Yii::t('frontend-models', 'Your email is already verified. No further action is needed.')
+                'message' => Yii::t('models', 'Your email is already verified. No further action is needed.')
             ],
         ];
     }
@@ -40,7 +40,7 @@ class ResendVerificationEmailForm extends Model
     public function attributeLabels()
     {
         return [
-            'email' => Yii::t('frontend-models', 'Email Address')
+            'email' => Yii::t('models', 'Email Address')
         ];
     }
 
@@ -82,7 +82,7 @@ class ResendVerificationEmailForm extends Model
             )
             ->setFrom([Yii::$app->params['supportEmail'] => $appName])
             ->setTo($this->email)
-            ->setSubject($appName . '. ' . Yii::t('frontend-models', 'Account Sign Up') . Yii::$app->name)
+            ->setSubject($appName . '. ' . Yii::t('models', 'Account Sign Up') . Yii::$app->name)
             ->send();
     }
 }

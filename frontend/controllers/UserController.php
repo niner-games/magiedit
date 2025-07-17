@@ -147,7 +147,7 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if (Yii::$app->user->id === $model->id) {
-            Yii::$app->session->setFlash('error', Yii::t('frontend-controllers', 'You cannot delete currently logged-in user.'));
+            Yii::$app->session->setFlash('error', Yii::t('controllers', 'You cannot delete currently logged-in user.'));
 
             return $this->goBack();
         }
@@ -171,6 +171,6 @@ class UserController extends Controller
             return $model;
         }
 
-        throw new NotFoundHttpException(Yii::t('frontend-controllers', 'The requested page does not exist.'));
+        throw new NotFoundHttpException(Yii::t('controllers', 'The requested page does not exist.'));
     }
 }

@@ -36,7 +36,7 @@ class VerifyEmailForm extends Model
     public function __construct($token, array $config = [])
     {
         if (empty($token) || !is_string($token)) {
-            throw new InvalidArgumentException(Yii::t('frontend-models', 'Verify email token cannot be blank.'));
+            throw new InvalidArgumentException(Yii::t('models', 'Verify email token cannot be blank.'));
         }
 
         $this->_user = User::findByVerificationToken($token);
