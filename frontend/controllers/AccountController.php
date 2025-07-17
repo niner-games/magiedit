@@ -101,7 +101,7 @@ class AccountController extends Controller
     {
         Yii::$app->user->logout();
 
-        Yii::$app->session->setFlash('success', Yii::t('controllers', 'You’ve successfully logged out. For added security, consider closing all browser windows.'));
+        Yii::$app->session->setFlash('success', Yii::t('controllers', 'You’ve successfully logged out. Close all browser windows.'));
 
         return $this->goHome();
     }

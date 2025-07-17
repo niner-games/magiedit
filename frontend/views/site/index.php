@@ -4,8 +4,6 @@
 
 use yii\bootstrap5\Html;
 
-$this->registerJs("$('span').tooltip(); $('a').tooltip()");
-
 ?>
 
 <div class="site-index" xmlns="http://www.w3.org/1999/html">

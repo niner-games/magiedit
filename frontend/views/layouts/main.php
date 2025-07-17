@@ -16,6 +16,50 @@ use yii\helpers\Url;
 $appAssetBundle = AppAsset::register($this);
 $appTitle = 'MagiEdit';
 
+$this->registerCss("
+    .alert {
+        position: relative;
+        border: none !important;
+        text-align: center;
+        border-radius: 0;
+        margin-bottom: 0;
+        color: white !important;
+    }
+    
+    .alert-success {
+        background-color: rgb(28, 110, 48);
+        color: #2d572d;
+    }
+    
+    .alert-danger {
+        background-color: rgb(188, 106, 47);
+    }
+    
+    .alert-warning {
+        background-color: #fff3cd;
+        color: black !important;
+    }
+    
+    .alert .btn-close {
+        filter: invert(1) grayscale(100%) brightness(200%);
+    }
+    
+    @media (max-width: 768px) {
+        .navbar {
+            position: relative !important;
+        }
+    }
+");
+
+$this->registerJs("
+    document.querySelectorAll('.alert').forEach(alertBox => {
+        setTimeout(() => {
+            const bsAlert = bootstrap.Alert.getOrCreateInstance(alertBox);
+            bsAlert.close();
+        }, 5000);
+    });
+");
+
 ?>
 
 <?php $this->beginPage() ?>
@@ -48,17 +92,18 @@ $appTitle = 'MagiEdit';
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
 
+<?= Alert::widget() ?>
+
 <header>
     <?php NavBar::begin([
         'brandLabel' => Html::img('@web/images/logo-oneliner-white.png', [
             'alt' => 'MagiEdit logo',
             'style' => 'height: 42px;'
         ]),
-            'brandUrl' => Yii::$app->homeUrl,
-            'options' => [
-                'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
-            ],
-        ]);
+        'brandUrl' => Yii::$app->homeUrl,
+        'options' => [
+            'class' => 'navbar navbar-expand-md navbar-dark bg-dark',
+        ]]);
 
         $items = [];
 
@@ -93,7 +138,7 @@ $appTitle = 'MagiEdit';
 </header>
 
 <main role="main" class="flex-shrink-0">
-    <div class="container">
+    <div class="container" style="padding: 15px 20px;">
 
         <?= Breadcrumbs::widget([
             'links' => $this->params['breadcrumbs'] ?? [],
@@ -105,8 +150,6 @@ $appTitle = 'MagiEdit';
                 'style' => '--bs-breadcrumb-divider: "⇢"', // https://forum.yiiframework.com/t/how-to-modify-breadcrumbs-separator-character/135649/2?u=trejder
             ]
         ]) ?>
-
-        <?= Alert::widget() ?>
 
         <?= $content ?>
 

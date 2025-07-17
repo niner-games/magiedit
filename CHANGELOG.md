@@ -5,6 +5,10 @@
 - [#28](https://github.com/niner-games/magiedit.web/issues/28): Row's click event overrides buttons' events ([Mr. Fat Guy](https://github.com/mrfatguy))
 - [#27](https://github.com/niner-games/magiedit.web/issues/27): Wrong field for user type validation error ([Mr. Fat Guy](https://github.com/mrfatguy))
 
+### Features
+
+- [#30](https://github.com/niner-games/magiedit.web/issues/30): Move alert widget to the top-most position ([Mr. Fat Guy](https://github.com/mrfatguy))
+
 ### Tasks
 
 - [#29](https://github.com/niner-games/magiedit.web/issues/29): Refactor translations to get rid of groups ([Mr. Fat Guy](https://github.com/mrfatguy))
