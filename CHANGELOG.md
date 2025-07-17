@@ -1,3 +1,9 @@
+## 0.3.0 (27 July 2025)
+
+### Bugs
+
+- [#27](https://github.com/niner-games/magiedit.web/issues/27): Wrong field for user type validation error ([Mr. Fat Guy](https://github.com/mrfatguy))
+
 ## 0.2.0 (9 July 2025)
 
 ### Bugs

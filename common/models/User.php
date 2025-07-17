@@ -101,7 +101,7 @@ class User extends ActiveRecord implements IdentityInterface
              * Custom validations
              */
             [['status'], 'validateSelfDeactivation'],
-            [['status', 'type'], 'validateMinimumActiveAdmins'],
+            [['type'], 'validateMinimumActiveAdmins'],
         ];
     }
 
@@ -328,7 +328,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         if ((int)$this->type !== self::TYPE_ADMINISTRATOR || (int)$this->status !== self::STATUS_ACTIVE) {
             if ($this->countActiveAdmins() < 1) {
-                $this->addError('status', Yii::t('frontend-models', 'At least one active administrator is required in this application.'));
+                $this->addError($attribute, Yii::t('frontend-models', 'At least one active administrator is required in this application.'));
             }
         }
     }
