@@ -79,13 +79,19 @@ $this->registerJs("
     <?= Html::tag('link', '', [
         'rel' => 'icon',
         'type' => 'image/png',
+        'sizes' => '512x512',
         'href' => Yii::getAlias('@web') . '/images/favicon.png',
+    ]) ?><?="\n" ?>
+    <?= Html::tag('link', '', [
+        'rel' => 'apple-touch-icon',
+        'href' => Yii::getAlias('@web') . '/images/favicon-apple.png',
     ]) ?><?="\n" ?>
     <?= Html::tag('link', '', [
         'rel' => 'icon',
         'type' => 'image/svg+xml',
         'href' => Yii::getAlias('@web') . '/images/favicon.svg',
     ]) ?>
+
 
     <?php $this->head() ?>
 </head>
