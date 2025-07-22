@@ -30,7 +30,19 @@
   * [Code](#code)
   * [API](#api)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+*Table of contents generated with [markdown-toc](http://ecotrust-canada.github.io/markdown-toc/). Thank you.*
+
+---
+
+This repository is licensed under the [BSD 2-Clause License](https://opensource.org/license/bsd-2-clause), allowing source 
+code usage and modification under the terms described in [LICENSE.md](https://github.com/niner-games/magiedit.web/blob/main/LICENSE.md).
+
+However, all binary builds (Windows, Android, iOS, macOS and Linux applications) or on-line version available at [MagiEdit](https://magiedit.com/)
+or [Niner Games’](https://ninergames.com/) websites are proprietary. Redistribution, modification, or resale of these without 
+explicit permission is not allowed.
+
+❤️ You’re welcome to explore, learn from, and reuse the code in this repo. But on-line version and published builds are a commercial 
+product—please respect that distinction. Thank you. ❤️
 
 ---
 
