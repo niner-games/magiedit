@@ -1,4 +1,18 @@
-## 0.3.0 (27 July 2025)
+## 0.4 (10 August 2025)
+
+### Bugs
+
+- 
+
+### Features
+
+- 
+
+### Tasks
+
+- 
+
+## 0.3 (27 July 2025)
 
 ### Bugs
 
@@ -13,7 +27,7 @@
 
 - [#29](https://github.com/niner-games/magiedit.web/issues/29): Refactor translations to get rid of groups ([Mr. Fat Guy](https://github.com/mrfatguy))
 
-## 0.2.0 (9 July 2025)
+## 0.2 (9 July 2025)
 
 ### Bugs
 
@@ -32,7 +46,7 @@
 - [#5](https://github.com/niner-games/magiedit.web/issues/5): Move LoginForm model to frontend ([Mr. Fat Guy](https://github.com/mrfatguy))
 - [#7](https://github.com/niner-games/magiedit.web/issues/7): Copy login page-texts to homepage ([Mr. Fat Guy](https://github.com/mrfatguy))
 
-## 0.1.0 (20 June 2025)
+## 0.1 (20 June 2025)
 
 ### Bugs
 

@@ -20,7 +20,7 @@ use yii\helpers\Html;
 class ApplicationVersion
 {
     const MAJOR = 0;
-    const MINOR = 2;
+    const MINOR = 3;
     const PATCH = 0;
 
     public static function get($useGit = true, $addEnvironment = true, $formatOutput = true): string
