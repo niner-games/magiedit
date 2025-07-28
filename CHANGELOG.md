@@ -1,18 +1,4 @@
-## 0.4 (10 August 2025)
-
-### Bugs
-
-- 
-
-### Features
-
-- 
-
-### Tasks
-
-- 
-
-## 0.3 (27 July 2025)
+## 0.3 (10 August 2025)
 
 ### Bugs
 
