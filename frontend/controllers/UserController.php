@@ -5,13 +5,14 @@ namespace frontend\controllers;
 use common\models\User;
 
 use Yii;
-use yii\data\ActiveDataProvider;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use yii\helpers\Url;
+use yii\base\InvalidConfigException;
+use yii\db\Exception;
 use yii\web\Response;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use yii\data\ActiveDataProvider;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -21,7 +22,7 @@ class UserController extends Controller
     /**
      * @inheritDoc
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return array_merge(
             parent::behaviors(),
@@ -53,7 +54,7 @@ class UserController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         Yii::$app->getUser()->setReturnUrl($this->request->getUrl());
 
@@ -72,9 +73,9 @@ class UserController extends Controller
      * Displays a single User model.
      * @param int $id ID
      * @return string
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException|InvalidConfigException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView(int $id): string
     {
         Yii::$app->getUser()->setReturnUrl($this->request->getUrl());
 
@@ -91,7 +92,7 @@ class UserController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|Response
      */
-    public function actionCreate()
+    public function actionCreate(): Response|string
     {
         $model = new User();
 
@@ -119,9 +120,9 @@ class UserController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
      * @return string|Response
-     * @throws NotFoundHttpException if the model cannot be found
+     * @throws NotFoundHttpException|Exception if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate(int $id): Response|string
     {
         $model = $this->findModel($id);
 
@@ -141,6 +142,7 @@ class UserController extends Controller
      *
      * @param int $id ID
      * @return Response
+     * @throws NotFoundHttpException
      */
     public function actionDelete(int $id): Response
     {

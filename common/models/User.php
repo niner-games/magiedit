@@ -3,12 +3,13 @@
 namespace common\models;
 
 use faryshta\base\EnumTrait;
+
 use Yii;
+use yii\base\Exception;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveRecord;
-use yii\helpers\ArrayHelper;
-use yii\web\IdentityInterface;
 
 /**
  * User model
@@ -47,7 +48,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
+    public static function tableName(): string
     {
         return '{{%user}}';
     }
@@ -55,7 +56,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             TimestampBehavior::class,
@@ -65,7 +66,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             /**
@@ -108,7 +109,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'id' => Yii::t('models', 'ID'),
@@ -140,7 +141,6 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             'status' => [
                 self::STATUS_ACTIVE => Yii::t('models', 'Active'),
-//                self::STATUS_DELETED => Yii::t('models', 'Deleted'),
                 self::STATUS_INACTIVE => Yii::t('models', 'Inactive'),
             ],
             'type' => [
@@ -156,8 +156,9 @@ class User extends ActiveRecord implements IdentityInterface
 
     /**
      * {@inheritdoc}
+     * @return array|mixed|null
      */
-    public function getId()
+    public function getId(): mixed
     {
         return $this->getPrimaryKey();
     }
@@ -165,7 +166,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public function getAuthKey()
+    public function getAuthKey(): string
     {
         return $this->auth_key;
     }
@@ -174,8 +175,9 @@ class User extends ActiveRecord implements IdentityInterface
      * Generates password hash from password and sets it to the model
      *
      * @param string $password
+     * @throws Exception
      */
-    public function setPassword($password)
+    public function setPassword(string $password): void
     {
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
@@ -187,15 +189,16 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * {@inheritdoc}
      */
-    public static function findIdentity($id)
+    public static function findIdentity($id): User|IdentityInterface|null
     {
         return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
      * {@inheritdoc}
+     * @throws NotSupportedException
      */
-    public static function findIdentityByAccessToken($token, $type = null)
+    public static function findIdentityByAccessToken($token, $type = null): ?IdentityInterface
     {
         throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
     }
@@ -206,7 +209,7 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $username
      * @return static|null
      */
-    public static function findByUsername($username)
+    public static function findByUsername(string $username): null|static
     {
         return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
     }
@@ -217,7 +220,7 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $token password reset token
      * @return static|null
      */
-    public static function findByPasswordResetToken($token)
+    public static function findByPasswordResetToken(string $token): null|static
     {
         if (!static::isPasswordResetTokenValid($token)) {
             return null;
@@ -235,7 +238,8 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $token verify email token
      * @return static|null
      */
-    public static function findByVerificationToken($token) {
+    public static function findByVerificationToken(string $token): null|static
+    {
         return static::findOne([
             'verification_token' => $token,
             'status' => self::STATUS_INACTIVE
@@ -252,21 +256,22 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $token password reset token
      * @return bool
      */
-    public static function isPasswordResetTokenValid($token)
+    public static function isPasswordResetTokenValid(string $token): bool
     {
         if (empty($token)) {
             return false;
         }
 
-        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
+        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+
         return $timestamp + $expire >= time();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function validateAuthKey($authKey)
+    public function validateAuthKey($authKey): ?bool
     {
         return $this->getAuthKey() === $authKey;
     }
@@ -277,31 +282,34 @@ class User extends ActiveRecord implements IdentityInterface
      * @param string $password password to validate
      * @return bool if password provided is valid for current user
      */
-    public function validatePassword($password)
+    public function validatePassword(string $password): bool
     {
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 
     /**
      * Generates "remember me" authentication key
+     * @throws Exception on failure
      */
-    public function generateAuthKey()
+    public function generateAuthKey(): void
     {
         $this->auth_key = Yii::$app->security->generateRandomString();
     }
 
     /**
      * Generates new password reset token
+     * @throws Exception on failure
      */
-    public function generatePasswordResetToken()
+    public function generatePasswordResetToken(): void
     {
         $this->password_reset_token = Yii::$app->security->generateRandomString() . '_' . time();
     }
 
     /**
      * Generates new token for email verification
+     * @throws Exception on failure
      */
-    public function generateEmailVerificationToken()
+    public function generateEmailVerificationToken(): void
     {
         $this->verification_token = Yii::$app->security->generateRandomString() . '_' . time();
     }
@@ -309,7 +317,7 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * Removes password reset token
      */
-    public function removePasswordResetToken()
+    public function removePasswordResetToken(): void
     {
         $this->password_reset_token = null;
     }
@@ -326,7 +334,11 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function validateMinimumActiveAdmins($attribute, $params): void
     {
-        if ((int)$this->type !== self::TYPE_ADMINISTRATOR || (int)$this->status !== self::STATUS_ACTIVE) {
+        if (Yii::$app->user->id === NULL || $this->id === NULL) {
+            return;
+        }
+
+        if ($this->type !== self::TYPE_ADMINISTRATOR || $this->status !== self::STATUS_ACTIVE) {
             if ($this->countActiveAdmins() < 1) {
                 $this->addError($attribute, Yii::t('models', 'At least one active administrator is required in this application.'));
             }
@@ -335,7 +347,11 @@ class User extends ActiveRecord implements IdentityInterface
 
     public function validateSelfDeactivation($attribute, $params): void
     {
-        if ((int)$this->id === (int)Yii::$app->user->id && (int)$this->$attribute === self::STATUS_INACTIVE) {
+        if (Yii::$app->user->id === NULL || $this->id === NULL) {
+            return;
+        }
+
+        if ($this->id === (int)Yii::$app->user->id && (int)$this->status === self::STATUS_INACTIVE) {
             $this->addError($attribute, Yii::t('models', 'Your own account must remain active.'));
         }
     }

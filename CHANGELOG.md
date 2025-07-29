@@ -2,6 +2,7 @@
 
 ### Bugs
 
+- [#33](https://github.com/niner-games/magiedit.web/issues/33): Registration form fails to complete ([Mr. Fat Guy](https://github.com/mrfatguy))
 - [#28](https://github.com/niner-games/magiedit.web/issues/28): Row's click event overrides buttons' events ([Mr. Fat Guy](https://github.com/mrfatguy))
 - [#27](https://github.com/niner-games/magiedit.web/issues/27): Wrong field for user type validation error ([Mr. Fat Guy](https://github.com/mrfatguy))
 
@@ -12,6 +13,12 @@
 ### Tasks
 
 - [#29](https://github.com/niner-games/magiedit.web/issues/29): Refactor translations to get rid of groups ([Mr. Fat Guy](https://github.com/mrfatguy))
+
+### Descoped Issues
+
+- [#15](https://github.com/niner-games/magiedit.web/issues/15): Stabilize old codebase ([Mr. Fat Guy](https://github.com/mrfatguy))
+- [#13](https://github.com/niner-games/magiedit.web/issues/13): Implement dictionaries for all models ([Mr. Fat Guy](https://github.com/mrfatguy))
+- [#12](https://github.com/niner-games/magiedit.web/issues/12): Build up "undeletable model" logic ([Mr. Fat Guy](https://github.com/mrfatguy))
 
 ## 0.2 (9 July 2025)
 

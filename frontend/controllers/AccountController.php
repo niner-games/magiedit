@@ -28,7 +28,7 @@ class AccountController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return [
             'access' => [
@@ -59,7 +59,7 @@ class AccountController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function actions()
+    public function actions(): array
     {
         return [
             'captcha' => [
@@ -115,10 +115,12 @@ class AccountController extends Controller
     {
         $model = new SignupForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', Yii::t('controllers', 'Welcome aboard! We’ve sent a verification email to your inbox. If you don’t see it, be sure to check your spam or junk folder — just in case.'));
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->signup()) {
+                Yii::$app->session->setFlash('success', Yii::t('controllers', 'Welcome aboard! We’ve sent a verification email to your inbox. If you don’t see it, be sure to check your spam or junk folder — just in case.'));
 
-            return $this->goHome();
+                return $this->goHome();
+            }
         }
 
         return $this->render('signup', [
