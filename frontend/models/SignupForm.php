@@ -2,9 +2,11 @@
 
 namespace frontend\models;
 
+use common\models\User;
+
 use Yii;
 use yii\base\Model;
-use common\models\User;
+use recaptcha\ReCaptchaValidator;
 
 /**
  * Signup form
@@ -18,25 +20,24 @@ class SignupForm extends Model
     public string $email = '';
     public string $password = '';
     public string $reCaptcha = '';
+
     /**
      * CONFIGURATION
      */
 
-
     /**
      * {@inheritdoc}
      */
-
-    public function rules()
+    public function rules(): array
     {
         return [
             /**
              * Data types
              */
-            [['email'], 'string', 'min' => 5, 'max' => 255],
-            [['username'], 'string', 'min' => 2, 'max' => 255],
+            ['email', 'string', 'min' => 5, 'max' => 255],
+            ['username', 'string', 'min' => 2, 'max' => 255],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
-            [['reCaptcha'], \recaptcha\ReCaptchaValidator::class, 'message' => Yii::t('models', 'You must solve reCAPTCHA in order to continue.')],
+            ['reCaptcha', ReCaptchaValidator::class, 'message' => Yii::t('models', 'You must solve reCAPTCHA in order to continue.')],
 
             /**
              * Other rules
@@ -52,7 +53,7 @@ class SignupForm extends Model
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
+    public function attributeLabels(): array
     {
         return [
             'username' => Yii::t('models', 'Username'),
@@ -69,11 +70,14 @@ class SignupForm extends Model
      * Signs user up.
      *
      * @return bool whether the creating new account was successful and email was sent
+     * @throws yii\base\Exception when setting password fails (due to unknown error in generated password hash)
+     * @throws yii\base\InvalidArgumentException when generation of auth key or email verification token fails
+     * @throws yii\db\Exception in case model update or insert fails
      */
-    public function signup()
+    public function signup(): bool
     {
         if (!$this->validate()) {
-            return null;
+            return false;
         }
 
         $user = new User();
@@ -81,8 +85,8 @@ class SignupForm extends Model
         $user->email = $this->email;
         $user->username = $this->username;
 
-        $user->setPassword($this->password);
         $user->generateAuthKey();
+        $user->setPassword($this->password);
         $user->generateEmailVerificationToken();
 
         return $user->save() && $this->sendEmail($user);

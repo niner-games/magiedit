@@ -110,6 +110,9 @@ class AccountController extends Controller
      * Signs user up.
      *
      * @return string|Response the current response object or rendered view
+     * @throws yii\base\Exception when setting password fails (due to unknown error in generated password hash)
+     * @throws yii\base\InvalidArgumentException when generation of auth key or email verification token fails
+     * @throws yii\db\Exception in case model update or insert fails
      */
     public function actionSignup(): Response|string
     {

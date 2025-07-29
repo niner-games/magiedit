@@ -4,9 +4,11 @@ namespace frontend\controllers;
 
 use common\models\User;
 
+use Throwable;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\db\Exception;
+use yii\db\StaleObjectException;
 use yii\web\Response;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -82,15 +84,15 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         return $this->render('view', [
-            'model' => $model,
-            'isCurrentUser' => (Yii::$app->user->id === $model->id)
+            'model' => $model
         ]);
     }
 
     /**
-     * Creates a new User model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Creates a new User model. If creation is successful, the browser will be redirected to the 'view' page.
+     *
      * @return string|Response
+     * @throws Exception in case update or insert failed.
      */
     public function actionCreate(): Response|string
     {
@@ -110,14 +112,14 @@ class UserController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
-            'isCurrentUser' => false
+            'model' => $model
         ]);
     }
 
     /**
-     * Updates an existing User model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * Updates an existing User model. If update is successful, redirects to either 'view' or 'index' page, depending on
+     * which page has actually performer model update (@see Yii::$app->user->getReturnUrl()).
+     *
      * @param int $id ID
      * @return string|Response
      * @throws NotFoundHttpException|Exception if the model cannot be found
@@ -126,13 +128,23 @@ class UserController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(Yii::$app->user->getReturnUrl());
+        if ($this->request->isPost)
+        {
+            $wasAdmin = Yii::$app->user->identity->getIsAdmin();
+
+            if ($model->load($this->request->post()) && $model->save()) {
+                Yii::$app->user->identity = User::findOne(Yii::$app->user->id);
+
+                if ($model->getIsCurrentUser() && $wasAdmin && !Yii::$app->user->identity->getIsAdmin()) {
+                    return $this->goHome();
+                }
+
+                return $this->redirect(Yii::$app->user->getReturnUrl());
+            }
         }
 
         return $this->render('update', [
-            'model' => $model,
-            'isCurrentUser' => (Yii::$app->user->id === $model->id)
+            'model' => $model
         ]);
     }
 
@@ -142,8 +154,10 @@ class UserController extends Controller
      *
      * @param int $id ID
      * @return Response
-     * @throws NotFoundHttpException
-     */
+     * @throws Throwable in case delete failed
+     * @throws NotFoundHttpException if the model cannot be found
+     * @throws StaleObjectException if optimistic locking is enabled and the data being deleted is outdated
+ */
     public function actionDelete(int $id): Response
     {
         $model = $this->findModel($id);

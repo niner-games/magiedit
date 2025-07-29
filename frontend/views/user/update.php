@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var bool $isCurrentUser */
 /** @var common\models\User $model */
 
 $this->title = $model->username;
@@ -20,10 +19,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
-        'showDeleteButton' => true,
-        'isCurrentUser' => $isCurrentUser
+        'showDeleteButton' => true
     ]) ?>
 
-    <?= $this->render('_dialog', []) ?>
+    <?= $this->render('_dialog') ?>
 
 </div>

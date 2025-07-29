@@ -6,7 +6,6 @@
     use yii\widgets\ActiveForm;
 
     /** @var yii\web\View $this */
-    /** @var bool $isCurrentUser */
     /** @var bool $showDeleteButton */
     /** @var common\models\User $model */
     /** @var yii\widgets\ActiveForm $form */
@@ -91,14 +90,14 @@
 
             <?php if ($showDeleteButton): ?>
 
-                <?php if ($isCurrentUser): ?>
+                <?php if ($model->getIsCurrentUser()): ?>
 
                     <span class="d-inline-block" tabindex="0" title="<?= Yii::t('controllers', 'You cannot delete currently logged-in user.') ?>" data-bs-placement="right">
 
                 <?php endif; ?>
 
                 <?= Html::a(Yii::t('views', 'Delete'), ['delete', 'id' => $model->id], [
-                    'class' => 'btn btn-danger delete-user-btn' . ($isCurrentUser ? ' disabled' : ''),
+                    'class' => 'btn btn-danger delete-user-btn' . ($model->getIsCurrentUser() ? ' disabled' : ''),
                     'data' => [
                         'modal-username' => Html::encode($model->username),
                         'modal-type' => Html::encode($model->getAttributeDesc('type')),
@@ -106,7 +105,7 @@
                     ],
                 ]) ?>
 
-                <?php if ($isCurrentUser): ?></span><?php endif; ?>
+                <?php if ($model->getIsCurrentUser()): ?></span><?php endif; ?>
 
             <?php endif; ?>
 
@@ -153,7 +152,7 @@
 
         <span id="login-status-summary"></span>
 
-        <?php if ($isCurrentUser): ?>
+        <?php if ($model->getIsCurrentUser()): ?>
 
             <br /><?= Yii::t('controllers', 'You cannot delete currently logged-in user.') ?>
 

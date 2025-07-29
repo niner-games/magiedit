@@ -175,7 +175,7 @@ class User extends ActiveRecord implements IdentityInterface
      * Generates password hash from password and sets it to the model
      *
      * @param string $password
-     * @throws Exception
+     * @throws Exception on bad password parameter or cost parameter
      */
     public function setPassword(string $password): void
     {
@@ -323,13 +323,23 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Returns a value indicating whether the user is authenticated and has user type of administrator.
+     * Checks whether given user model is an administrator.
      *
-     * @return bool whether the current user is an administrator
+     * @return bool whether this user is an administrator
      */
     public function getIsAdmin(): bool
     {
         return $this->type === self::TYPE_ADMINISTRATOR;
+    }
+
+    /**
+     * Checks whether given user model is currently logged in use.
+     *
+     * @return bool whether this user is currently logged in
+     */
+    public function getIsCurrentUser(): bool
+    {
+        return $this->id === Yii::$app->user->id;
     }
 
     public function validateMinimumActiveAdmins($attribute, $params): void
