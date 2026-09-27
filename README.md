@@ -14,7 +14,7 @@
 
 # Installation
 
-## Base Installation
+## 1. Base Installation
 
 Clone repository:
 
@@ -31,7 +31,7 @@ composer install --optimize-autoloader
 
 _Use `--no-dev` flag if you do not intend to contribute to the project._
 
-## Environment Configuration
+## 2. Environment Configuration
 
 * Create a MySQL database. Do not create any tables.
 
@@ -78,7 +78,21 @@ Flush configuration cache:
 php artisan config:cache
 ```
 
-## Git Hook
+## 3. Filament Installation
+
+Link storage:
+
+```bash
+php artisan storage:link
+```
+
+## 4. Local Update
+
+Run one of the [deploy](https://github.com/niner-games/magiedit.com#deploy) scripts (in root folder) to perform general local environment update.
+
+Use `deploy.sh` for Linux and for Windows with _Git Bash_ or other bash installed. Use `deploy.bat` otherwise (i.e. for _Command Line_ or _Power Shell_).
+
+## X. Git Hook
 
 _If you do not intend to contribute to the project, you can skip this step._
 
@@ -92,14 +106,6 @@ git add public/build
 ```
 
 _Git, before committing (from any source; PhpStorm, Git for Windows, etc.), will make sure that your current commit **contains all actual artifacts from Vite**, by running `npm run build` prior to committing._
-
-## Filament Installation
-
-Link storage:
-
-```bash
-php artisan storage:link
-```
 
 # Releases
 
@@ -124,7 +130,7 @@ Remember that GitHub **always adds a source code** to release.
 
 Due to number of operations, simple `git pull` won't be enough and a deployment script must be used.
 
-Scripts are located in core repository, in versions for Linux (`deploy.sh`) and for Windows (`deploy.bat`). If you are using Git Bash, you can use `deploy.sh` script on Windows as well.
+Scripts are located in root folder, in versions for Linux (`deploy.sh`) and for Windows (`deploy.bat`). If you are using Git Bash, you can use `deploy.sh` script on Windows as well.
 
 Scripts can be run directly or via SSH. Example setting using PuTTY:
 
@@ -136,7 +142,10 @@ Scripts can be run directly or via SSH. Example setting using PuTTY:
 
 Example remote command to execute (_Connection → SSH → Remote command_):
 
-- Linux: `eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519_rsa; cd "domains/magiedit.com/public_html" && ./deploy.sh; exec /bin/bash -i`
+- bash (Windows and Linux): `eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519; cd "domains/your-domain.com/public_html" && ./deploy.sh; exec /bin/bash -i`
+- cmd (Windows): `"cd /c/path/to/your/project; ./deploy.sh php; exec bash -i"`
+
+
 
 # Tools
 
