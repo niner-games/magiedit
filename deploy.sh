@@ -33,7 +33,7 @@ set -e
 trap 'error_handler' ERR
 
 error_handler() {
-    echo -e "\n\n\n${RED}Deployment FAILED! Check error messages above.${NC}\n"
+    echo -e "\n${RED}Deployment FAILED! Check error messages above.${NC}\n"
     exit 1
 }
 
@@ -59,4 +59,4 @@ echo -e "\n${GRAY}STEP 5. Running Database migrations...${NC}\n"
 
 $PHP_BIN artisan migrate --force
 
-echo -e "\n\n\n${GREEN}Deployment COMPLETED successfully!${NC}\n"
+echo -e "\n${GREEN}Deployment COMPLETED successfully!${NC}\n"
