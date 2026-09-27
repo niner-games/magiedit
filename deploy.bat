@@ -52,6 +52,8 @@ php artisan migrate --force
 if %errorlevel% neq 0 goto error
 
 echo.
+echo.
+echo.
 echo Deployment COMPLETED successfully!
 echo.
 
@@ -59,6 +61,8 @@ goto end
 
 :error
 
+echo.
+echo.
 echo.
 echo Deployment FAILED! Check error messages above.
 echo.
