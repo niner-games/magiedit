@@ -26,7 +26,7 @@ cd magiedit
 Install PHP dependencies
 
 ```bash
-composer install
+composer install --optimize-autoloader
 ```
 
 _Use `--no-dev` flag if you do not intend to contribute to the project._
@@ -48,15 +48,15 @@ DB_PASSWORD=
 
 Run commands:
 
-- `php artisan migrate`
+- `php artisan migrate --force`
 - `php artisan key:generate`
 
 Change other settings in `.env` as needed:
 
 ```env
 APP_URL=http://magiedit.test
-APP_ENV=local
-APP_DEBUG=true
+APP_ENV=local | stagging | production
+APP_DEBUG=false | true
 ```
 
 Configure mail transport:
@@ -70,6 +70,12 @@ MAIL_PASSWORD=
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS="hello@magiedit.com"
 MAIL_FROM_NAME="${APP_NAME}"
+```
+
+Flush configuration cache:
+
+```bash
+php artisan config:cache
 ```
 
 ## Git Hook
@@ -86,6 +92,16 @@ git add public/build
 ```
 
 _Git, before committing (from any source; PhpStorm, Git for Windows, etc.), will make sure that your current commit **contains all actual artifacts from Vite**, by running `npm run build` prior to committing._
+
+## Filament Installation
+
+Link storage:
+
+```bash
+php artisan storage:link
+```
+
+
 
 # Releases
 
