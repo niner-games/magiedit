@@ -101,8 +101,6 @@ Link storage:
 php artisan storage:link
 ```
 
-
-
 # Releases
 
 1. Make a tag:
@@ -121,6 +119,12 @@ php artisan storage:link
 4. Publish a release or save it as a draft.
 
 Remember that GitHub **always adds a source code** to release.
+
+# Deploy
+
+Due to number of operations, simple `git pull` won't work and a deployment script must be used.
+
+Scripts are located in core repository for Linux (`update_magiedit.sh`) and for Windows (`update_magiedit.bat`) and can be run directly or via SSH.
 
 # Tools
 
