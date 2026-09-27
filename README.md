@@ -122,9 +122,21 @@ Remember that GitHub **always adds a source code** to release.
 
 # Deploy
 
-Due to number of operations, simple `git pull` won't work and a deployment script must be used.
+Due to number of operations, simple `git pull` won't be enough and a deployment script must be used.
 
-Scripts are located in core repository for Linux (`update_magiedit.sh`) and for Windows (`update_magiedit.bat`) and can be run directly or via SSH.
+Scripts are located in core repository, in versions for Linux (`deploy.sh`) and for Windows (`deploy.bat`). If you are using Git Bash, you can use `deploy.sh` script on Windows as well.
+
+Scripts can be run directly or via SSH. Example setting using PuTTY:
+
+- Session → Host Name (or IP address): `[your server]`
+- Session → Port: `22`
+- Session → Connection type: `SSH`
+- Connection → Data → login username: `[your username]`
+- Connection → SSH → Auth → Credentials → Private key file for authentication: `C:\Users\[username]\.ssh\[your-private-key].ppk`
+
+Example remote command to execute (_Connection → SSH → Remote command_):
+
+- Linux: `eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519_rsa; cd "domains/magiedit.com/public_html" && ./deploy.sh; exec /bin/bash -i`
 
 # Tools
 
