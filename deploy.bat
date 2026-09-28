@@ -29,8 +29,8 @@ echo.
 echo STEP 3. Building Laravel Cache...
 echo.
 
-php artisan optimize:clear
-php artisan optimize
+php artisan config:cache
+php artisan route:clear
 php artisan view:cache
 
 if %errorlevel% neq 0 goto error
