@@ -55,7 +55,7 @@ Change other settings in `.env` as needed:
 
 ```env
 APP_URL=http://magiedit.test
-APP_ENV=local | stagging | production
+APP_ENV=local | staging | production
 APP_DEBUG=false | true
 ```
 
@@ -111,16 +111,15 @@ _Git, before committing (from any source; PhpStorm, Git for Windows, etc.), will
 
 1. Make a tag:
     * For latest commit: `git tag -a 1.4 -m "New release"`
-    * For exiting commit:
+    * For existing commit:
         * List all commits: `git log --pretty=oneline`
         * Pick the one you wish to tag (first seven letters are enough)
         * Add a tag: `git tag -a 0.1 32c274c -m "First version"`
     * Please, **do not** use `v1.0` scheme; no need to prepend with `v`
-    * Use [Semantic Versioning 2.0.0](https://semver.org/) (three numbers) whenever possible
 2. Push tag(s) to GitHub: `git push --tags` (pushes tags **only**!)
-3. Create [a new release](https://github.com/akademia-slaska/template-repository/releases/new):
+3. Create a new release:
     * pick a tag
-    * add title and a description
+    * add title and a description (`CHANGELOG.md`?)
     * add some binaries, set options, etc.
 4. Publish a release or save it as a draft.
 
@@ -142,10 +141,8 @@ Scripts can be run directly or via SSH. Example setting using PuTTY:
 
 Example remote command to execute (_Connection → SSH → Remote command_):
 
-- bash (Windows and Linux): `eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519; cd "domains/your-domain.com/public_html" && ./deploy.sh; exec /bin/bash -i`
-- cmd (Windows): `"cd /c/path/to/your/project; ./deploy.sh php; exec bash -i"`
-
-
+- bash (Linux): `eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519; cd "domains/your-domain.com/public_html" && ./deploy.sh; exec /bin/bash -i`
+- Git Bash (Windows): `"cd /c/path/to/your/project; ./deploy.sh php; exec bash -i"`
 
 # Tools
 
