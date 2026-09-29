@@ -39,7 +39,7 @@ _Use `--no-dev` flag if you do not intend to contribute to the project._
 
 ```env
 DB_CONNECTION=mysql
-DB_HOST=127.0.0.0
+DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=magiedit
 DB_USERNAME=root

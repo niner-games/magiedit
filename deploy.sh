@@ -48,7 +48,13 @@ $COMPOSER_BIN install --no-dev --optimize-autoloader
 echo -e "\n${GRAY}STEP 3. Building Laravel Cache...${NC}\n"
 
 $PHP_BIN artisan config:cache
-$PHP_BIN artisan route:clear
+
+if [ "$PHP_CMD" = "php" ]; then
+    $PHP_BIN artisan route:clear
+else
+    $PHP_BIN artisan route:cache
+fi
+
 $PHP_BIN artisan view:cache
 
 echo -e "\n${GRAY}STEP 4. Optimizing Filament views...${NC}\n"
