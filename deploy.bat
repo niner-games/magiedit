@@ -26,11 +26,17 @@ composer install --no-dev --optimize-autoloader
 if %errorlevel% neq 0 goto error
 
 echo.
-echo STEP 3. Building Laravel Cache...
+echo STEP 3. Building Laravel cache...
 echo.
 
 php artisan config:cache
+
+if %errorlevel% neq 0 goto error
+
 php artisan route:clear
+
+if %errorlevel% neq 0 goto error
+
 php artisan view:cache
 
 if %errorlevel% neq 0 goto error
@@ -44,10 +50,26 @@ php artisan filament:optimize
 if %errorlevel% neq 0 goto error
 
 echo.
-echo STEP 5. Running Database migrations...
+echo STEP 5. Enabling maintenance mode...
+echo.
+
+php artisan down --retry=60
+
+if %errorlevel% neq 0 goto error
+
+echo.
+echo STEP 6. Running database migrations...
 echo.
 
 php artisan migrate --force
+
+if %errorlevel% neq 0 goto error
+
+echo.
+echo STEP 7. Disabling maintenance mode...
+echo.
+
+php artisan up
 
 if %errorlevel% neq 0 goto error
 
@@ -58,6 +80,10 @@ echo.
 goto end
 
 :error
+
+echo.
+echo Disabling maintenance mode...
+php artisan up >nul 2>&1
 
 echo.
 echo Deployment FAILED! Check error messages above.
