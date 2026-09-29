@@ -94,7 +94,7 @@ Use `deploy.sh` for Linux and for Windows with _Git Bash_ or other bash installe
 
 ## X. Git Hook
 
-_If you do not intend to contribute to the project, you can skip this step._
+_If you do not intend to contribute to the project (or if you intend running `npm run build` manually), you can skip this step._
 
 In the root directory, navigate to the hidden `.git/hooks/` folder. Create a file there called `pre-commit` and paste the following contents into it:
 

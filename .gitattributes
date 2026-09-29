@@ -1,11 +1,17 @@
+# Auto-detect text files and normalize line endings to LF
 * text=auto eol=lf
 
+# Force specific line endings for shell and batch scripts
+*.sh text eol=lf
+*.bat text eol=crlf
+
+# Syntax highlighting hints for git diff
 *.blade.php diff=html
 *.css diff=css
 *.html diff=html
 *.md diff=markdown
 *.php diff=php
 
+# Exclude unnecessary files from git archives/exports
 /.github export-ignore
 CHANGELOG.md export-ignore
-.styleci.yml export-ignore
