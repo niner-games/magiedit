@@ -23,6 +23,11 @@ jobs:
     - name: Install Dependencies
       run: composer install --no-progress --prefer-dist
 
+    - name: Prepare Environment and Key
+      run: |
+        cp .env.example .env
+        php artisan key:generate
+
     - name: Check Code Style (Pint)
       run: vendor/bin/pint --test
 
