@@ -1,4 +1,4 @@
-name: Remove Dependabot labels
+name: Remove Dependabot Labels
 
 on:
   pull_request:
